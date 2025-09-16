@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Adicionar Podcast</title>
+  <style>
+    body { 
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; 
+      padding: 20px; 
+      background: #1a1a1a; 
+      max-width: 600px; 
+      margin: 0 auto;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+    h1 { 
+      margin-bottom: 24px; 
+      color: #4a9eff;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .form-group { 
+      margin-bottom: 16px; 
+    }
+    label { 
+      display: block; 
+      margin-bottom: 4px; 
+      font-weight: 500; 
+      color: #b0b0b0;
+    }
+    .required { 
+      color: #ff6b6b; 
+    }
+    input, select, textarea { 
+      padding: 12px; 
+      margin: 4px 0; 
+      width: 100%; 
+      border-radius: 8px; 
+      border: 2px solid #404040; 
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: all 0.2s;
+      background: #3a3a3a;
+      color: #e0e0e0;
+    }
+    input:focus, select:focus, textarea:focus { 
+      outline: none; 
+      border-color: #4a9eff; 
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+    }
+    select {
+      background-color: #3a3a3a;
+      cursor: pointer;
+      color: #e0e0e0;
+    }
+    select option {
+      background: #3a3a3a;
+      color: #e0e0e0;
+    }
+    .help-text { 
+      font-size: 12px; 
+      color: #888; 
+      margin-top: 4px; 
+    }
+    button { 
+      padding: 12px 24px; 
+      border-radius: 8px; 
+      border: none; 
+      background: linear-gradient(135deg, #4a9eff, #357abd); 
+      color: #fff; 
+      cursor: pointer; 
+      margin-top: 16px; 
+      font-size: 16px;
+      font-weight: 500;
+      width: 100%;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+    }
+    button:hover { 
+      background: linear-gradient(135deg, #357abd, #2c5aa0); 
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(74, 158, 255, 0.4);
+    }
+    button:disabled { 
+      background: #555; 
+      cursor: not-allowed; 
+      transform: none;
+      box-shadow: none;
+    }
+    .back-link { 
+      display: inline-block; 
+      margin-top: 20px; 
+      color: #4a9eff; 
+      text-decoration: none; 
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .back-link:hover { 
+      color: #6bb6ff;
+      text-decoration: underline; 
+    }
+    .error { 
+      color: #f87171; 
+      font-size: 14px; 
+      margin-top: 8px; 
+    }
+    .success { 
+      color: #4ade80; 
+      font-size: 14px; 
+      margin-top: 8px; 
+    }
+    .form-section {
+      background: #2d2d2d;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      border: 1px solid #404040;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #4a9eff;
+      border-bottom: 2px solid #404040;
+      padding-bottom: 8px;
+    }
+    #imagePreview {
+      background: #3a3a3a;
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid #404040;
+    }
+    #previewImg {
+      border: 2px solid #404040 !important;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎧 Adicionar Novo Podcast</h1>
+
+  <form id="podcastForm">
+    <div class="form-section">
+      <div class="section-title">Informações Básicas</div>
+      
+      <div class="form-group">
+        <label for="nome">Nome do Podcast <span class="required">*</span></label>
+        <input type="text" id="nome" name="nome" placeholder="Ex: Nome do Podcast" required>
+        <div class="help-text">Nome que aparecerá na aplicação</div>
+      </div>
+
+      <div class="form-group">
+        <label for="link">Link do Podcast <span class="required">*</span></label>
+        <input type="url" id="link" name="link" placeholder="https://exemplo.com/podcast" required>
+        <div class="help-text">URL principal do podcast (Spotify, Apple Podcasts, etc.)</div>
+      </div>
+
+      <div class="form-group">
+        <label for="dia_da_semana">Dia da Semana <span class="required">*</span></label>
+        <select id="dia_da_semana" name="dia_da_semana" required>
+          <option value="">Seleciona o dia</option>
+          <option value="domingo">Domingo</option>
+          <option value="segunda">Segunda-feira</option>
+          <option value="terça">Terça-feira</option>
+          <option value="quarta">Quarta-feira</option>
+          <option value="quinta">Quinta-feira</option>
+          <option value="sexta">Sexta-feira</option>
+          <option value="sábado">Sábado</option>
+        </select>
+        <div class="help-text">Dia da semana em que o podcast sai normalmente</div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="section-title">Detalhes Técnicos</div>
+      
+      <div class="form-group">
+        <label for="imagem">Imagem do Podcast <span class="required">*</span></label>
+        <input type="file" id="imagem" name="imagem" accept="image/*" required>
+        <div class="help-text">Faz upload de uma imagem para o podcast (PNG, JPG, etc. - máx. 5MB)</div>
+        <div id="imagePreview" style="margin-top: 10px; display: none;">
+          <img id="previewImg" style="max-width: 200px; max-height: 200px; border-radius: 8px; border: 2px solid #ddd;">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="plataforma" class="required">Plataforma</label>
+        <select id="plataforma" name="plataforma" required>
+          <option value="">Seleciona uma plataforma</option>
+          <option value="Spotify">Spotify</option>
+          <option value="YouTube">YouTube</option>
+        </select>
+        <div class="help-text">Plataforma principal onde o podcast está disponível</div>
+      </div>
+
+      <div class="form-group" id="rss-group" style="display: none;">
+        <label for="rss" class="required">URL do RSS Feed</label>
+        <input type="url" id="rss" name="rss" placeholder="https://exemplo.com/feed.xml">
+        <div class="help-text">URL do feed RSS para atualizações automáticas</div>
+      </div>
+
+      <div class="form-group" id="channelId-group" style="display: none;">
+        <label for="channelId" class="required">Channel ID (YouTube)</label>
+        <input type="text" id="channelId" name="channelId" placeholder="UCxxxxxxxxxxxxxxxxxxxxxx">
+        <div class="help-text">ID do canal YouTube</div>
+      </div>
+    </div>
+
+    <button type="submit" id="addBtn">Adicionar Podcast</button>
+    <div id="message"></div>
+  </form>
+
+  <a href="/" class="back-link">← Voltar para a página principal</a>
+
+  <script>
+    async function api(path, opts) {
+      const res = await fetch('/api' + path, opts || {});
+      return res.json();
+    }
+
+    function showMessage(text, isError = false) {
+      const messageEl = document.getElementById('message');
+      messageEl.textContent = text;
+      messageEl.className = isError ? 'error' : 'success';
+    }
+
+    function clearMessage() {
+      const messageEl = document.getElementById('message');
+      messageEl.textContent = '';
+      messageEl.className = '';
+    }
+
+    // Preview da imagem
+    document.getElementById('imagem').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      const preview = document.getElementById('imagePreview');
+      const previewImg = document.getElementById('previewImg');
+      
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewImg.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.style.display = 'none';
+      }
+    });
+
+    // Mostrar/ocultar campos consoante a plataforma
+    document.getElementById('plataforma').addEventListener('change', (e) => {
+      const plataforma = e.target.value;
+      const rssGroup = document.getElementById('rss-group');
+      const channelIdGroup = document.getElementById('channelId-group');
+      const rssInput = document.getElementById('rss');
+      const channelIdInput = document.getElementById('channelId');
+      
+      // Ocultar ambos os grupos inicialmente
+      rssGroup.style.display = 'none';
+      channelIdGroup.style.display = 'none';
+      
+      // Limpar valores
+      rssInput.value = '';
+      channelIdInput.value = '';
+      
+      // Mostrar o grupo correto consoante a plataforma
+      if (plataforma === 'Spotify') {
+        rssGroup.style.display = 'block';
+        rssInput.required = true;
+        channelIdInput.required = false;
+      } else if (plataforma === 'YouTube') {
+        channelIdGroup.style.display = 'block';
+        channelIdInput.required = true;
+        rssInput.required = false;
+      } else {
+        rssInput.required = false;
+        channelIdInput.required = false;
+      }
+    });
+
+    document.getElementById('podcastForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const addBtn = document.getElementById('addBtn');
+      addBtn.disabled = true;
+      addBtn.textContent = 'A adicionar...';
+      clearMessage();
+
+      try {
+        const formData = new FormData(e.target);
+        
+        // Verificar se há imagem
+        const imageFile = formData.get('imagem');
+        if (!imageFile || imageFile.size === 0) {
+          showMessage('❌ Por favor, seleciona uma imagem para o podcast', true);
+          addBtn.disabled = false;
+          addBtn.textContent = 'Adicionar Podcast';
+          return;
+        }
+
+        console.log('Sending form data with image...');
+
+        const res = await fetch('/api/podcast', {
+          method: 'POST',
+          body: formData // Não definir Content-Type, deixar o browser definir
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          showMessage(`✅ ${result.message} - "${result.podcast.nome}" adicionado!`);
+          e.target.reset();
+          document.getElementById('imagePreview').style.display = 'none';
+        } else {
+          showMessage(`❌ Erro: ${result.error}`, true);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        showMessage(`❌ Erro de ligação: ${error.message}`, true);
+      } finally {
+        addBtn.disabled = false;
+        addBtn.textContent = 'Adicionar Podcast';
+      }
+    });
+
+  </script>
+</body>
+</html>

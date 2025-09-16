@@ -1,0 +1,26 @@
+# PWA Icons Needed
+
+Para o Service Worker funcionar completamente, precisas de criar estes ícones:
+
+## Ícones Obrigatórios:
+- icon-192.png (192x192px) - Ícone principal
+- icon-512.png (512x512px) - Ícone grande
+- notification-icon.png (192x192px) - Para notificações
+- badge-icon.png (72x72px) - Badge das notificações
+
+## Ícones Opcionais:
+- add-icon.png (96x96px) - Para shortcut
+- open-icon.png (96x96px) - Para ações de notificação
+- dismiss-icon.png (96x96px) - Para ações de notificação
+- screenshot1.png (1280x720px) - Screenshot da app
+
+## Como Criar:
+1. Usa um gerador de ícones PWA online
+2. Ou cria manualmente com as dimensões corretas
+3. Coloca todos na pasta /public/img/
+
+## Teste:
+1. Abre a app no browser
+2. Vai a DevTools > Application > Service Workers
+3. Verifica se está registado
+4. Testa as notificações!

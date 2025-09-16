@@ -1,0 +1,1551 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:anchor="https://anchor.fm/xmlns" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:psc="http://podlove.org/simple-chapters">
+	<channel>
+		<title><![CDATA[velho amigo]]></title>
+		<description><![CDATA[Sobre angústias e histórias pessoais]]></description>
+		<link>https://podcasters.spotify.com/pod/show/jos-bernardo</link>
+		<generator>Anchor Podcasts</generator>
+		<lastBuildDate>Wed, 10 Sep 2025 13:08:44 GMT</lastBuildDate>
+		<atom:link href="https://anchor.fm/s/f05045d8/podcast/rss" rel="self" type="application/rss+xml"/>
+		<author><![CDATA[José Bernardo; Mário Videira]]></author>
+		<copyright><![CDATA[José Bernardo; Mário Videira]]></copyright>
+		<language><![CDATA[pt]]></language>
+		<atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+		<itunes:author>José Bernardo; Mário Videira</itunes:author>
+		<itunes:summary>Sobre angústias e histórias pessoais</itunes:summary>
+		<itunes:type>episodic</itunes:type>
+		<itunes:owner>
+			<itunes:name>José Bernardo; Mário Videira</itunes:name>
+			<itunes:email></itunes:email>
+		</itunes:owner>
+		<itunes:explicit>false</itunes:explicit>
+		<itunes:category text="Arts"/>
+		<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+		<item>
+			<title><![CDATA[TJI é bacano? & histórias irelevantes | velho amigo #79]]></title>
+			<description><![CDATA[<p><strong>obrigado</strong> a todos os que assistiram!</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/TJI--bacano---histrias-irelevantes--velho-amigo-79-e381qud</link>
+			<guid isPermaLink="false">87aa63b1-8452-4289-b8fe-a7e7b94c00cd</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 10 Sep 2025 13:04:27 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/108112269/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-8-10%2F407242337-44100-2-8adc856125cfa.m4a" length="46339113" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;obrigado&lt;/strong&gt; a todos os que assistiram!&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:47:45</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[conversa c/ bapcat | velho amigo #78]]></title>
+			<description><![CDATA[<p>Espero que tenham curtido, malta! Grande episódio com um enorme convidado.</p><p><br></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/conversa-c-bapcat--velho-amigo-78-e37blas</link>
+			<guid isPermaLink="false">cd4983e8-a598-4c15-a888-a2ad3a467a72</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 03 Sep 2025 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/107385628/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-26%2F406330358-44100-2-f0029981d9381.m4a" length="61504814" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Espero que tenham curtido, malta! Grande episódio com um enorme convidado.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>01:03:22</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[gravámos um podcast numa PRAIA FLUVIAL | velho amigo #77]]></title>
+			<description><![CDATA[<p>Obrigado a todos os que acompanham este podcast.</p><p><br></p><p><br></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/gravmos-um-podcast-numa-PRAIA-FLUVIAL--velho-amigo-77-e37bh1u</link>
+			<guid isPermaLink="false">f070d15a-8885-4416-b47f-38c3a9d01d51</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 27 Aug 2025 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/107381246/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-26%2F406324783-44100-2-08615377df1d2.m4a" length="34673282" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Obrigado a todos os que acompanham este podcast.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:35:43</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[ANDRÉ VENTURA publicou um vídeo meu SEM CONSENTIMENTO | velho amigo #76]]></title>
+			<description><![CDATA[<p><strong>Obrigado</strong> a todos que nos ouviram!</p><p><br></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/ANDR-VENTURA-publicou-um-vdeo-meu-SEM-CONSENTIMENTO--velho-amigo-76-e3735dr</link>
+			<guid isPermaLink="false">d2239fde-2aac-4beb-ad1b-cd84be195127</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 20 Aug 2025 12:11:39 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/107107195/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-20%2F405973378-44100-2-81347b5d947e1.m4a" length="41984620" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Obrigado&lt;/strong&gt; a todos que nos ouviram!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:43:15</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[CR7 pede Gio em casamento (bem top) | velho amigo #75]]></title>
+			<description><![CDATA[<p>Obrigado por ouvirem! 🤍</p><p><br /></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/CR7-pede-Gio-em-casamento-bem-top--velho-amigo-75-e36qgvt</link>
+			<guid isPermaLink="false">c08a54e8-1230-4c5d-b705-a18e2b234f2d</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 13 Aug 2025 16:01:39 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/106824125/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-13%2F405608442-44100-2-312c78616b88f.m4a" length="35807542" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Obrigado por ouvirem! 🤍&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:36:54</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[podcasts de férias e nós a dançar funk, lol | velho amigo #74]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/podcasts-de-frias-e-ns-a-danar-funk--lol--velho-amigo-74-e36gvks</link>
+			<guid isPermaLink="false">a690356e-d6d8-475f-a55e-517127603463</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 06 Aug 2025 10:31:45 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/106511452/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-6%2F2c6cdfda-4dc5-11a4-75d2-1754c5d379f6.mp3" length="62372764" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:43:18</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[este é o melhor podcast de Portugal (32 pessoas concordam) | velho amigo #73]]></title>
+			<description><![CDATA[<p>Obrigado a todos os que ouviram este <strong>grande </strong>episódio! </p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/este--o-melhor-podcast-de-Portugal-32-pessoas-concordam--velho-amigo-73-e367neh</link>
+			<guid isPermaLink="false">3929cc9b-91c6-4292-905c-35850b230f10</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 30 Jul 2025 12:13:08 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/106208145/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-30%2F24747e9f-a538-8270-8935-35b01e68d515.mp3" length="76930282" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Obrigado a todos os que ouviram este &lt;strong&gt;grande &lt;/strong&gt;episódio! &lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:53:25</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Humoristas PROIBIDOS de entrar em Moçambique & Provadores oficiais | velho amigo #72]]></title>
+			<description><![CDATA[<p>Obrigado a todos os que ouviram este <strong>grande </strong>episódio! </p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Humoristas-PROIBIDOS-de-entrar-em-Moambique--Provadores-oficiais--velho-amigo-72-e35tsko</link>
+			<guid isPermaLink="false">77332cf3-f2a5-4525-bbd5-66adf3fcae8c</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 23 Jul 2025 14:11:26 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/105885784/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-23%2F404404691-44100-2-aaf27eae6e062.m4a" length="50389541" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Obrigado a todos os que ouviram este &lt;strong&gt;grande &lt;/strong&gt;episódio! &lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:51:55</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Casos mediáticos em Tribunal & dicas de bricolage | velho amigo #71]]></title>
+			<description><![CDATA[<p>🚨 <strong>Se foste um dos vencedores </strong>🚨</p><p><strong>envia-nos um e-mail a identificar-te e com a morada para:</strong> <a href="" rel="noopener">velhoamigo24@gmail.com</a></p><p><br></p><p>👉 <strong>Olá, malta!</strong> Espero que gostem deste episódio. <strong>Se quiserem uma camisola</strong> e não foram um dos vencedores do passatempo, <strong>podem comprar uma por um preço bastante simbólico</strong> em: <a href="https://eduardices.com/" target="_blank" rel="ugc noopener noreferrer">https://eduardices.com/</a></p><p><br></p><p><strong>🎉 VENCEDORES DO PASSATEMPO 🎉</strong></p><p>- _ Né566 _ (Patreon)</p><p>- Mahallans (Spotify)</p><p>- irisbarros4204 (Youtube)</p><p>- ricardosousa7133 (Youtube)</p><p>- Aolpin (Youtube)</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Casos-mediticos-em-Tribunal--dicas-de-bricolage--velho-amigo-71-e35kbf6</link>
+			<guid isPermaLink="false">536a53d0-47f1-4bbc-a9d8-eec4c4eba76d</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 16 Jul 2025 12:53:14 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/105573286/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-16%2F404005930-44100-2-12f210e1912c1.m4a" length="53098413" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;🚨 &lt;strong&gt;Se foste um dos vencedores &lt;/strong&gt;🚨&lt;/p&gt;&lt;p&gt;&lt;strong&gt;envia-nos um e-mail a identificar-te e com a morada para:&lt;/strong&gt; &lt;a href=&quot;&quot; rel=&quot;noopener&quot;&gt;velhoamigo24@gmail.com&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;👉 &lt;strong&gt;Olá, malta!&lt;/strong&gt; Espero que gostem deste episódio. &lt;strong&gt;Se quiserem uma camisola&lt;/strong&gt; e não foram um dos vencedores do passatempo, &lt;strong&gt;podem comprar uma por um preço bastante simbólico&lt;/strong&gt; em: &lt;a href=&quot;https://eduardices.com/&quot; target=&quot;_blank&quot; rel=&quot;ugc noopener noreferrer&quot;&gt;https://eduardices.com/&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;🎉 VENCEDORES DO PASSATEMPO 🎉&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;- _ Né566 _ (Patreon)&lt;/p&gt;&lt;p&gt;- Mahallans (Spotify)&lt;/p&gt;&lt;p&gt;- irisbarros4204 (Youtube)&lt;/p&gt;&lt;p&gt;- ricardosousa7133 (Youtube)&lt;/p&gt;&lt;p&gt;- Aolpin (Youtube)&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:54:43</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[a estranha detenção do Plutónio & dicas para lidar com o calor | velho amigo #70]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/a-estranha-deteno-do-Plutnio--dicas-para-lidar-com-o-calor--velho-amigo-70-e359ugu</link>
+			<guid isPermaLink="false">7ac8f99d-e850-4394-a856-a50d44023aad</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 09 Jul 2025 10:03:47 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/105232350/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-8%2F403568856-44100-2-38f4e91b18466.m4a" length="45878417" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:47:16</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[opinião sobre a série "Ruido" & Tier List de Cerveja | velho amigo #69]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p><p><br></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/opinio-sobre-a-srie-Ruido--Tier-List-de-Cerveja--velho-amigo-69-e3500fs</link>
+			<guid isPermaLink="false">0d8ffda8-ad96-43e4-a09a-9144362f464b</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 02 Jul 2025 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/104906684/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-1%2F403151115-44100-2-be40037ad711a.m4a" length="58064033" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:59:50</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[conversa c/ João Pedro Pereira | velho amigo #68]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/conversa-c-Joo-Pedro-Pereira--velho-amigo-68-e34n723</link>
+			<guid isPermaLink="false">67d73591-fb4e-4de7-bd09-7dcbbf0b2909</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 25 Jun 2025 18:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/104618499/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-5-25%2F88276349-26d9-89f9-cae2-30ecd9330002.mp3" length="75538989" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:52:27</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[saúde mental, bizarras atrações de feira & ter um hobbie | velho amigo #67]]></title>
+			<description><![CDATA[<p><strong>conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/sade-mental--bizarras-atraes-de-feira--ter-um-hobbie--velho-amigo-67-e34dkoe</link>
+			<guid isPermaLink="false">cdfb10e2-a8d2-4250-986f-008fed9dd31f</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 18 Jun 2025 10:36:46 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/104304846/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-5-18%2F041e2b8e-c073-2e97-a393-a1ddee0a411e.mp3" length="40261380" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:41:49</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Portugal vence a Liga das Nações & férias de verão | velho amigo #66]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/c/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Portugal-vence-a-Liga-das-Naes--frias-de-vero--velho-amigo-66-e342evq</link>
+			<guid isPermaLink="false">759638bc-55ec-49e9-ad33-a5487403097f</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 11 Jun 2025 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/103938490/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-5-10%2F401923256-44100-2-78c73a29fa4c.m4a" length="49091740" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/c/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:50:35</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[REPORTAGEM c/ King Bigs, Zé Felipe & Wiu | velho amigo #65]]></title>
+			<description><![CDATA[<p>🎓</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/REPORTAGEM-c-King-Bigs--Z-Felipe--Wiu--velho-amigo-65-e33kgne</link>
+			<guid isPermaLink="false">e8cc6369-7eef-47e2-b9d2-91c79685fe67</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 04 Jun 2025 05:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/103481518/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-4-31%2F401347986-44100-2-4af8e19d5e258.mp3" length="27735770" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;🎓&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:28:53</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[REPORTAGEM c/ Miguel Luz, Anselmo Ralph & NAPA | velho amigo #64]]></title>
+			<description><![CDATA[<p>🎓</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/REPORTAGEM-c-Miguel-Luz--Anselmo-Ralph--NAPA--velho-amigo-64-e33eqmh</link>
+			<guid isPermaLink="false">a3039c6a-139e-411e-9535-58c961ec48ae</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 28 May 2025 05:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/103295121/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-4-27%2F401114717-44100-2-b7e69068fe04.mp3" length="30510601" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;🎓&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:31:46</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[o que se passa com PORTUGAL? | velho amigo #63]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p><p><br /></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/o-que-se-passa-com-PORTUGAL---velho-amigo-63-e335g27</link>
+			<guid isPermaLink="false">f9f0c35d-19e9-4cd6-a32b-4209dc6bd355</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 21 May 2025 14:36:03 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/102989319/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-4-21%2F400726321-44100-2-7cc2cff609f9d.m4a" length="46680836" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:48:06</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Habemus Papam, Macaco Lider & Zé na TVI | velho amigo #62]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p><p><a href="https://www.patreon.com/VelhoAmigo">https://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Habemus-Papam--Macaco-Lider--Z-na-TVI--velho-amigo-62-e32pi7e</link>
+			<guid isPermaLink="false">eeb2133e-aaf4-4881-bcd3-4de290db33a9</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 14 May 2025 06:04:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/102598318/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-4-13%2F400169318-44100-2-18f9277b917ab.m4a" length="39425373" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/VelhoAmigo&quot;&gt;https://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:40:37</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Teatro Português, Aniversários & Tiktoks hilariantes | velho amigo #61]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Teatro-Portugus--Aniversrios--Tiktoks-hilariantes--velho-amigo-61-e32h5fb</link>
+			<guid isPermaLink="false">c48d2d39-5466-4cf8-a29b-c505ace4ef24</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 07 May 2025 16:19:21 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/102323115/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-4-7%2F399799265-44100-2-f4924789a0cc3.m4a" length="50992189" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:52:32</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[como vivemos o APAGÃO? | velho amigo #60]]></title>
+			<description><![CDATA[<p><strong>Conteúdos exclusivos em:</strong><a href="http://www.patreon.com/VelhoAmigo">⁠<strong>⁠⁠⁠⁠⁠</strong>⁠</a><strong></strong></p><p><a href="http://www.patreon.com/VelhoAmigo">⁠⁠⁠http://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/como-vivemos-o-APAGO---velho-amigo-60-e3277sg</link>
+			<guid isPermaLink="false">21f5a602-5086-46f1-8aa4-b98335f888c4</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 30 Apr 2025 17:38:31 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/101997904/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-3-30%2Fc088bdd4-0614-0cd3-72f2-1c64c856a191.mp3" length="38690567" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdos exclusivos em:&lt;/strong&gt;&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;⁠&lt;strong&gt;⁠⁠⁠⁠⁠&lt;/strong&gt;⁠&lt;/a&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;⁠⁠⁠http://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:26:13</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Debates políticos, Bloco de Esquerda VS Martim Moniz & Educação | velho amigo #59]]></title>
+			<description><![CDATA[<p><strong>Conteúdos exclusivos em:</strong><a href="http://www.patreon.com/VelhoAmigo"><strong>⁠⁠⁠⁠⁠</strong></a><strong></strong></p><p><a href="http://www.patreon.com/VelhoAmigo">⁠⁠http://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Debates-polticos--Bloco-de-Esquerda-VS-Martim-Moniz--Educao--velho-amigo-59-e31t3d4</link>
+			<guid isPermaLink="false">188a5354-7684-44b6-9a95-b7a3073bf8a2</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 23 Apr 2025 11:29:27 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/101665636/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-3-23%2Ffa73f118-5514-0c93-47f7-b4a669b0ce36.mp3" length="70767694" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdos exclusivos em:&lt;/strong&gt;&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;&lt;strong&gt;⁠⁠⁠⁠⁠&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;⁠⁠http://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:49:08</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[SAM THE KID em podcasts, provámos o choco do DUBAI & ser cozinheiro | velho amigo #58]]></title>
+			<description><![CDATA[<p>Conteúdos exclusivos em:<a href="http://www.patreon.com/VelhoAmigo">⁠⁠⁠</a></p><p><a href="http://www.patreon.com/VelhoAmigo">⁠http://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/SAM-THE-KID-em-podcasts--provmos-o-choco-do-DUBAI--ser-cozinheiro--velho-amigo-58-e31jplp</link>
+			<guid isPermaLink="false">ff3e84e6-523b-4d63-9682-676c809c1756</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 16 Apr 2025 08:50:56 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/101360761/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-3-16%2F95eb4fc6-bb9c-891e-ae85-07b300d3bc5e.mp3" length="66664270" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdos exclusivos em:&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;⁠⁠⁠&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;⁠http://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:46:17</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Mariana Bossy VS Tiago Grila, feiras & roubar a Mona Lisa | velho amigo #57]]></title>
+			<description><![CDATA[<p>Conteúdos exclusivos em:<a href="http://www.patreon.com/VelhoAmigo">⁠</a></p><p><a href="http://www.patreon.com/VelhoAmigo">http://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Mariana-Bossy-VS-Tiago-Grila--feiras--roubar-a-Mona-Lisa--velho-amigo-57-e31925e</link>
+			<guid isPermaLink="false">5e3dffbf-a301-43f3-b225-a205a23e9f27</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 09 Apr 2025 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/101009006/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-3-8%2F01416f4d-6bea-88bb-45eb-9d36c27692f7.mp3" length="73538744" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdos exclusivos em:&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;⁠&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot;&gt;http://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:51:03</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[o Zé está noivo e o Mário perdeu-se no monte | velho amigo #56]]></title>
+			<description><![CDATA[<p>Conteúdos exclusivos em:<a href="http://www.patreon.com/VelhoAmigo" rel="ugc noopener noreferrer" target="_blank">http://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/o-Z-est-noivo-e-o-Mrio-perdeu-se-no-monte--velho-amigo-56-e30vtvj</link>
+			<guid isPermaLink="false">12ca4d0f-f136-4c41-951e-bc8b96e4bb2b</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 02 Apr 2025 05:40:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/100709811/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-3-1%2F397657312-44100-2-0bc43b9cb66cc.m4a" length="44792078" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdos exclusivos em:&lt;a href=&quot;http://www.patreon.com/VelhoAmigo&quot; rel=&quot;ugc noopener noreferrer&quot; target=&quot;_blank&quot;&gt;http://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:46:09</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[isto NÃO devia ter acontecido… mas aconteceu | velho amigo #55]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: <a href="https://www.patreon.com/VelhoAmigo">https://www.patreon.com/VelhoAmigo</a> </p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/isto-NO-devia-ter-acontecido-mas-aconteceu--velho-amigo-55-e30lmf5</link>
+			<guid isPermaLink="false">b0eef802-19fa-482e-bc43-f254e011bf6f</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 26 Mar 2025 06:04:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/100374437/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-2-25%2F397232105-44100-2-19ccac53b277e.m4a" length="38650495" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: &lt;a href=&quot;https://www.patreon.com/VelhoAmigo&quot;&gt;https://www.patreon.com/VelhoAmigo&lt;/a&gt; &lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:39:49</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[sobre a queda do governo, ginásio & Air Fryer | velho amigo #54]]></title>
+			<description><![CDATA[<p>Se quiseres ouvir mais podes ↓</p><p><strong>conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/sobre-a-queda-do-governo--ginsio--Air-Fryer--velho-amigo-54-e30b7tm</link>
+			<guid isPermaLink="false">9d2903ef-e8b1-4d04-aa76-1bc7d25c4079</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 19 Mar 2025 06:43:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/100031862/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-2-19%2F396865804-44100-2-2eecc1b64bf8b.m4a" length="44256455" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Se quiseres ouvir mais podes ↓&lt;/p&gt;&lt;p&gt;&lt;strong&gt;conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:45:36</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[novelas, Papa Francisco & ensino português | velho amigo #53]]></title>
+			<description><![CDATA[<ul><li>​Conteúdo exclusivo em:</li></ul><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/novelas--Papa-Francisco--ensino-portugus--velho-amigo-53-e2vvh89</link>
+			<guid isPermaLink="false">8ec1860a-efb1-4edf-8503-8d59c638f7b8</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 12 Mar 2025 06:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/99648201/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-2-10%2F396320150-44100-2-773db8b754652.m4a" length="49041136" type="audio/x-m4a"/>
+			<itunes:summary>&lt;ul&gt;&lt;li&gt;​Conteúdo exclusivo em:&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:50:32</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Oscars 2025, Sherk estranho & Trump é doído? | velho amigo #52]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo:</p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Oscars-2025--Sherk-estranho--Trump--dodo---velho-amigo-52-e2vn816</link>
+			<guid isPermaLink="false">75a3b675-db5f-4bd3-815f-321f70553f13</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 05 Mar 2025 06:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/99376614/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-2-4%2F395973194-44100-2-59dfe09678809.m4a" length="38826428" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo:&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:40:00</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Tiago Grila & Extremamente Desagradável | velho amigo #51]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Tiago-Grila--Extremamente-Desagradvel--velho-amigo-51-e2vd9a1</link>
+			<guid isPermaLink="false">a327770f-837c-468b-b015-4c16d9c8c122</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 26 Feb 2025 09:21:39 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/99050241/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-1-26%2F395565665-44100-2-2d60474da7e2d.m4a" length="39411756" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:40:36</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Pinto da Costa & Sismo em Lisboa | velho amigo #50]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Pinto-da-Costa--Sismo-em-Lisboa--velho-amigo-50-e2v3jfs</link>
+			<guid isPermaLink="false">42ca8e1b-fd39-4302-8255-39c11a5b4af3</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 19 Feb 2025 16:48:49 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/98732988/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-1-19%2F395169700-44100-2-0308c0af37d93.m4a" length="39216135" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:40:24</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[conversa c/ Gastropiço | velho amigo #49]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em:</strong></p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/conversa-c-Gastropio--velho-amigo-49-e2upl9r</link>
+			<guid isPermaLink="false">654925ad-ebde-45a3-82fc-009b107e9560</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 12 Feb 2025 19:06:09 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/98407163/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-1-12%2Fe3c8b0cf-80ff-d5d6-b7c0-a74966553dcb.mp3" length="94435765" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>01:04:23</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[opinião Baby Shower & humor matinal | velho amigo #48]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/opinio-Baby-Shower--humor-matinal--velho-amigo-48-e2ue0da</link>
+			<guid isPermaLink="false">b457e82e-5be8-4601-be1e-b55b0a04a751</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 05 Feb 2025 06:20:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/98025322/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-1-4%2F394288344-44100-2-22d5dc617d4af.m4a" length="47416604" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:48:51</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[sair à noite, batata mais picante do mundo & filmes vs Séries | velho amigo #47]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p>
+<p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/sair--noite--batata-mais-picante-do-mundo--filmes-vs-Sries--velho-amigo-47-e2u3rs7</link>
+			<guid isPermaLink="false">3a49ac3c-a7aa-4f98-b1f2-2bdb482fe080</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 29 Jan 2025 06:15:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/97692999/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-0-28%2F8aa15987-e7dc-e80e-802f-bbbd646c237c.mp3" length="63139963" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;
+&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:42:45</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Ângelo no Hospital, Marisco Coentrão & Zé na televisão | velho amigo #46]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p>
+<p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/ngelo-no-Hospital--Marisco-Coentro--Z-na-televiso--velho-amigo-46-e2trfj1</link>
+			<guid isPermaLink="false">f72f2944-6efd-454a-9fe3-9ab626233028</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 22 Jan 2025 18:16:48 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/97418273/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-0-22%2F393531555-44100-2-3066f5d840415.m4a" length="38834336" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;
+&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:40:01</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Helder Tavares vs Cidade FM, opinião praxe, Zé famoso na china | velho amigo #45]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em: </strong>
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Helder-Tavares-vs-Cidade-FM--opinio-praxe--Z-famoso-na-china--velho-amigo-45-e2telp8</link>
+			<guid isPermaLink="false">63be41c2-ee3f-4b65-a955-ec957b6034ed</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 15 Jan 2025 06:32:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/96998632/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-0-13%2F393008314-44100-2-0e1d032717c7f.m4a" length="47196950" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em: &lt;/strong&gt;
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:48:38</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[discutimos no supermercado | velho amigo #44]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em: </strong>
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/discutimos-no-supermercado--velho-amigo-44-e2t57aj</link>
+			<guid isPermaLink="false">1b8c282a-76c8-4cb4-b1f2-bfdd5ba21f29</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 08 Jan 2025 06:14:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/96688915/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-0-6%2F392626260-44100-2-8c995216ad47e.m4a" length="43005337" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em: &lt;/strong&gt;
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:44:19</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[gravámos alcoolizados? | velho amigo #43]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em: </strong>
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/gravmos-alcoolizados---velho-amigo-43-e2spti8</link>
+			<guid isPermaLink="false">a2a0c8bc-cbf9-4976-b174-64bddfaa2a9a</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 01 Jan 2025 06:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/96318472/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-11-27%2F392167879-44100-2-a6aef1da63edd.m4a" length="41989393" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em: &lt;/strong&gt;
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:43:16</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Top filmes de natal & vibe natalícia | velho amigo #42]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em: </strong>
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Top-filmes-de-natal--vibe-natalcia--velho-amigo-42-e2smou5</link>
+			<guid isPermaLink="false">a892b1a5-dc8f-4591-8099-bd8213492d63</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 25 Dec 2024 06:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/96215429/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-11-24%2F392040822-44100-2-934775e736f12.m4a" length="39371588" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em: &lt;/strong&gt;
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:40:34</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[pós show & 'pancas' da vida | velho amigo #41]]></title>
+			<description><![CDATA[<p>comentem aí alguma coisa <strong>meu povo</strong> kkkk</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/ps-show--pancas-da-vida--velho-amigo-41-e2sfepa</link>
+			<guid isPermaLink="false">b0cda601-2324-4b65-8156-a8c8b3399243</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 18 Dec 2024 06:10:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/95975658/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-11-18%2Fca970007-a28c-fc61-bcbe-690b040f373d.mp3" length="65571695" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;comentem aí alguma coisa &lt;strong&gt;meu povo&lt;/strong&gt; kkkk&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:45:31</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Ir ver strip, pagar para ter relações & existência de Deus | velho amigo #40]]></title>
+			<description><![CDATA[<p>Falar de Deus e strip não faz sentido! </p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Ir-ver-strip--pagar-para-ter-relaes--existncia-de-Deus--velho-amigo-40-e2s605c</link>
+			<guid isPermaLink="false">eeff606c-b4c7-4ffd-b88e-0bd8348b3eaf</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 11 Dec 2024 06:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/95665772/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-11-11%2F391350318-44100-2-13447ae4f857.m4a" length="42306121" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Falar de Deus e strip não faz sentido! &lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:43:35</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Aniversario do Zé & Ser Homem | velho amigo #39]]></title>
+			<description><![CDATA[<p><strong>últimos bilhetes</strong> disponíveis na ticketline ⬇️</p>
+<p>https://ticketline.sapo.pt/evento/velho-amigo-show-88663</p>
+<p><br /></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Aniversario-do-Z--Ser-Homem--velho-amigo-39-e2rrpil</link>
+			<guid isPermaLink="false">31de744d-32b1-46dc-902e-52dc17d71d3d</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 04 Dec 2024 07:02:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/95331349/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-11-4%2F390939200-44100-2-39644f03f3633.m4a" length="50101860" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;últimos bilhetes&lt;/strong&gt; disponíveis na ticketline ⬇️&lt;/p&gt;
+&lt;p&gt;https://ticketline.sapo.pt/evento/velho-amigo-show-88663&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:51:37</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>39</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[conversa c/ VSP AST | velho amigo #38]]></title>
+			<description><![CDATA[<p><strong>bilhetes</strong> disponíveis na ticketline ⬇️</p>
+<p>https://ticketline.sapo.pt/evento/velho-amigo-show-88663</p>
+<p><strong>POR AMOR DE DEUS COMPREM! </strong></p>
+<p><br /></p>
+<p>oiçam o <strong>Vespa</strong> no <strong>Spotify</strong>:</p>
+<p>https://open.spotify.com/intl-pt/artist/2LtB4GaHY6qw7FRGhu2YVi?si=PLTzeuO8S6ilXJdQYjHOdQ</p>
+<p><br /></p>
+<p><br /></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/conversa-c-VSP-AST--velho-amigo-38-e2rhtp7</link>
+			<guid isPermaLink="false">36f5a1d7-cc58-414a-8f08-aa102198d5e7</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 27 Nov 2024 06:20:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/95007975/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-10-26%2F390537123-44100-2-5bbc1b38ece41.m4a" length="62952122" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;bilhetes&lt;/strong&gt; disponíveis na ticketline ⬇️&lt;/p&gt;
+&lt;p&gt;https://ticketline.sapo.pt/evento/velho-amigo-show-88663&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;POR AMOR DE DEUS COMPREM! &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;oiçam o &lt;strong&gt;Vespa&lt;/strong&gt; no &lt;strong&gt;Spotify&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;https://open.spotify.com/intl-pt/artist/2LtB4GaHY6qw7FRGhu2YVi?si=PLTzeuO8S6ilXJdQYjHOdQ&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>01:04:52</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Tyson VS Jake, Primos VS Ruivo & ir à TV (UK) | velho amigo #37]]></title>
+			<description><![CDATA[<p><strong>bilhetes</strong> disponíveis na ticketline ⬇️</p>
+<p>https://ticketline.sapo.pt/evento/velho-amigo-show-88663</p>
+<p><strong>POR AMOR DE DEUS COMPREM! </strong></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Tyson-VS-Jake--Primos-VS-Ruivo--ir--TV-UK--velho-amigo-37-e2r66vt</link>
+			<guid isPermaLink="false">408b7203-8c4c-4b0e-99ec-ace03a502278</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 20 Nov 2024 06:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/94624189/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-10-20%2F390137279-44100-2-4fe5aff4be438.m4a" length="49307151" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;bilhetes&lt;/strong&gt; disponíveis na ticketline ⬇️&lt;/p&gt;
+&lt;p&gt;https://ticketline.sapo.pt/evento/velho-amigo-show-88663&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;POR AMOR DE DEUS COMPREM! &lt;/strong&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:50:48</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[primeiro espetáculo & melhores desenhos animados | velho amigo #36]]></title>
+			<description><![CDATA[<p>bilhetes já disponiveis na ticketline ⬇️</p><p>https://ticketline.sapo.pt/evento/velho-amigo-show-88663</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/primeiro-espetculo--melhores-desenhos-animados--velho-amigo-36-e2qu9hc</link>
+			<guid isPermaLink="false">ed83179c-8fc8-4b5a-9b3f-e425bcc4d8e0</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 13 Nov 2024 17:15:57 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/94364652/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-10-13%2F389745626-44100-2-416c58b874e25.m4a" length="46172641" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;bilhetes já disponiveis na ticketline ⬇️&lt;/p&gt;&lt;p&gt;https://ticketline.sapo.pt/evento/velho-amigo-show-88663&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:47:34</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[JOVENS BURROS falam de política (EUA) | velho amigo #35]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/JOVENS-BURROS-falam-de-poltica-EUA--velho-amigo-35-e2qjvpm</link>
+			<guid isPermaLink="false">b06efc68-5229-4b8f-a7d2-da3b458fb278</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 06 Nov 2024 06:02:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/94026998/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-10-6%2F389355864-44100-2-f074dcc29a30a.m4a" length="41755538" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:43:01</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[opinião comeback PEDRO LOURENÇO | velho amigo #33]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/opinio-comeback-PEDRO-LOURENO--velho-amigo-33-e2qacei</link>
+			<guid isPermaLink="false">faedaf04-cf15-4379-a4b3-40ecc9f3344f</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 30 Oct 2024 06:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/93712274/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-9-29%2F388932901-44100-2-8393b00d83cd2.m4a" length="52907679" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:54:31</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[conversa c/ Ricardo Maria | velho amigo #32]]></title>
+			<description><![CDATA[<p>Comprem bilhetes para ver o Ricardo: </p>
+<p><a href="https://ticketline.sapo.pt/evento/falha-minha-de-ricardo-maria-86335" target="_blank" rel="ugc noopener noreferrer">https://ticketline.sapo.pt/evento/falha-minha-de-ricardo-maria-86335</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/conversa-c-Ricardo-Maria--velho-amigo-32-e2q12d7</link>
+			<guid isPermaLink="false">835d0cdf-a243-4629-b9f4-41478a756a73</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 23 Oct 2024 05:15:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/93407079/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-9-23%2F0cfe4be6-dbb9-e444-8dec-ae5f05c8264a.mp3" length="48817772" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Comprem bilhetes para ver o Ricardo: &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ticketline.sapo.pt/evento/falha-minha-de-ricardo-maria-86335&quot; target=&quot;_blank&quot; rel=&quot;ugc noopener noreferrer&quot;&gt;https://ticketline.sapo.pt/evento/falha-minha-de-ricardo-maria-86335&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:50:51</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[review JOKER, polémica com Montenegro & life hacks | velho amigo #31]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/review-JOKER--polmica-com-Montenegro--life-hacks--velho-amigo-31-e2pohtb</link>
+			<guid isPermaLink="false">c97e41e9-8f54-4cbb-b1d1-ea0f4d05f2d8</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 16 Oct 2024 14:30:23 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/93128043/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-9-16%2F388205782-44100-2-9a857d660bdde.m4a" length="60236665" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>01:02:04</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[EXPOSE ao BuoMorallez e Problemas na Relação | velho amigo #30]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/EXPOSE-ao-BuoMorallez-e-Problemas-na-Relao--velho-amigo-30-e2pd1uk</link>
+			<guid isPermaLink="false">9cf5d7e1-dbea-4d5c-bcec-85c6c3d9da4a</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 09 Oct 2024 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/92751252/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-9-8%2F387746181-44100-2-d0bf02c7f966c.m4a" length="42152342" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:43:26</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[funcionários chatos & stand-up comedy em Portugal | velho amigo #29]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/funcionrios-chatos--stand-up-comedy-em-Portugal--velho-amigo-29-e2p4vuk</link>
+			<guid isPermaLink="false">ba92944f-9711-477d-a450-22ff1c99203f</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 02 Oct 2024 13:09:46 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/92487060/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-9-2%2F387414323-44100-2-fdb63ef3b3c09.m4a" length="46911787" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:48:20</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[25 anos e somos velhos? | velho amigo #28]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/25-anos-e-somos-velhos---velho-amigo-28-e2orivp</link>
+			<guid isPermaLink="false">d732713c-65ae-4171-af4b-bc6336d9c8aa</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 25 Sep 2024 11:39:05 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/92178873/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-8-25%2F387029021-44100-2-d6427fdcb1c9c.m4a" length="45612080" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:47:00</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[fomos à Rotation, incêndios & fuga da prisão | #27]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/fomos--Rotation--incndios--fuga-da-priso--27-e2oh2pu</link>
+			<guid isPermaLink="false">97a7d500-5c4c-4459-8f42-aec14badcf98</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 18 Sep 2024 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/91834622/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-8-17%2F386535421-44100-2-6e9cff402803.m4a" length="46131406" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:47:32</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[uma surpresa para o Zé & jogos Paralímpicos | #26]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/uma-surpresa-para-o-Z--jogos-Paralmpicos--26-e2o8b2j</link>
+			<guid isPermaLink="false">a3bbba39-c018-4169-8197-188cb613cf98</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 11 Sep 2024 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/91548179/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-8-10%2F386136553-44100-2-7c8c9f69c7502.m4a" length="41601135" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:42:52</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Dates do Mercadona, nostalgia & fazer vídeos com 12 anos | #25]]></title>
+			<description><![CDATA[<p>Conteúdo Exclusivo:</p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Dates-do-Mercadona--nostalgia--fazer-vdeos-com-12-anos--25-e2o0djg</link>
+			<guid isPermaLink="false">b92fde82-a873-43e2-bcf3-f60516022a15</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 04 Sep 2024 15:50:50 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/91288624/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-8-4%2F385817596-44100-2-3fbe3c8ad9407.m4a" length="43814009" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo Exclusivo:&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:45:09</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Provámos SWEE, Sismo em Portugal & Ronaldo no YouTube | #24]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p><p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Provmos-SWEE--Sismo-em-Portugal--Ronaldo-no-YouTube--24-e2nncrq</link>
+			<guid isPermaLink="false">00c260c3-1213-493c-af64-a2a28601c10d</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 28 Aug 2024 14:04:41 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/90992954/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-7-28%2F385455372-44100-2-efbeda35a8697.m4a" length="45232385" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:46:36</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[cafés com CMTV 24h, capotar o carro & histórias faculdade | velho amigo #23]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p>
+<p><a href="https://www.patreon.com/VelhoAmigo">⁠https://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/cafs-com-CMTV-24h--capotar-o-carro--histrias-faculdade--velho-amigo-23-e2nep5d</link>
+			<guid isPermaLink="false">26ca69dd-67ad-4554-974b-c2d12f827325</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 21 Aug 2024 13:48:10 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/90710637/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-7-21%2F385111201-44100-2-0d8669bad03f3.m4a" length="44221900" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/VelhoAmigo&quot;&gt;⁠https://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:45:34</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Cagaram-me no carro & “Padel é para gays” | velho amigo #22]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em:</p><p><a href="https://www.patreon.com/VelhoAmigo">https://www.patreon.com/VelhoAmigo</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Cagaram-me-no-carro--Padel--para-gays--velho-amigo-22-e2n62kc</link>
+			<guid isPermaLink="false">ae502f26-73b5-47be-a942-9b05fcefdd17</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 14 Aug 2024 10:55:11 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/90425420/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-7-14%2F384757846-44100-2-5db5ec50c767b.m4a" length="52657132" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em:&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/VelhoAmigo&quot;&gt;https://www.patreon.com/VelhoAmigo&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:54:15</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Salvar o Dia e Travis Scott | velho amigo #21]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: </p>
+<p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Salvar-o-Dia-e-Travis-Scott--velho-amigo-21-e2mta9s</link>
+			<guid isPermaLink="false">c16db409-dc36-406e-a480-aa6ddc4b1806</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 07 Aug 2024 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/90138364/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-7-6%2F384405975-44100-2-ac27eca92277a.m4a" length="46114490" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: &lt;/p&gt;
+&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:47:31</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Como Viajar Sozinho & Discutir | velho amigo #20]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: </p>
+<p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Como-Viajar-Sozinho--Discutir--velho-amigo-20-e2mkrbi</link>
+			<guid isPermaLink="false">29edd7c8-0baa-4c2c-8591-2b964fda0304</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 31 Jul 2024 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/89860914/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-6-30%2F384064871-44100-2-78032d52cd18a.m4a" length="40408121" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: &lt;/p&gt;
+&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:41:38</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Sobre os filhos do CR7 & Educação | velho amigo #19]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em: </strong>
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Sobre-os-filhos-do-CR7--Educao--velho-amigo-19-e2mc3pp</link>
+			<guid isPermaLink="false">1ca2ec13-fa17-44be-b341-25ce5db407d6</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 24 Jul 2024 05:15:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/89574649/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-6-23%2F383706756-44100-2-dae83a7418a85.m4a" length="38981068" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em: &lt;/strong&gt;
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:40:10</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Donald Trump & ir viajar | velho amigo #18]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo em: </strong>
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Donald-Trump--ir-viajar--velho-amigo-18-e2m4hqq</link>
+			<guid isPermaLink="false">28db0db0-eca9-4cd8-ac0c-74379dc2dfc6</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 17 Jul 2024 10:08:08 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/89326874/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-6-17%2Fe873b587-7171-09b4-11c2-c42e191db3d2.mp3" length="59380664" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em: &lt;/strong&gt;
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:41:13</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[férias grandes & namoricos | velho amigo #17]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/frias-grandes--namoricos--velho-amigo-17-e2lrnk4</link>
+			<guid isPermaLink="false">21fb6265-ae7f-4335-b194-a611442572da</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 10 Jul 2024 05:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/89037892/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-6-9%2F382865601-44100-2-586bcdb389b66.m4a" length="46324888" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:47:44</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Clássicos do Youtube (português) & Trends | velho amigo #16]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Clssicos-do-Youtube-portugus--Trends--velho-amigo-16-e2lci3q</link>
+			<guid isPermaLink="false">c50379f8-18fd-4478-b7f3-7c2b7c7bab7f</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 03 Jul 2024 05:15:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/88540730/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-5-27%2F2d0a14e9-c883-1ab7-d945-6c23ec467f56.mp3" length="37081079" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:25:01</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[noite de São João & EURO 2024 | velho amigo #15]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/noite-de-So-Joo--EURO-2024--velho-amigo-15-e2lark7</link>
+			<guid isPermaLink="false">63b2a98d-a9f6-4db2-9c83-086eef97349f</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 26 Jun 2024 08:53:48 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/88484935/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-5-26%2F3eb27519-03c6-15c4-7565-3081efc7b0ba.mp3" length="44220630" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:30:42</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[EURO 2024, CR7 & memórias de 2016 | velho amigo #14]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/EURO-2024--CR7--memrias-de-2016--velho-amigo-14-e2l30ai</link>
+			<guid isPermaLink="false">25de1553-018d-4d89-89e0-dcf634839f21</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 19 Jun 2024 18:10:38 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/88227602/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-5-19%2Fe77f8e36-981e-8a16-98ec-918a78ceda76.mp3" length="44321060" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:30:19</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Rescaldo Europeias & Serviços Públicos | velho amigo #13]]></title>
+			<description><![CDATA[Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Rescaldo-Europeias--Servios-Pblicos--velho-amigo-13-e2kqcc9</link>
+			<guid isPermaLink="false">65af9492-fdf1-4339-94f2-07f34bec4ae7</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 12 Jun 2024 16:50:47 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/87945033/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-5-12%2F380485139-44100-2-fa618fb3a0f6d.m4a" length="25927594" type="audio/x-m4a"/>
+			<itunes:summary>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:26:43</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[festas da aldeia VS festivais de verão | velho amigo #12]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/festas-da-aldeia-VS-festivais-de-vero--velho-amigo-12-e2khavv</link>
+			<guid isPermaLink="false">20f4576d-4a65-4f0c-bc3b-daba35560966</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 05 Jun 2024 13:03:40 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/87648703/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-5-5%2F379807879-44100-2-7ca9087e73832.m4a" length="31871426" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:32:50</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[ir à Queima das Fitas (Coimbra) & Taylor Swift em Portugal | velho amigo #11]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/ir--Queima-das-Fitas-Coimbra--Taylor-Swift-em-Portugal--velho-amigo-11-e2k7pv2</link>
+			<guid isPermaLink="false">b48dcf45-190b-4a18-bf18-15044feca9bb</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 29 May 2024 05:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/87336354/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-4-29%2F4fc4fc71-8def-24d6-79dd-970b165d0cef.mp3" length="40470006" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:28:05</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[conversa c/ João Moreira (co-autor Bruno Aleixo) | velho amigo #10]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/conversa-c-Joo-Moreira-co-autor-Bruno-Aleixo--velho-amigo-10-e2jvpt4</link>
+			<guid isPermaLink="false">6b15b8ea-1459-48a5-ab17-806deca04cf3</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 22 May 2024 14:31:52 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/87074148/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-4-22%2F378424005-44100-2-49fc19bcd1e3a.m4a" length="36822950" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:37:56</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Castelo Branco é agressor? & ir ao Rally Portugal | velho amigo #9]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Castelo-Branco--agressor---ir-ao-Rally-Portugal--velho-amigo-9-e2jmcpe</link>
+			<guid isPermaLink="false">273ab305-b650-4557-9b48-d28a34c809bf</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 15 May 2024 11:45:11 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/86765806/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-4-15%2F377672433-44100-2-95d524a2f25c5.m4a" length="28549459" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:29:25</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[react dos PRIMOS & nostalgia da escola | velho amigo #8]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/react-dos-PRIMOS--nostalgia-da-escola--velho-amigo-8-e2jc9lv</link>
+			<guid isPermaLink="false">0085c902-7177-4054-b21b-ecfff64e890e</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 08 May 2024 05:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/86434943/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-4-7%2F376853765-44100-2-8cd9e68942321.m4a" length="26345309" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:27:08</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[eleições FC Porto | velho amigo #7]]></title>
+			<description><![CDATA[<p>Esperemos que tenham gostado ❤️ </p>
+<p><strong>Conteúdo exclusivo em:</strong> 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/eleies-FC-Porto--velho-amigo-7-e2j2lce</link>
+			<guid isPermaLink="false">4521cd8e-f784-42a0-a830-c9142dece2a9</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 01 May 2024 05:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/86119246/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-3-30%2F6af41414-5a45-3ccf-fa75-61eb6673a99b.mp3" length="75379340" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Esperemos que tenham gostado ❤️ &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo em:&lt;/strong&gt; 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:31:24</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[sobre sair à noite | velho amigo #6]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/sobre-sair--noite--velho-amigo-6-e2iqd0e</link>
+			<guid isPermaLink="false">0a471ac2-1a21-427f-a516-39205c7faff7</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 24 Apr 2024 10:29:30 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/85848526/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-3-24%2F07dfe99e-467f-bfb3-e855-d3cf37ec98f7.mp3" length="30425896" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo em: 
+https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:31:41</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[impacto do Wuant & comentários Sippinpurpp | #5]]></title>
+			<description><![CDATA[<p><strong>Conteúdo exclusivo:</strong></p>
+<p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/impacto-do-Wuant--comentrios-Sippinpurpp--5-e2iha60</link>
+			<guid isPermaLink="false">39e1991d-16be-4401-8de9-e04d28104745</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 17 Apr 2024 16:26:20 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/85550720/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-3-17%2F374654099-44100-2-be002704afd12.m4a" length="22875350" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;&lt;strong&gt;Conteúdo exclusivo:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:23:34</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[conhecer a Rosinha & CD's pirata do Rocha | #4]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo:</p>
+<p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/conhecer-a-Rosinha--CDs-pirata-do-Rocha--4-e2i6da1</link>
+			<guid isPermaLink="false">d9ec0d39-3179-4d97-bb36-ccbeef241684</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 10 Apr 2024 05:45:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/85193473/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-3-9%2Fe04de105-c95a-cb4b-1cd3-798c815ab2b5.mp3" length="63696409" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo:&lt;/p&gt;
+&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:26:32</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[opinião cubinho ao vivo, ter um autógrafo do #VSKI | #3]]></title>
+			<description><![CDATA[<p>Conteúdo exclusivo:</p>
+<p>https://www.patreon.com/VelhoAmigo</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/opinio-cubinho-ao-vivo--ter-um-autgrafo-do-VSKI--3-e2htsbg</link>
+			<guid isPermaLink="false">a27dedb6-5ca5-4193-8b6b-a08564aa0cab</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 03 Apr 2024 13:41:04 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/84913968/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-3-3%2F373090455-44100-2-e6186b6dece12.m4a" length="22397817" type="audio/x-m4a"/>
+			<itunes:summary>&lt;p&gt;Conteúdo exclusivo:&lt;/p&gt;
+&lt;p&gt;https://www.patreon.com/VelhoAmigo&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:23:04</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[fingi um ataque de ansiedade | #02]]></title>
+			<description><![CDATA[Obrigado a todos os que assistiram ❤️ https://www.patreon.com/VelhoAmigo
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/fingi-um-ataque-de-ansiedade--02-e2hlhf4</link>
+			<guid isPermaLink="false">bd5047ba-fd32-407d-b1a5-9d481ba380d6</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Thu, 28 Mar 2024 07:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/84640676/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-2-27%2F372431939-44100-2-0ec6fd0144683.m4a" length="24973389" type="audio/x-m4a"/>
+			<itunes:summary>Obrigado a todos os que assistiram ❤️ https://www.patreon.com/VelhoAmigo
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:25:44</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[o Pedro Teixeira da Mota, odeia-me | #01]]></title>
+			<description><![CDATA[Finalmente, com vídeo ❤️
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/o-Pedro-Teixeira-da-Mota--odeia-me--01-e2hberb</link>
+			<guid isPermaLink="false">21196d76-5bff-4117-81f6-4e45f319fdd7</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Wed, 20 Mar 2024 17:58:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/84310315/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-2-20%2F371613691-44100-2-04685ce6d4501.mp3" length="22547643" type="audio/mpeg"/>
+			<itunes:summary>Finalmente, com vídeo ❤️
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:23:29</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[O que define a amizade? (feat. Mário Videira) | #0.95]]></title>
+			<description><![CDATA[façam perguntas people 🫡
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/O-que-define-a-amizade--feat--Mrio-Videira--0-95-e2h2kl6</link>
+			<guid isPermaLink="false">36657848-3f97-48f2-8483-ced6d5e37deb</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 15 Mar 2024 07:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/84021350/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-2-14%2Ff2037dba-387b-3024-c435-be49b8abcc54.mp3" length="40363981" type="audio/mpeg"/>
+			<itunes:summary>façam perguntas people 🫡
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:28:01</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[malta, a vida deve ser calma (feat. Mário Videira) | #0.9]]></title>
+			<description><![CDATA[🫡
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/malta--a-vida-deve-ser-calma-feat--Mrio-Videira--0-9-e2gqpc9</link>
+			<guid isPermaLink="false">1f2e958f-edb0-418e-8460-2ecae769ba54</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 08 Mar 2024 19:07:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/83764041/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-2-8%2Fedb59660-0fe3-dc6c-ef19-68a9c35e5fba.mp3" length="42389705" type="audio/mpeg"/>
+			<itunes:summary>🫡
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:29:25</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Vamos viver juntos? (feat. Mário Videira) | #0.8]]></title>
+			<description><![CDATA[🫡
+sim, o emoji mudou oficialmente.  
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Vamos-viver-juntos--feat--Mrio-Videira--0-8-e2ggkpj</link>
+			<guid isPermaLink="false">572e2640-a5c8-43bf-a73a-9378973b49c8</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 01 Mar 2024 15:06:23 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/83431667/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-2-1%2Fcd85f014-8cc8-675c-2636-d054a9df8f16.mp3" length="44642655" type="audio/mpeg"/>
+			<itunes:summary>🫡
+sim, o emoji mudou oficialmente.  
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:30:59</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episode>8</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Achas que sabes amar? (feat. Mário Videira) | #0.7]]></title>
+			<description><![CDATA[🫡
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Achas-que-sabes-amar--feat--Mrio-Videira--0-7-e2g65qr</link>
+			<guid isPermaLink="false">ac7c36da-6236-4afb-913b-ed187df46adb</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 23 Feb 2024 13:25:45 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/83088667/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-1-23%2F0be1e312-53cc-7142-00ad-9929a755cc63.mp3" length="44269213" type="audio/mpeg"/>
+			<itunes:summary>🫡
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:30:44</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Tenho um amigo que se assumiu como gay (feat. Mário Videira) | #0.6]]></title>
+			<description><![CDATA[😂✊🏼
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Tenho-um-amigo-que-se-assumiu-como-gay-feat--Mrio-Videira--0-6-e2fsfk3</link>
+			<guid isPermaLink="false">ddff0b8f-a636-490b-b98c-177d4eec2fd3</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 16 Feb 2024 17:44:45 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/82771011/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-1-16%2F1998bd31-2614-5b9e-2546-a865a5f1d148.mp3" length="46403775" type="audio/mpeg"/>
+			<itunes:summary>😂✊🏼
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:32:13</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episode>6</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Como lidar com a morte (feat. Mário Videira) | #0.5]]></title>
+			<description><![CDATA[😂✊🏼
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/Como-lidar-com-a-morte-feat--Mrio-Videira--0-5-e2fi222</link>
+			<guid isPermaLink="false">9286b6ac-78f3-4413-bd6e-60898c00b999</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 09 Feb 2024 06:30:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/82429442/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2024-1-8%2F366799414-44100-2-dac83438dfcfe.mp3" length="42864083" type="audio/mpeg"/>
+			<itunes:summary>😂✊🏼
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:29:45</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:season>5</itunes:season>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[É difícil dizer "amo-te" (feat. Mário Videira) | #0.4]]></title>
+			<description><![CDATA[Sigam-nos no Instagram José Bernardo & Mário Videira ⁠⁠😂 ✊🏻
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/difcil-dizer-amo-te-feat--Mrio-Videira--0-4-e2f7qef</link>
+			<guid isPermaLink="false">1799ba65-5857-4ff1-a88e-b03b75e4a1e4</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 02 Feb 2024 07:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/82093967/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-1-1%2F365841000-44100-2-a29c9712580a7.m4a" length="25813863" type="audio/x-m4a"/>
+			<itunes:summary>Sigam-nos no Instagram José Bernardo &amp; Mário Videira ⁠⁠😂 ✊🏻
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:26:36</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episode>4</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[como ter dinheiro mudava a minha vida? | #0.3]]></title>
+			<description><![CDATA[😂 ✊🏻
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/como-ter-dinheiro-mudava-a-minha-vida---0-3-e2evsie</link>
+			<guid isPermaLink="false">2484d498-ff44-4a0c-b901-59aeb462640e</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 26 Jan 2024 18:48:25 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/81833998/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-0-26%2F365079774-44100-2-f7ed6268af403.m4a" length="12730686" type="audio/x-m4a"/>
+			<itunes:summary>😂 ✊🏻
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:13:07</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episode>3</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[tenho saudades de ter 16 anos | #0.2]]></title>
+			<description><![CDATA[Espero que gostem ✊🏼 
+- Nostalgia;
+- Pessoas com mais de 20 anos são cringe;
+- Perguntas & Respostas;
+- Objetivos para o GYM.
+
+Sugestão cultural
+The Hunger Games: A Balada dos Pássaros e das Serpentes
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/tenho-saudades-de-ter-16-anos--0-2-e2elj9n</link>
+			<guid isPermaLink="false">cf9e3066-7a34-44dd-bdc6-e712cb1cab39</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 19 Jan 2024 15:30:02 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/81496823/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-0-19%2F364087724-44100-2-8fe9ee3140e5b.m4a" length="16759712" type="audio/x-m4a"/>
+			<itunes:summary>Espero que gostem ✊🏼 
+- Nostalgia;
+- Pessoas com mais de 20 anos são cringe;
+- Perguntas &amp; Respostas;
+- Objetivos para o GYM.
+
+Sugestão cultural
+The Hunger Games: A Balada dos Pássaros e das Serpentes
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:17:16</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:episode>2</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[se não fosse o WUANT tinha desistido | #0.1]]></title>
+			<description><![CDATA[espero que gostem 🥹
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/jos-bernardo/episodes/se-no-fosse-o-WUANT-tinha-desistido--0-1-e2ecc86</link>
+			<guid isPermaLink="false">aaf2104b-2a17-4d61-afad-680d4df99e10</guid>
+			<dc:creator><![CDATA[José Bernardo; Mário Videira]]></dc:creator>
+			<pubDate>Fri, 12 Jan 2024 20:10:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/f05045d8/podcast/play/81194694/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-0-12%2F363217242-44100-2-891d8464aa5e6.m4a" length="13052545" type="audio/x-m4a"/>
+			<itunes:summary>espero que gostem 🥹
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>00:13:26</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40217926/40217926-1726662111947-6bb50763322e7.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+	</channel>
+</rss>

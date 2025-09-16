@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histórico - Podcast Battle</title>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 2rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .back-button:hover {
+    background: #555;
+  }
+  
+  .table-container {
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+  }
+  
+  th {
+    background: #333;
+    font-weight: bold;
+  }
+  
+  tr:hover {
+    background: #2a2a2a;
+  }
+  
+  .rating {
+    font-weight: bold;
+    color: #ffd700;
+  }
+  
+  .no-rating {
+    color: #666;
+    font-style: italic;
+  }
+  
+  .notify-btn {
+    background: #4a9eff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+  }
+  
+  .notify-btn:hover {
+    background: #357abd;
+  }
+  
+  .notify-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+  }
+  
+  .rate-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+    transition: background 0.3s;
+  }
+  
+  .rate-btn:hover {
+    background: #218838;
+  }
+  
+  .rate-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+  }
+  
+  .clear-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+  }
+  
+  .clear-btn:hover {
+    background: #c82333;
+  }
+  
+  .clear-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+  
+  .error {
+    text-align: center;
+    padding: 2rem;
+    color: #ff6b6b;
+  }
+</style>
+</head>
+<body>
+
+<a href="/" class="back-button">← Voltar</a>
+
+<div class="header">
+  <h1 id="podcast-title">Histórico do Podcast</h1>
+  <p id="podcast-subtitle">Carregando episódios...</p>
+</div>
+
+<div class="table-container">
+  <div id="loading" class="loading">
+    <p>🔄 A carregar episódios...</p>
+  </div>
+  
+  <div id="error" class="error" style="display: none;">
+    <p>❌ Erro ao carregar episódios</p>
+  </div>
+  
+  <table id="episodes-table" style="display: none;">
+    <thead>
+      <tr>
+        <th>Episódio</th>
+        <th>Título</th>
+        <th>Data</th>
+        <th>Pedro</th>
+        <th>João</th>
+        <th>Avaliar</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="episodes-tbody">
+    </tbody>
+  </table>
+</div>
+
+<script>
+let currentUser = localStorage.getItem('podcastUser');
+let podcastId = null;
+let podcastName = null;
+
+// Obter parâmetros da URL
+function getUrlParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  podcastId = urlParams.get('id');
+  podcastName = urlParams.get('nome');
+  
+  if (!podcastId || !podcastName) {
+    showError('Parâmetros inválidos na URL');
+    return false;
+  }
+  
+  document.getElementById('podcast-title').textContent = `Histórico: ${decodeURIComponent(podcastName)}`;
+  document.getElementById('podcast-subtitle').textContent = `Episódios de ${decodeURIComponent(podcastName)}`;
+  return true;
+}
+
+// Mostrar erro
+function showError(message) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('error').style.display = 'block';
+  document.getElementById('error').querySelector('p').textContent = message;
+}
+
+// Carregar episódios
+async function loadEpisodes() {
+  try {
+    const response = await fetch(`/api/episodes/${podcastId}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (!data.episodes || data.episodes.length === 0) {
+      showError('Nenhum episódio encontrado para este podcast');
+      return;
+    }
+    
+    displayEpisodes(data.episodes);
+    
+  } catch (error) {
+    console.error('Error loading episodes:', error);
+    showError('Erro ao carregar episódios: ' + error.message);
+  }
+}
+
+// Mostrar episódios na tabela
+function displayEpisodes(episodes) {
+  const tbody = document.getElementById('episodes-tbody');
+  tbody.innerHTML = '';
+  
+  episodes.forEach(episode => {
+    const row = document.createElement('tr');
+    
+    const pedroRating = episode.ratingPedro || 0;
+    const joaoRating = episode.ratingJoao || 0;
+    const myRating = currentUser === 'Pedro' ? pedroRating : joaoRating;
+    
+    row.innerHTML = `
+      <td><strong>#${episode.numero}</strong></td>
+      <td>${episode.titulo}</td>
+      <td>${formatDate(episode.data_publicacao)}</td>
+      <td class="rating">${pedroRating > 0 ? pedroRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
+      <td class="rating">${joaoRating > 0 ? joaoRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
+      <td>
+        <button class="rate-btn" onclick="rateEpisode(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${myRating})" 
+                ${!currentUser ? 'disabled' : ''}>
+          ${myRating > 0 ? 'Alterar' : 'Avaliar'}
+        </button>
+        ${myRating > 0 ? `<button class="clear-btn" onclick="clearRating(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}')" 
+                ${!currentUser ? 'disabled' : ''}>
+          Limpar
+        </button>` : ''}
+      </td>
+      <td>
+        <button class="notify-btn" onclick="sendNotification(${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${pedroRating}, ${joaoRating})" 
+                ${!currentUser ? 'disabled' : ''}>
+          Notificar
+        </button>
+      </td>
+    `;
+    
+    tbody.appendChild(row);
+  });
+  
+  // Mostrar tabela e esconder loading
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('episodes-table').style.display = 'table';
+}
+
+// Formatar data
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('pt-PT', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+
+// Avaliar episódio
+async function rateEpisode(episodeId, episodeNumber, episodeTitle, currentRating) {
+  if (!currentUser) {
+    Swal.fire({
+      title: 'Erro!',
+      text: 'Precisas de estar logado para avaliar',
+      icon: 'error'
+    });
+    return;
+  }
+  
+  const result = await Swal.fire({
+    title: `Avaliar Ep #${episodeNumber}`,
+    html: `
+      <div style="text-align: center; margin: 20px 0;">
+        <h4>${episodeTitle}</h4>
+        <div style="margin: 20px 0;">
+          <label for="rating-slider" style="display: block; margin-bottom: 10px; font-weight: bold;">
+            A tua avaliação (1-10):
+          </label>
+          <input type="range" id="rating-slider" min="1" max="10" value="${currentRating || 5}" 
+                 style="width: 100%; margin: 10px 0;">
+          <div id="rating-value" style="font-size: 18px; font-weight: bold; color: #ffd700;">
+            ${currentRating || 5}/10
+          </div>
+        </div>
+      </div>
+    `,
+    showCancelButton: true,
+    confirmButtonText: currentRating > 0 ? 'Alterar' : 'Avaliar',
+    cancelButtonText: 'Cancelar',
+    allowOutsideClick: false,
+    didOpen: () => {
+      const slider = document.getElementById('rating-slider');
+      const value = document.getElementById('rating-value');
+      
+      slider.addEventListener('input', (e) => {
+        value.textContent = e.target.value + '/10';
+      });
+    }
+  });
+  
+  if (result.isConfirmed) {
+    const rating = parseInt(document.getElementById('rating-slider').value);
+    
+    try {
+      const response = await fetch('/api/rate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          podcastId: podcastId,
+          episodeId: episodeId,
+          user: currentUser,
+          rating: rating
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      Swal.fire({
+        title: 'Avaliação guardada!',
+        text: `Avaliaste o Ep #${episodeNumber} com ${rating}/10`,
+        icon: 'success',
+        timer: 2000,
+        showConfirmButton: false
+      });
+      
+      // Recarregar episódios para mostrar a nova avaliação
+      await loadEpisodes();
+      
+    } catch (error) {
+      console.error('Error rating episode:', error);
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Erro ao guardar avaliação: ' + error.message,
+        icon: 'error'
+      });
+    }
+  }
+}
+
+// Limpar avaliação
+async function clearRating(episodeId, episodeNumber, episodeTitle) {
+  if (!currentUser) {
+    Swal.fire({
+      title: 'Erro!',
+      text: 'Precisas de estar logado para limpar avaliação',
+      icon: 'error'
+    });
+    return;
+  }
+  
+  const result = await Swal.fire({
+    title: 'Limpar avaliação',
+    text: `Tens a certeza que queres limpar a tua avaliação do Ep #${episodeNumber}?`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sim, limpar',
+    cancelButtonText: 'Cancelar',
+    confirmButtonColor: '#dc3545'
+  });
+  
+  if (result.isConfirmed) {
+    try {
+      const response = await fetch('/api/rate', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          podcastId: podcastId,
+          episodeId: episodeId,
+          user: currentUser
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      Swal.fire({
+        title: 'Avaliação removida!',
+        text: `Removeste a tua avaliação do Ep #${episodeNumber}`,
+        icon: 'success',
+        timer: 2000,
+        showConfirmButton: false
+      });
+      
+      // Recarregar episódios para mostrar a mudança
+      await loadEpisodes();
+      
+    } catch (error) {
+      console.error('Error clearing rating:', error);
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Erro ao limpar avaliação: ' + error.message,
+        icon: 'error'
+      });
+    }
+  }
+}
+
+// Enviar notificação
+async function sendNotification(episodeNumber, episodeTitle, pedroRating, joaoRating) {
+  if (!currentUser) {
+    Swal.fire({
+      title: 'Erro!',
+      text: 'Precisas de estar logado para enviar notificações',
+      icon: 'error'
+    });
+    return;
+  }
+  
+  const otherUser = currentUser === 'Pedro' ? 'João' : 'Pedro';
+  const myRating = currentUser === 'Pedro' ? pedroRating : joaoRating;
+  const otherRating = currentUser === 'Pedro' ? joaoRating : pedroRating;
+  
+  // Verificar se há ratings para notificar
+  if (myRating === 0 && otherRating === 0) {
+    Swal.fire({
+      title: 'Aviso!',
+      text: 'Nenhum de vocês avaliou este episódio ainda',
+      icon: 'info'
+    });
+    return;
+  }
+  
+  const result = await Swal.fire({
+    title: `Notificar sobre Ep #${episodeNumber}`,
+    html: `
+      <div style="text-align: center; margin: 20px 0;">
+        <h4>${episodeTitle}</h4>
+        <div style="margin: 15px 0;">
+          ${myRating > 0 ? `<div><strong>A tua nota:</strong> ${myRating}/10</div>` : ''}
+          ${otherRating > 0 ? `<div><strong>${otherUser}:</strong> ${otherRating}/10</div>` : ''}
+        </div>
+        <div style="margin-top: 20px;">
+          <textarea id="notification-message" placeholder="Escreve uma mensagem para ${otherUser}..." 
+                    style="width: 100%; height: 60px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
+        </div>
+      </div>
+    `,
+    showCancelButton: true,
+    confirmButtonText: 'Enviar',
+    cancelButtonText: 'Cancelar',
+    allowOutsideClick: false
+  });
+  
+  if (result.isConfirmed) {
+    const message = document.getElementById('notification-message').value;
+    
+    if (!message.trim()) {
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Escreve uma mensagem para enviar',
+        icon: 'error'
+      });
+      return;
+    }
+    
+    try {
+      // Enviar notificação via API
+      const response = await fetch('/api/notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          targetUser: otherUser,
+          podcastName: `${decodeURIComponent(podcastName)} - Ep ${episodeNumber}`,
+          rating: myRating || otherRating,
+          message: message,
+          fromUser: currentUser,
+          podcastId: podcastId
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      Swal.fire({
+        title: 'Notificação enviada!',
+        text: `Enviaste uma notificação para ${otherUser} sobre o Ep #${episodeNumber}`,
+        icon: 'success',
+        timer: 3000,
+        showConfirmButton: false
+      });
+      
+    } catch (error) {
+      console.error('Error sending notification:', error);
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Erro ao enviar notificação: ' + error.message,
+        icon: 'error'
+      });
+    }
+  }
+}
+
+// Inicializar página
+(async () => {
+  if (!getUrlParams()) {
+    return;
+  }
+  
+  if (!currentUser) {
+    showError('Precisas de estar logado para ver o histórico');
+    return;
+  }
+  
+  await loadEpisodes();
+})();
+</script>
+
+</body>
+</html>

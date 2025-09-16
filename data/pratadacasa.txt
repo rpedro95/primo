@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:anchor="https://anchor.fm/xmlns" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:psc="http://podlove.org/simple-chapters">
+	<channel>
+		<title><![CDATA[Prata da Casa]]></title>
+		<description><![CDATA[Podcast by BetclicPortugal, todas as quartas-feiras!]]></description>
+		<link>https://podcasters.spotify.com/pod/show/prata-da-casa</link>
+		<generator>Anchor Podcasts</generator>
+		<lastBuildDate>Wed, 10 Sep 2025 13:49:17 GMT</lastBuildDate>
+		<atom:link href="https://anchor.fm/s/1056d2710/podcast/rss" rel="self" type="application/rss+xml"/>
+		<author><![CDATA[Betclic Portugal]]></author>
+		<copyright><![CDATA[Betclic Portugal]]></copyright>
+		<language><![CDATA[pt-pt]]></language>
+		<atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+		<itunes:author>Betclic Portugal</itunes:author>
+		<itunes:summary>Podcast by BetclicPortugal, todas as quartas-feiras!</itunes:summary>
+		<itunes:type>episodic</itunes:type>
+		<itunes:owner>
+			<itunes:name>Betclic Portugal</itunes:name>
+			<itunes:email></itunes:email>
+		</itunes:owner>
+		<itunes:explicit>false</itunes:explicit>
+		<itunes:category text="Comedy"/>
+		<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+		<item>
+			<title><![CDATA[Prata da Casa #15 - Carnaval Prata da Casa, Filme de Cristiano Ronaldo, Quem é o Impostor?]]></title>
+			<description><![CDATA[<p>Digam nos comentários quem escolheriam para fazer o papel de Cristiano Ronaldo.</p><p><br></p><p>Episódio #15 já disponível.</p><p><br></p><p>Prata da Casa by BETCLIC</p><p><br></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-15---Carnaval-Prata-da-Casa--Filme-de-Cristiano-Ronaldo--Quem--o-Impostor-e381qam</link>
+			<guid isPermaLink="false">e16f0d7a-0fc7-4e7c-904f-f060bfadaddd</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 10 Sep 2025 13:46:02 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/108111638/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-8-10%2F407242249-44100-2-353a0ada11f78.mp3" length="77266859" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Digam nos comentários quem escolheriam para fazer o papel de Cristiano Ronaldo.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Episódio #15 já disponível.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>01:20:29</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>15</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #14 - André Freitas Lobo, Adepto-Herói, Previsões Clássicas (ou não)]]></title>
+			<description><![CDATA[<p>Inscrevam-se na Liga Prata da Casa que o treçolho do André já tem lá a sua própria equipa.<br />Prata da Casa #14 já disponível.</p><p><br /></p><p>Prata da Casa by BETCLIC.</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-14---Andr-Freitas-Lobo--Adepto-Heri--Previses-Clssicas-ou-no-e37mf2r</link>
+			<guid isPermaLink="false">5881e08c-3d34-46b7-8e04-44325002b762</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 03 Sep 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/107739675/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-8-3%2F406780902-44100-2-f3d34967ef542.mp3" length="33761488" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Inscrevam-se na Liga Prata da Casa que o treçolho do André já tem lá a sua própria equipa.&lt;br /&gt;Prata da Casa #14 já disponível.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC.&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:35:10</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>14</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #13 - Regresso do TIC TAC TOUE, Tipo de Adepto no Estádio, Caras Clássicos]]></title>
+			<description><![CDATA[<p>Ainda estamos na dúvida se a celebração do João Félix deveria contar.</p><p><br /></p><p>Prata da Casa #13 , já disponível.</p><p><br /></p><p>Prata da Casa by BETCLIC<br /></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-13---Regresso-do-TIC-TAC-TOUE--Tipo-de-Adepto-no-Estdio--Caras-Clssicos-e36p0nl</link>
+			<guid isPermaLink="false">799e3720-51b6-4729-b979-d054bf6e2ffa</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 27 Aug 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/106774709/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-12%2F405544964-44100-2-4daa29a17fd62.mp3" length="53873266" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Ainda estamos na dúvida se a celebração do João Félix deveria contar.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa #13 , já disponível.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC&lt;br /&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:56:07</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>13</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #12 - Filhos da Terra, Vítor habla Español, Desmistificar Mitos]]></title>
+			<description><![CDATA[<p>Si te gustó este episodio suscríbete al canal y comenta: "Vítor, ¡qué guapo!"</p><p><br /></p><p>Prata da Casa #12 , já disponível.</p><p><br /></p><p>Prata da Casa by BETCLIC</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-12---Filhos-da-Terra--Vtor-habla-Espaol--Desmistificar-Mitos-e36p01l</link>
+			<guid isPermaLink="false">836a4c04-9553-436a-a8d8-9ac105c0d135</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 20 Aug 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/106774005/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-12%2F405544267-44100-2-c5d362156321c.mp3" length="58281899" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Si te gustó este episodio suscríbete al canal y comenta: &quot;Vítor, ¡qué guapo!&quot;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa #12 , já disponível.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>01:00:42</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>12</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #11 - Mercado do Humor, Substituto de Luís, Polémica Camaronesa]]></title>
+			<description><![CDATA[<p>Participem na Liga Prata da Casa 👉 https://fantasy.ligaportugal.pt/leagues/auto-join/mby9gz</p><p><br /></p><p><br /></p><p>Prata da Casa #11 já disponível.</p><p><br /></p><p>Prata da Casa by BETCLIC</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-11---Mercado-do-Humor--Substituto-de-Lus--Polmica-Camaronesa-e36ju9i</link>
+			<guid isPermaLink="false">3d72e1d2-06d3-4d8e-a36d-a019b914bbfe</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 13 Aug 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/106608370/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-8%2F405331596-44100-2-07912769b754e.mp3" length="47728848" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Participem na Liga Prata da Casa 👉 https://fantasy.ligaportugal.pt/leagues/auto-join/mby9gz&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa #11 já disponível.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:49:43</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>11</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #10 - Posso-te Conhecer? , Eleições do Benfica , Futurologia]]></title>
+			<description><![CDATA[<p>Digam-nos as vossas escolhas de futurologia.</p><p><br /></p><p>Episódio #10 de Prata da Casa , já disponível.</p><p><br /></p><p>Prata da Casa by BETCLIC<br /></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-10---Posso-te-Conhecer----Eleies-do-Benfica---Futurologia-e36b1mj</link>
+			<guid isPermaLink="false">952fa5ed-3325-473e-8edd-bcce6e029046</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 06 Aug 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/106316947/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-4%2F405083085-44100-2-d89cde1f5b297.mp3" length="52296723" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Digam-nos as vossas escolhas de futurologia.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Episódio #10 de Prata da Casa , já disponível.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC&lt;br /&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:54:28</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #09 - Festejos Desnecessários, Pictionary à Braz , Franchises Prata da Casa]]></title>
+			<description><![CDATA[<p>Qual o vosso franchise favorito?</p><p><br /></p><p>Prata da Casa #09 já disponível.</p><p><br /></p><p>Prata da Casa by BETCLIC</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-09---Festejos-Desnecessrios--Pictionary--Braz---Franchises-Prata-da-Casa-e364frg</link>
+			<guid isPermaLink="false">2fe6bebf-8a0e-4f7a-998a-2ac382781691</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 30 Jul 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/106102064/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-28%2F404681630-44100-2-31b694bc55591.mp3" length="46362539" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Qual o vosso franchise favorito?&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa #09 já disponível.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:48:17</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>9</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #08 - Dardos ao Robalo , Cringe Mudei a Casa , Isto é uma Cabala]]></title>
+			<description><![CDATA[<p>Se alguém ainda quiser um robalo para o almoço mandem DM ao Vítor.</p><p><br></p><p><br></p><p><br></p><p><br></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-08---Dardos-ao-Robalo---Cringe-Mudei-a-Casa---Isto--uma-Cabala-e35tihj</link>
+			<guid isPermaLink="false">740d6960-2caf-46a5-b748-e96e3b1cf83a</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 23 Jul 2025 11:00:01 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/105875443/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-23%2F404391806-44100-2-6175eed2bf05b.mp3" length="54602604" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Se alguém ainda quiser um robalo para o almoço mandem DM ao Vítor.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:56:52</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>8</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #07 - TIC TAC BUENO , Review de Chuteiras , Desportos buéda loucos II]]></title>
+			<description><![CDATA[<p>Afinal , é para devolver o calendário à Tia Paula ou não?Episódio #07 Prata da Casa , já disponível.</p><p><br></p><p>Prata da Casa by BETCLIC</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-07---TIC-TAC-BUENO---Review-de-Chuteiras---Desportos-buda-loucos-II-e35kccd</link>
+			<guid isPermaLink="false">04efbd17-8b12-4d5c-b45f-a717183fcf55</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 16 Jul 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/105574221/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-16%2F404007645-44100-2-7bda978cef797.mp3" length="49882173" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Afinal , é para devolver o calendário à Tia Paula ou não?Episódio #07 Prata da Casa , já disponível.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa by BETCLIC&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:51:57</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>7</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #06 - Vítor reformado da Premier League , Lesões crónicas , o melhor 11 possível]]></title>
+			<description><![CDATA[<p>Qual seria o melhor 11 do vosso primeiro nome? Digam aí nos comentários.</p><p><br /></p><p>Prata da Casa #06</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-06---Vtor-reformado-da-Premier-League---Leses-crnicas---o-melhor-11-possvel-e359he2</link>
+			<guid isPermaLink="false">6227c1a5-63da-498d-a3cd-41fc895ba148</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 09 Jul 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/105218946/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-8%2F403550073-44100-2-5b9afa118f8c8.mp3" length="47749746" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Qual seria o melhor 11 do vosso primeiro nome? Digam aí nos comentários.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa #06&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:49:44</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>6</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #05 - Mega Store no Rossio, Vítor engana-se no lixo, André fotografado na intimidade]]></title>
+			<description><![CDATA[<p>Os Fundadores regressam ao estabelecimento depois duma bonita viagem.</p><p>Prata da Casa #05</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-05---Mega-Store-no-Rossio--Vtor-engana-se-no-lixo--Andr-fotografado-na-intimidade-e350ncu</link>
+			<guid isPermaLink="false">5fd668fd-782a-4c92-8cc4-3bb9b207b412</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 02 Jul 2025 12:01:59 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/104930142/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-2%2F403183975-44100-2-a710d4ac8905b.mp3" length="64960469" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Os Fundadores regressam ao estabelecimento depois duma bonita viagem.&lt;/p&gt;&lt;p&gt;Prata da Casa #05&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>false</itunes:explicit>
+			<itunes:duration>01:07:40</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #04 - Desportos buéda loucos , Esports , Memórias Infelizes]]></title>
+			<description><![CDATA[<p>Alguém disponível para um Chess Boxing contra o Vítor?</p><p><br /></p><p>Prata da Casa #04</p><p><br /></p><p><br /></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-04---Desportos-buda-loucos---Esports---Memrias-Infelizes-e34jvkm</link>
+			<guid isPermaLink="false">c7ccb3f5-abc7-4367-aa7c-24b1ef5afe5f</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 25 Jun 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/104512598/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-5-23%2F402647579-44100-2-051c2a56e2ada.mp3" length="53479966" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;Alguém disponível para um Chess Boxing contra o Vítor?&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Prata da Casa #04&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:55:42</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>4</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #03 - Fonética de Carragher , Desportos demasiado longos , GOATs]]></title>
+			<description><![CDATA[<p>💎 Subscreve o canal da Betclic 👉  / @betclicportugal  Descarrega a nossa app, visita o nosso site e segue-nos nas redes sociais! ➡ https://taplink.cc/betclicportugalRedes Sociais de Prata da Casa:Instagramhttps://www.instagram.com/betclicpratadacasa/ Spotifyhttps://open.spotify.com/show/2QtFF6CNfb3JlIqtScZWvm?si=d3e6504607ae432bAndré Pinheirohttps://www.instagram.com/andrepinetree/  Luís Franco-Bastoshttps://www.instagram.com/luisfrancobastos/ Vítor Sáhttps://www.instagram.com/savitorsa/ Kilt Agencyhttps://www.instagram.com/kiltagency/</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-03---Fontica-de-Carragher---Desportos-demasiado-longos---GOATs-e34d0db</link>
+			<guid isPermaLink="false">6f68ddf4-3234-45f4-a132-a315c4a6a842</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 18 Jun 2025 11:00:00 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/104284011/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-5-17%2F402355721-44100-2-9d7527ee65242.mp3" length="42339682" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;💎 Subscreve o canal da Betclic 👉  / @betclicportugal  Descarrega a nossa app, visita o nosso site e segue-nos nas redes sociais! ➡ https://taplink.cc/betclicportugalRedes Sociais de Prata da Casa:Instagramhttps://www.instagram.com/betclicpratadacasa/ Spotifyhttps://open.spotify.com/show/2QtFF6CNfb3JlIqtScZWvm?si=d3e6504607ae432bAndré Pinheirohttps://www.instagram.com/andrepinetree/  Luís Franco-Bastoshttps://www.instagram.com/luisfrancobastos/ Vítor Sáhttps://www.instagram.com/savitorsa/ Kilt Agencyhttps://www.instagram.com/kiltagency/&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:44:06</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>3</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #02 - Luís mentor de Vitinha, Muggle Quidditch, Endrick vs Madalena Costa]]></title>
+			<description><![CDATA[<p>💎 Subscreve o canal da Betclic 👉  / @betclicportugal  Descarrega a nossa app, visita o nosso site e segue-nos nas redes sociais! ➡ <a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbjFKY1RseTdFaHRLVjNGVVlLdXVTTWFQTG9qZ3xBQ3Jtc0ttMU5RVnU2VG5HdzJ2cm1xTncwSEpBd0NLYzJLUjhXUlNDSDJubEZ6SExxU2xwMjV2ZlBUWmVYRk5ob0pVSDlJNEZKVE56cjV1REtTYjZGU3lJdFYzOERBY0hXdGtoTmdFSG1rcjduT29OMXlpUVZPRQ&q=https%3A%2F%2Ftaplink.cc%2Fbetclicportugal&v=nCUYzgXwL2E" target="_blank" rel="nofollow">https://taplink.cc/betclicportugal</a>Redes Sociais de Prata da Casa:Instagram<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbDRKN090bjhwMGlkNUtWN2ZxaUQ3NWNEc2lJd3xBQ3Jtc0tsN19LdFViR3hpWFo4S2oxU1N5V1oxNEdnU1VXelppa09IWV8xb1ZGcXpwNmt2LUJRQjVkOU5KcS1tOVFjTklzbUJaVHo0Y01DWTVoNVExZEVIRXZrVlctOXMtSHJCQlV4a0diUDd3X3UtMXhxUVAwSQ&q=https%3A%2F%2Fwww.instagram.com%2Fbetclicpratadacasa%2F&v=nCUYzgXwL2E" target="_blank" rel="nofollow">  / betclicpratadacasa  </a>Spotify<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2l3WG0tbHdzVXZyMnlGTnlSZWRTZUVFQnktd3xBQ3Jtc0trZ2ZqTEtKSmxIbnljS29hNGtMVHg4R0RXalBLRzBGNmIzWVZsWmlxVGFNZ2taNjVpNGV6ay03bXViQUVDbW9ZdEd4TkI1blVrUHRJalJuZEdGZDJfUXdmbHByRGI1MW10V0E4eUYzVjN3VDEza3UwZw&q=https%3A%2F%2Fopen.spotify.com%2Fepisode%2F2mJN..&v=nCUYzgXwL2E" target="_blank" rel="nofollow">https://open.spotify.com/episode/2mJN..</a>.André Pinheiro<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbjcwV2QxQ2c5emR6ZEd4dTh4NjBsSTVoWVRzd3xBQ3Jtc0tuNFZVSkxfUEo2Z2Noc1FLNGJVZ2NFbnhCTWFVZU4tZE14cjZZU1U2NXFweWdiYmI1bjJEa2w2cFlHZDRrN0NEakVHdTBLODhka2Z1bV9fUG96NkNobjBXOEZIUkNyelhFalIwUi1vSlFUVm5VdHgwSQ&q=https%3A%2F%2Fwww.instagram.com%2Fandrepinetree%2F&v=nCUYzgXwL2E" target="_blank" rel="nofollow">  / andrepinetree  </a> Luís Franco-Bastos<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbEZsZFYzTGVtWGN6WTVPWG0tOE1DQjJ4cWNQUXxBQ3Jtc0trYkF6cl9jdDRla1phRlRXY3NvejI2ZHY5TEJoYWVINEt5Vl9NTlJhWWpaUEhpRW9rTXZfTGdKWkFaMVVHc2tHc3VNdXQ0RDdTa1duRC0yNTFUZVp3bGZoU0F6Zkt3Q2Jfbnd2Mm8yQTBVLTdDLUdpOA&q=https%3A%2F%2Fwww.instagram.com%2Fluisfrancobastos%2F&v=nCUYzgXwL2E" target="_blank" rel="nofollow">  / luisfrancobastos  </a> Vítor Sá<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFBJUkRLTXUxODJSQ1Y1cFUyVEduRFlQNkRCZ3xBQ3Jtc0ttMVlfQkM3ZmZNLWNTaE0tczhCSF9KR0d0Zy16Z21YMzBZRzB1RE9DLV9rWDRBVmRXT0VnUGhqMDNNYXhYSG1SMnM4ZDE1QjUxS3FnTlJXbktDeUw4UmV4TklfMlJnS0lUOWcyU1cyQXRoN1JxZkJ2RQ&q=https%3A%2F%2Fwww.instagram.com%2Fsavitorsa%2F&v=nCUYzgXwL2E" target="_blank" rel="nofollow">  / savitorsa  </a>Kilt Agency<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0IxdTR4TGlWb2ZJMXBTdWJISFR6Z3BOU0Vhd3xBQ3Jtc0trNlZHTlBDMnBmR2x2Tk9xNnlmVkxPbndKR1ZXSWF0YzB4TEVqRG9taTktU2FoMWFFTjd1OEtxUEpOOUloTjlrUTFsMWxKSXJUbFJkOVhOY0U5T3BObXRJQnFWUjEzRlNRdVNfbDluV0Exc3NCbDg4cw&q=https%3A%2F%2Fwww.instagram.com%2Fkiltagency%2F&v=nCUYzgXwL2E" target="_blank" rel="nofollow">  / kiltagency  </a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-02---Lus-mentor-de-Vitinha--Muggle-Quidditch--Endrick-vs-Madalena-Costa-e343lh0</link>
+			<guid isPermaLink="false">800bd2fd-ea99-4a6e-90d4-d8d3a284822e</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 11 Jun 2025 13:41:13 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/103977952/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-5-11%2F401977497-44100-2-47212ee3c398d.mp3" length="48298108" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;💎 Subscreve o canal da Betclic 👉  / @betclicportugal  Descarrega a nossa app, visita o nosso site e segue-nos nas redes sociais! ➡ &lt;a href=&quot;https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbjFKY1RseTdFaHRLVjNGVVlLdXVTTWFQTG9qZ3xBQ3Jtc0ttMU5RVnU2VG5HdzJ2cm1xTncwSEpBd0NLYzJLUjhXUlNDSDJubEZ6SExxU2xwMjV2ZlBUWmVYRk5ob0pVSDlJNEZKVE56cjV1REtTYjZGU3lJdFYzOERBY0hXdGtoTmdFSG1rcjduT29OMXlpUVZPRQ&amp;q=https%3A%2F%2Ftaplink.cc%2Fbetclicportugal&amp;v=nCUYzgXwL2E&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://taplink.cc/betclicportugal&lt;/a&gt;Redes Sociais de Prata da Casa:Instagram&lt;a href=&quot;https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbDRKN090bjhwMGlkNUtWN2ZxaUQ3NWNEc2lJd3xBQ3Jtc0tsN19LdFViR3hpWFo4S2oxU1N5V1oxNEdnU1VXelppa09IWV8xb1ZGcXpwNmt2LUJRQjVkOU5KcS1tOVFjTklzbUJaVHo0Y01DWTVoNVExZEVIRXZrVlctOXMtSHJCQlV4a0diUDd3X3UtMXhxUVAwSQ&amp;q=https%3A%2F%2Fwww.instagram.com%2Fbetclicpratadacasa%2F&amp;v=nCUYzgXwL2E&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;  / betclicpratadacasa  &lt;/a&gt;Spotify&lt;a href=&quot;https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqa2l3WG0tbHdzVXZyMnlGTnlSZWRTZUVFQnktd3xBQ3Jtc0trZ2ZqTEtKSmxIbnljS29hNGtMVHg4R0RXalBLRzBGNmIzWVZsWmlxVGFNZ2taNjVpNGV6ay03bXViQUVDbW9ZdEd4TkI1blVrUHRJalJuZEdGZDJfUXdmbHByRGI1MW10V0E4eUYzVjN3VDEza3UwZw&amp;q=https%3A%2F%2Fopen.spotify.com%2Fepisode%2F2mJN..&amp;v=nCUYzgXwL2E&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://open.spotify.com/episode/2mJN..&lt;/a&gt;.André Pinheiro&lt;a href=&quot;https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbjcwV2QxQ2c5emR6ZEd4dTh4NjBsSTVoWVRzd3xBQ3Jtc0tuNFZVSkxfUEo2Z2Noc1FLNGJVZ2NFbnhCTWFVZU4tZE14cjZZU1U2NXFweWdiYmI1bjJEa2w2cFlHZDRrN0NEakVHdTBLODhka2Z1bV9fUG96NkNobjBXOEZIUkNyelhFalIwUi1vSlFUVm5VdHgwSQ&amp;q=https%3A%2F%2Fwww.instagram.com%2Fandrepinetree%2F&amp;v=nCUYzgXwL2E&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;  / andrepinetree  &lt;/a&gt; Luís Franco-Bastos&lt;a href=&quot;https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbEZsZFYzTGVtWGN6WTVPWG0tOE1DQjJ4cWNQUXxBQ3Jtc0trYkF6cl9jdDRla1phRlRXY3NvejI2ZHY5TEJoYWVINEt5Vl9NTlJhWWpaUEhpRW9rTXZfTGdKWkFaMVVHc2tHc3VNdXQ0RDdTa1duRC0yNTFUZVp3bGZoU0F6Zkt3Q2Jfbnd2Mm8yQTBVLTdDLUdpOA&amp;q=https%3A%2F%2Fwww.instagram.com%2Fluisfrancobastos%2F&amp;v=nCUYzgXwL2E&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;  / luisfrancobastos  &lt;/a&gt; Vítor Sá&lt;a href=&quot;https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbFBJUkRLTXUxODJSQ1Y1cFUyVEduRFlQNkRCZ3xBQ3Jtc0ttMVlfQkM3ZmZNLWNTaE0tczhCSF9KR0d0Zy16Z21YMzBZRzB1RE9DLV9rWDRBVmRXT0VnUGhqMDNNYXhYSG1SMnM4ZDE1QjUxS3FnTlJXbktDeUw4UmV4TklfMlJnS0lUOWcyU1cyQXRoN1JxZkJ2RQ&amp;q=https%3A%2F%2Fwww.instagram.com%2Fsavitorsa%2F&amp;v=nCUYzgXwL2E&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;  / savitorsa  &lt;/a&gt;Kilt Agency&lt;a href=&quot;https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqa0IxdTR4TGlWb2ZJMXBTdWJISFR6Z3BOU0Vhd3xBQ3Jtc0trNlZHTlBDMnBmR2x2Tk9xNnlmVkxPbndKR1ZXSWF0YzB4TEVqRG9taTktU2FoMWFFTjd1OEtxUEpOOUloTjlrUTFsMWxKSXJUbFJkOVhOY0U5T3BObXRJQnFWUjEzRlNRdVNfbDluV0Exc3NCbDg4cw&amp;q=https%3A%2F%2Fwww.instagram.com%2Fkiltagency%2F&amp;v=nCUYzgXwL2E&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;  / kiltagency  &lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:50:18</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>2</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[Prata da Casa #01 - Ed. Física conta para a nota, Jamor explicado a estrangeiros, Snooker é fixe]]></title>
+			<description><![CDATA[<p>💎 Subscreve o canal da Betclic 👉 / @betclicportugal Descarrega a nossa app, visita o nosso site e segue-nos nas redes sociais! ➡ https://taplink.cc/betclicportugalSite oficial: https://www.betclic.pt/Segue-nos nas Redes Sociais:Instagramhttps://www.instagram.com/betclicportugal/Twitterhttps://x.com/BetclicPortugalFacebookhttps://www.facebook.com/BetclicPortugalRedes Sociais de Prata da Casa:Instagramhttps://www.instagram.com/betclicpratadacasa/SpotifyAndré Pinheirohttps://www.instagram.com/andrepinetree/Luís Franco-Bastoshttps://www.instagram.com/luisfrancobastos/Vítor Sáhttps://www.instagram.com/savitorsa/Kilt Agencyhttps://www.instagram.com/kiltagency/</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/prata-da-casa/episodes/Prata-da-Casa-01---Ed--Fsica-conta-para-a-nota--Jamor-explicado-a-estrangeiros--Snooker--fixe-e33pkeo</link>
+			<guid isPermaLink="false">5276c129-d17c-48f4-8092-de0ba03fd491</guid>
+			<dc:creator><![CDATA[Betclic Portugal]]></dc:creator>
+			<pubDate>Wed, 04 Jun 2025 12:00:48 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/1056d2710/podcast/play/103649176/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-5-4%2F401596910-44100-2-c22dcbbed0df.mp3" length="52298813" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;💎 Subscreve o canal da Betclic 👉 / @betclicportugal Descarrega a nossa app, visita o nosso site e segue-nos nas redes sociais! ➡ https://taplink.cc/betclicportugalSite oficial: https://www.betclic.pt/Segue-nos nas Redes Sociais:Instagramhttps://www.instagram.com/betclicportugal/Twitterhttps://x.com/BetclicPortugalFacebookhttps://www.facebook.com/BetclicPortugalRedes Sociais de Prata da Casa:Instagramhttps://www.instagram.com/betclicpratadacasa/SpotifyAndré Pinheirohttps://www.instagram.com/andrepinetree/Luís Franco-Bastoshttps://www.instagram.com/luisfrancobastos/Vítor Sáhttps://www.instagram.com/savitorsa/Kilt Agencyhttps://www.instagram.com/kiltagency/&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>true</itunes:explicit>
+			<itunes:duration>00:54:28</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/43760068/43760068-1748975282148-86790197f372e.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>1</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+	</channel>
+</rss>
