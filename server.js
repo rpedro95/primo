@@ -2825,9 +2825,15 @@ app.get('/load-watchtm-from-file', async (req,res)=>{
 });
 
 
-// --- Start server ---
-server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-  console.log(`WebSocket server running on ws://localhost:${PORT}`);
-  console.log('📡 Episódios serão verificados quando a página for aberta');
-});
+// For Vercel deployment
+if (process.env.NODE_ENV === 'production') {
+  // Export the app for Vercel
+  module.exports = app;
+} else {
+  // Start server locally
+  server.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`WebSocket server running on ws://localhost:${PORT}`);
+    console.log('📡 Episódios serão verificados quando a página for aberta');
+  });
+}
