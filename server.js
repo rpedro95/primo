@@ -119,12 +119,18 @@ wss.on('connection', (ws, req) => {
 
 // Função para enviar notificação para um utilizador específico
 function sendNotificationToUser(targetUser, notification) {
+  console.log(`📤 Enviando notificação para ${targetUser}:`, notification);
+  
   const connection = userConnections.get(targetUser);
   if (connection && connection.readyState === 1) { // WebSocket.OPEN
-    connection.send(JSON.stringify({
+    const messageToSend = {
       type: 'notification',
       ...notification
-    }));
+    };
+    
+    console.log(`📤 Mensagem WebSocket a enviar:`, messageToSend);
+    
+    connection.send(JSON.stringify(messageToSend));
     console.log(`✅ Notificação enviada para ${targetUser}`);
     return true;
   } else {
@@ -1165,7 +1171,17 @@ app.post('/api/notify', express.json(), (req, res) => {
   console.log('Received notification request:', req.body);
   const { targetUser, podcastName, rating, message, fromUser, podcastId } = req.body;
 
+  // Log individual fields for debugging
+  console.log('Field validation:');
+  console.log('  targetUser:', targetUser, typeof targetUser);
+  console.log('  podcastName:', podcastName, typeof podcastName);
+  console.log('  rating:', rating, typeof rating);
+  console.log('  message:', message, typeof message);
+  console.log('  fromUser:', fromUser, typeof fromUser);
+  console.log('  podcastId:', podcastId, typeof podcastId);
+
   if (!targetUser || !podcastName || !rating || !message || !fromUser) {
+    console.error('Missing required fields in notification request');
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -1182,6 +1198,16 @@ app.post('/api/notify', express.json(), (req, res) => {
     }
 
     // Enviar notificação via WebSocket
+    console.log('📝 Criando objeto notification com:');
+    console.log('  targetUser:', targetUser);
+    console.log('  podcastName:', podcastName);
+    console.log('  episodeNumber:', episodeNumber);
+    console.log('  rating:', rating);
+    console.log('  message:', message);
+    console.log('  fromUser:', fromUser);
+    console.log('  episodeNum:', episodeNum);
+    console.log('  podcastId:', podcastId);
+    
     const notification = {
       targetUser,
       podcastName: `${podcastName}${episodeNumber}`,
@@ -1192,6 +1218,8 @@ app.post('/api/notify', express.json(), (req, res) => {
       podcastId,
       timestamp: new Date().toISOString()
     };
+    
+    console.log('📝 Objeto notification criado:', notification);
     
     const sent = sendNotificationToUser(targetUser, notification);
     

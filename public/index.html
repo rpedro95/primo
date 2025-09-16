@@ -157,14 +157,27 @@ function connectWebSocket() {
 
 // Função para mostrar notificação recebida
 function showReceivedNotification(notification) {
+  console.log('Notificação recebida:', notification);
+  
+  // O fromUser deve sempre estar presente e ser válido (Pedro ou João)
+  const fromUser = notification.fromUser;
+  const rating = notification.rating;
+  const message = notification.message;
+  const podcastName = notification.podcastName;
   const episodeText = notification.episodeNumber ? ` - Ep ${notification.episodeNumber}` : '';
+  
+  // Verificar se os dados essenciais estão presentes
+  if (!fromUser || !rating || !message || !podcastName) {
+    console.error('Notificação com dados incompletos:', notification);
+    return;
+  }
   
   // Mostrar notificação nativa do browser
   if ('Notification' in window && Notification.permission === 'granted') {
-    const notif = new Notification(`🎧 ${notification.podcastName}${episodeText}`, {
-      body: `${notification.fromUser} avaliou com ${notification.rating}/10: "${notification.message}"`,
+    const notif = new Notification(`🎧 ${podcastName}${episodeText}`, {
+      body: `${fromUser} avaliou com ${rating}/10: "${message}"`,
       icon: '/img/notification-icon.png',
-      tag: `notification-${notification.timestamp}`
+      tag: `notification-${notification.timestamp || Date.now()}`
     });
     
     // Fechar após 8 segundos
@@ -173,8 +186,8 @@ function showReceivedNotification(notification) {
   
   // Mostrar também um alerta SweetAlert
   Swal.fire({
-    title: `🎧 ${notification.podcastName}${episodeText}`,
-    text: `${notification.fromUser} avaliou com ${notification.rating}/10: "${notification.message}"`,
+    title: `🎧 ${podcastName}${episodeText}`,
+    text: `${fromUser} avaliou com ${rating}/10: "${message}"`,
     icon: 'info',
     timer: 5000,
     showConfirmButton: false,
@@ -249,6 +262,12 @@ async function clearRating(podcastId) {
 // Função para enviar notificação
 async function sendNotificationToUser(targetUser, podcastName, rating, message, podcastId) {
   try {
+    // Verificar se currentUser está definido
+    if (!currentUser) {
+      console.error('currentUser não está definido');
+      return;
+    }
+
     // Verificar se notificações estão disponíveis
     if (!('Notification' in window)) {
       console.log('Este browser não suporta notificações');
@@ -260,6 +279,8 @@ async function sendNotificationToUser(targetUser, podcastName, rating, message, 
       console.log('Permissão para notificações negada');
       return;
     }
+
+    console.log('Enviando notificação:', { targetUser, podcastName, rating, message, fromUser: currentUser, podcastId });
 
     // Enviar notificação via API
     const response = await fetch('/api/notify', {

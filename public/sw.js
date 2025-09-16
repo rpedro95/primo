@@ -95,21 +95,29 @@ self.addEventListener('push', (event) => {
   if (event.data) {
     try {
       const data = event.data.json();
+      console.log('Service Worker: Push data received:', data);
+      
       const episodeText = data.data?.episodeNumber ? ` - Ep ${data.data.episodeNumber}` : '';
       
+      console.log('Service Worker: Creating notification with:');
+      console.log('  fromUser:', data.data?.fromUser);
+      console.log('  rating:', data.data?.rating);
+      console.log('  message:', data.data?.message);
+      console.log('  podcastName:', data.title);
+      
       notificationData = {
-        title: `🎧 ${data.podcastName}${episodeText}`,
-        body: `${data.fromUser} avaliou com ${data.rating}/10: "${data.message}"`,
+        title: `🎧 ${data.title}${episodeText}`,
+        body: `${data.data.fromUser} avaliou com ${data.data.rating}/10: "${data.data.message}"`,
         icon: '/img/icon-192.svg',
         badge: '/img/badge-72.svg',
-        tag: `podcast-${data.podcastName}-${Date.now()}`,
+        tag: `podcast-${data.title}-${Date.now()}`,
         requireInteraction: true,
         data: {
           url: '/',
-          podcastName: data.podcastName,
-          fromUser: data.fromUser,
-          rating: data.rating,
-          message: data.message,
+          podcastName: data.title,
+          fromUser: data.data.fromUser,
+          rating: data.data.rating,
+          message: data.data.message,
           episodeNumber: data.data?.episodeNumber
         },
         actions: [

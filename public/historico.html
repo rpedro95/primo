@@ -7,41 +7,57 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
   body {
-    font-family: Arial, sans-serif;
-    background: #121212;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     margin: 0;
-    padding: 2rem;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
   }
   
   .header {
     text-align: center;
     margin-bottom: 2rem;
+    padding: 2rem 0;
   }
   
   .back-button {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    background: #333;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.2);
     color: white;
-    border: 1px solid #555;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+    border-radius: 25px;
     cursor: pointer;
     text-decoration: none;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+    z-index: 1000;
   }
   
   .back-button:hover {
-    background: #555;
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
   }
   
   .table-container {
-    background: #1e1e1e;
-    border-radius: 10px;
-    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
     overflow-x: auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
   
   table {
@@ -51,137 +67,257 @@
   }
   
   th, td {
-    padding: 12px;
+    padding: 15px 12px;
     text-align: left;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   th {
-    background: #333;
-    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
   
   tr:hover {
-    background: #2a2a2a;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Mobile responsive design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0.5rem;
+    }
+    
+    .header {
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+    }
+    
+    .back-button {
+      position: relative;
+      top: auto;
+      left: auto;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    
+    .table-container {
+      padding: 1rem;
+      border-radius: 15px;
+    }
+    
+    table {
+      font-size: 0.85rem;
+    }
+    
+    th, td {
+      padding: 10px 8px;
+    }
+    
+    /* Hide some columns on mobile */
+    .mobile-hide {
+      display: none;
+    }
+    
+    /* Make action buttons stack vertically on mobile */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .action-buttons button {
+      width: 100%;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .table-container {
+      padding: 0.5rem;
+    }
+    
+    table {
+      font-size: 0.8rem;
+    }
+    
+    th, td {
+      padding: 8px 6px;
+    }
+    
+    /* Further hide columns on very small screens */
+    .very-mobile-hide {
+      display: none;
+    }
   }
   
   .rating {
     font-weight: bold;
     color: #ffd700;
+    font-size: 1.1rem;
   }
   
   .no-rating {
-    color: #666;
+    color: rgba(255, 255, 255, 0.5);
     font-style: italic;
   }
   
   .notify-btn {
-    background: #4a9eff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 12px;
-    transition: background 0.3s;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
   }
   
   .notify-btn:hover {
-    background: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
   }
   
   .notify-btn:disabled {
-    background: #666;
+    background: rgba(255, 255, 255, 0.2);
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
   
   .rate-btn {
-    background: #28a745;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 12px;
-    margin-right: 5px;
-    transition: background 0.3s;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
   }
   
   .rate-btn:hover {
-    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
   }
   
   .rate-btn:disabled {
-    background: #666;
+    background: rgba(255, 255, 255, 0.2);
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
   
   .clear-btn {
-    background: #dc3545;
+    background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 12px;
-    transition: background 0.3s;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
   }
   
   .clear-btn:hover {
-    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
   }
   
   .clear-btn:disabled {
-    background: #666;
+    background: rgba(255, 255, 255, 0.2);
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
   
   .loading {
     text-align: center;
-    padding: 2rem;
-    color: #666;
+    padding: 3rem 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+  }
+  
+  .loading p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
   
   .error {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     color: #ff6b6b;
+    font-size: 1.1rem;
+  }
+  
+  .error p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Add some animation to loading */
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+  
+  .loading p {
+    animation: pulse 2s infinite;
   }
 </style>
 </head>
 <body>
 
-<a href="/" class="back-button">← Voltar</a>
+<div class="container">
+  <a href="/" class="back-button">← Voltar</a>
 
-<div class="header">
-  <h1 id="podcast-title">Histórico do Podcast</h1>
-  <p id="podcast-subtitle">Carregando episódios...</p>
-</div>
+  <div class="header">
+    <h1 id="podcast-title">Histórico do Podcast</h1>
+    <p id="podcast-subtitle">Carregando episódios...</p>
+  </div>
 
-<div class="table-container">
-  <div id="loading" class="loading">
-    <p>🔄 A carregar episódios...</p>
+  <div class="table-container">
+    <div id="loading" class="loading">
+      <p>🔄 A carregar episódios...</p>
+    </div>
+    
+    <div id="error" class="error" style="display: none;">
+      <p>❌ Erro ao carregar episódios</p>
+    </div>
+    
+    <table id="episodes-table" style="display: none;">
+      <thead>
+        <tr>
+          <th>Episódio</th>
+          <th class="mobile-hide">Título</th>
+          <th class="very-mobile-hide">Data</th>
+          <th>Pedro</th>
+          <th>João</th>
+          <th>Avaliar</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="episodes-tbody">
+      </tbody>
+    </table>
   </div>
-  
-  <div id="error" class="error" style="display: none;">
-    <p>❌ Erro ao carregar episódios</p>
-  </div>
-  
-  <table id="episodes-table" style="display: none;">
-    <thead>
-      <tr>
-        <th>Episódio</th>
-        <th>Título</th>
-        <th>Data</th>
-        <th>Pedro</th>
-        <th>João</th>
-        <th>Avaliar</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody id="episodes-tbody">
-    </tbody>
-  </table>
 </div>
 
 <script>
@@ -250,19 +386,21 @@ function displayEpisodes(episodes) {
     
     row.innerHTML = `
       <td><strong>#${episode.numero}</strong></td>
-      <td>${episode.titulo}</td>
-      <td>${formatDate(episode.data_publicacao)}</td>
+      <td class="mobile-hide">${episode.titulo}</td>
+      <td class="very-mobile-hide">${formatDate(episode.data_publicacao)}</td>
       <td class="rating">${pedroRating > 0 ? pedroRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
       <td class="rating">${joaoRating > 0 ? joaoRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
       <td>
-        <button class="rate-btn" onclick="rateEpisode(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${myRating})" 
-                ${!currentUser ? 'disabled' : ''}>
-          ${myRating > 0 ? 'Alterar' : 'Avaliar'}
-        </button>
-        ${myRating > 0 ? `<button class="clear-btn" onclick="clearRating(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}')" 
-                ${!currentUser ? 'disabled' : ''}>
-          Limpar
-        </button>` : ''}
+        <div class="action-buttons">
+          <button class="rate-btn" onclick="rateEpisode(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${myRating})" 
+                  ${!currentUser ? 'disabled' : ''}>
+            ${myRating > 0 ? 'Alterar' : 'Avaliar'}
+          </button>
+          ${myRating > 0 ? `<button class="clear-btn" onclick="clearRating(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}')" 
+                  ${!currentUser ? 'disabled' : ''}>
+            Limpar
+          </button>` : ''}
+        </div>
       </td>
       <td>
         <button class="notify-btn" onclick="sendNotification(${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${pedroRating}, ${joaoRating})" 
