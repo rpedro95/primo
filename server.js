@@ -494,6 +494,52 @@ async function fillAllPodcastHistories() {
   console.log('\n🎉 Preenchimento de históricos concluído!');
 }
 
+// Função para preencher histórico de um podcast específico
+async function fillPodcastHistory(podcast) {
+  console.log(`\n📚 Preenchendo histórico de ${podcast.nome}...`);
+  
+  try {
+    let episodes = [];
+    
+    if(podcast.plataforma === "spotify" || podcast.plataforma === "soundcloud"){
+      episodes = await getAllRssEpisodes(podcast);
+    } else if(podcast.plataforma === "youtube"){
+      episodes = await getAllYoutubeEpisodes(podcast);
+    }
+    
+    if(episodes && episodes.length > 0){
+      console.log(`   📥 Encontrados ${episodes.length} episódios para ${podcast.nome}`);
+      
+      // Inserir episódios na base de dados (ignorar duplicados)
+      const insertEpisode = db.prepare(`
+        INSERT OR IGNORE INTO episodios (podcast_id, numero, titulo, data_publicacao) 
+        VALUES (?, ?, ?, ?)
+      `);
+      
+      let addedCount = 0;
+      for(const episode of episodes){
+        const result = insertEpisode.run(
+          podcast.id, 
+          episode.episodeNum, 
+          episode.title, 
+          episode.pubDate.toISOString()
+        );
+        if(result.changes > 0) addedCount++;
+      }
+      
+      console.log(`   ✅ Adicionados ${addedCount} novos episódios para ${podcast.nome}`);
+      return { success: true, addedCount, totalFound: episodes.length };
+    } else {
+      console.log(`   ⚠️  Nenhum episódio encontrado para ${podcast.nome}`);
+      return { success: true, addedCount: 0, totalFound: 0 };
+    }
+    
+  } catch(error) {
+    console.error(`   ❌ Erro ao preencher ${podcast.nome}:`, error.message);
+    return { success: false, error: error.message };
+  }
+}
+
 // Função para buscar todos os episódios de um podcast RSS
 async function getAllRssEpisodes(podcast) {
   try {
@@ -1424,6 +1470,35 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
     console.log(`Podcast adicionado: ${nome} (ID: ${id})`);
     console.log(`Imagem guardada: ${req.file.filename}`);
     
+    // Criar objeto podcast para carregar histórico
+    const newPodcast = {
+      id,
+      nome,
+      link,
+      dia_da_semana,
+      imagem,
+      plataforma: plataforma || null,
+      rss: rss || null,
+      channelId: channelId || null
+    };
+    
+    // Carregar histórico automaticamente para Spotify/SoundCloud/YouTube
+    let historyResult = null;
+    if (plataforma === 'spotify' || plataforma === 'soundcloud' || plataforma === 'youtube') {
+      console.log(`🔄 Carregando histórico automaticamente para ${nome}...`);
+      try {
+        historyResult = await fillPodcastHistory(newPodcast);
+        if (historyResult.success) {
+          console.log(`✅ Histórico carregado: ${historyResult.addedCount} episódios adicionados de ${historyResult.totalFound} encontrados`);
+        } else {
+          console.log(`⚠️ Erro ao carregar histórico: ${historyResult.error}`);
+        }
+      } catch (error) {
+        console.error(`❌ Erro ao carregar histórico para ${nome}:`, error.message);
+        historyResult = { success: false, error: error.message };
+      }
+    }
+    
     res.json({ 
       success: true, 
       message: 'Podcast adicionado com sucesso',
@@ -1437,7 +1512,10 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
         rss, 
         channelId,
         imageFile: req.file.filename
-      }
+      },
+      historyLoaded: historyResult ? historyResult.success : false,
+      episodesAdded: historyResult ? historyResult.addedCount : 0,
+      episodesFound: historyResult ? historyResult.totalFound : 0
     });
     
   } catch (error) {

@@ -188,8 +188,9 @@
         <label for="plataforma" class="required">Plataforma</label>
         <select id="plataforma" name="plataforma" required>
           <option value="">Seleciona uma plataforma</option>
-          <option value="Spotify">Spotify</option>
-          <option value="YouTube">YouTube</option>
+          <option value="spotify">Spotify</option>
+          <option value="soundcloud">SoundCloud</option>
+          <option value="youtube">YouTube</option>
         </select>
         <div class="help-text">Plataforma principal onde o podcast está disponível</div>
       </div>
@@ -266,11 +267,11 @@
       channelIdInput.value = '';
       
       // Mostrar o grupo correto consoante a plataforma
-      if (plataforma === 'Spotify') {
+      if (plataforma === 'spotify' || plataforma === 'soundcloud') {
         rssGroup.style.display = 'block';
         rssInput.required = true;
         channelIdInput.required = false;
-      } else if (plataforma === 'YouTube') {
+      } else if (plataforma === 'youtube') {
         channelIdGroup.style.display = 'block';
         channelIdInput.required = true;
         rssInput.required = false;
@@ -310,7 +311,18 @@
         const result = await res.json();
 
         if (result.success) {
-          showMessage(`✅ ${result.message} - "${result.podcast.nome}" adicionado!`);
+          let message = `✅ ${result.message} - "${result.podcast.nome}" adicionado!`;
+          
+          // Adicionar informação sobre o histórico carregado
+          if (result.historyLoaded !== undefined) {
+            if (result.historyLoaded) {
+              message += `\n📚 Histórico carregado: ${result.episodesAdded} episódios adicionados de ${result.episodesFound} encontrados`;
+            } else {
+              message += `\n⚠️ Histórico não foi carregado automaticamente`;
+            }
+          }
+          
+          showMessage(message);
           e.target.reset();
           document.getElementById('imagePreview').style.display = 'none';
         } else {
