@@ -1556,6 +1556,10 @@ app.get('/fix-default-images', async (req, res) => {
   try {
     console.log('🖼️ Corrigindo imagens dos podcasts padrão...');
     
+    // Primeiro, verificar quais podcasts existem na BD
+    const existingPodcasts = await dbAll('SELECT nome FROM podcasts');
+    console.log('📋 Podcasts existentes na BD:', existingPodcasts.map(p => p.nome));
+    
     const defaultPodcasts = [
       { nome: "watch.tm", imagem: findImagePath("watch.tm") },
       { nome: "à noite mata", imagem: findImagePath("à noite mata") },
@@ -1570,6 +1574,9 @@ app.get('/fix-default-images', async (req, res) => {
     
     let updatedCount = 0;
     for (const podcast of defaultPodcasts) {
+      console.log(`🔍 Processando ${podcast.nome}...`);
+      console.log(`   Imagem encontrada: ${podcast.imagem}`);
+      
       const result = await dbRun(
         dbType === 'postgres' 
           ? `UPDATE podcasts SET imagem = $1 WHERE nome = $2`
@@ -1577,9 +1584,13 @@ app.get('/fix-default-images', async (req, res) => {
         [podcast.imagem, podcast.nome]
       );
       
+      console.log(`   Resultado da atualização: ${result.changes} mudanças`);
+      
       if (result.changes > 0) {
         console.log(`✅ ${podcast.nome}: ${podcast.imagem}`);
         updatedCount++;
+      } else {
+        console.log(`⚠️ ${podcast.nome}: Nenhuma mudança (podcast pode não existir na BD)`);
       }
     }
     
