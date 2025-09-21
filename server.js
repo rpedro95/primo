@@ -498,6 +498,38 @@ CREATE TABLE IF NOT EXISTS ratings (
   console.error('❌ Erro ao criar tabela ratings:', error);
 }
 
+// --- Tabela notifications ---
+try {
+  if (dbType === 'postgres') {
+    await dbRun(`
+      CREATE TABLE IF NOT EXISTS notifications (
+        id SERIAL PRIMARY KEY,
+        episode_id INTEGER NOT NULL,
+        from_user VARCHAR(50) NOT NULL,
+        to_user VARCHAR(50) NOT NULL,
+        message TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(episode_id) REFERENCES episodios(id)
+      );
+    `);
+  } else {
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS notifications (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        episode_id INTEGER NOT NULL,
+        from_user TEXT NOT NULL,
+        to_user TEXT NOT NULL,
+        message TEXT NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(episode_id) REFERENCES episodios(id)
+      );
+    `);
+  }
+  console.log('✅ Tabela notifications criada/verificada');
+} catch (error) {
+  console.error('❌ Erro ao criar tabela notifications:', error);
+}
+
 // Migrar para nova estrutura com episode_id
 try {
   if (dbType === 'postgres') {
@@ -1661,18 +1693,24 @@ app.get('/api/episodes/:podcastId', async (req, res) => {
     const episodes = await dbAll(
       dbType === 'postgres' 
         ? `SELECT e.id, e.numero, e.titulo, e.data_publicacao,
-             rp.rating as "ratingPedro", rj.rating as "ratingJoao"
+             rp.rating as "ratingPedro", rj.rating as "ratingJoao",
+             COUNT(n.id) as notification_count
            FROM episodios e
            LEFT JOIN ratings rp ON e.id = rp.episode_id AND rp."user" = 'Pedro'
            LEFT JOIN ratings rj ON e.id = rj.episode_id AND rj."user" = 'João'
+           LEFT JOIN notifications n ON e.id = n.episode_id
            WHERE e.podcast_id = $1
+           GROUP BY e.id, e.numero, e.titulo, e.data_publicacao, rp.rating, rj.rating
            ORDER BY e.numero DESC`
         : `SELECT e.id, e.numero, e.titulo, e.data_publicacao,
-             rp.rating as ratingPedro, rj.rating as ratingJoao
+             rp.rating as ratingPedro, rj.rating as ratingJoao,
+             COUNT(n.id) as notification_count
            FROM episodios e
            LEFT JOIN ratings rp ON e.id = rp.episode_id AND rp.user = 'Pedro'
            LEFT JOIN ratings rj ON e.id = rj.episode_id AND rj.user = 'João'
+           LEFT JOIN notifications n ON e.id = n.episode_id
            WHERE e.podcast_id = ?
+           GROUP BY e.id, e.numero, e.titulo, e.data_publicacao, rp.rating, rj.rating
            ORDER BY e.numero DESC`,
       [podcastId]
     );
@@ -1962,6 +2000,41 @@ app.post('/api/notify', express.json(), async (req, res) => {
         });
     }
     
+    // Guardar notificação na base de dados
+    let savedNotification = null;
+    if (podcastId) {
+      try {
+        // Buscar o ID do episódio mais recente
+        const latestEpisode = await dbGet(
+          dbType === 'postgres' 
+            ? `SELECT id FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
+            : `SELECT id FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`,
+          [podcastId]
+        );
+        
+        if (latestEpisode) {
+          const result = await dbRun(
+            dbType === 'postgres' 
+              ? `INSERT INTO notifications (episode_id, from_user, to_user, message) VALUES ($1, $2, $3, $4)`
+              : `INSERT INTO notifications (episode_id, from_user, to_user, message) VALUES (?, ?, ?, ?)`,
+            [latestEpisode.id, fromUser, targetUser, message]
+          );
+          
+          savedNotification = {
+            id: result.lastInsertRowid,
+            episode_id: latestEpisode.id,
+            from_user: fromUser,
+            to_user: targetUser,
+            message: message
+          };
+          
+          console.log(`💾 Notificação guardada na BD com ID: ${result.lastInsertRowid}`);
+        }
+      } catch (error) {
+        console.error('❌ Erro ao guardar notificação na BD:', error);
+      }
+    }
+    
     console.log(`📱 NOTIFICATION for ${targetUser}:`);
     console.log(`   From: ${fromUser}`);
     console.log(`   Podcast: ${podcastName}`);
@@ -1969,11 +2042,13 @@ app.post('/api/notify', express.json(), async (req, res) => {
     console.log(`   Message: "${message}"`);
     console.log(`   Sent via WebSocket: ${sent}`);
     console.log(`   Push subscription available: ${!!pushSubscription}`);
+    console.log(`   Saved to database: ${!!savedNotification}`);
     
     res.json({ 
       success: true, 
       message: sent ? 'Notification sent successfully' : 'User not connected',
-      notification: notification
+      notification: notification,
+      saved: !!savedNotification
     });
   } catch (error) {
     console.error('Error sending notification:', error);
@@ -2287,6 +2362,29 @@ app.get('/reload-watchtm', async (req,res)=>{
       error: 'Erro ao repopular watch.tm', 
       message: error.message 
     });
+  }
+});
+
+// --- API: get notifications for an episode ---
+app.get('/api/episodes/:episodeId/notifications', async (req, res) => {
+  const { episodeId } = req.params;
+  
+  if (!episodeId) {
+    return res.status(400).json({ error: 'Missing episodeId' });
+  }
+  
+  try {
+    const notifications = await dbAll(
+      dbType === 'postgres' 
+        ? `SELECT id, from_user, to_user, message, created_at FROM notifications WHERE episode_id = $1 ORDER BY created_at DESC`
+        : `SELECT id, from_user, to_user, message, created_at FROM notifications WHERE episode_id = ? ORDER BY created_at DESC`,
+      [episodeId]
+    );
+    
+    res.json({ notifications });
+  } catch (error) {
+    console.error('Error fetching notifications:', error);
+    res.status(500).json({ error: 'Failed to fetch notifications' });
   }
 });
 

@@ -241,6 +241,29 @@
     box-shadow: none;
   }
   
+  .notification-btn {
+    background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(255, 193, 7, 0.3);
+  }
+  
+  .notification-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+  }
+  
+  .no-notifications {
+    color: rgba(255, 255, 255, 0.4);
+    font-style: italic;
+  }
+  
   .loading {
     text-align: center;
     padding: 3rem 2rem;
@@ -310,6 +333,7 @@
           <th class="very-mobile-hide">Data</th>
           <th>Pedro</th>
           <th>João</th>
+          <th>Notificações</th>
           <th>Avaliar</th>
           <th>Ações</th>
         </tr>
@@ -384,12 +408,20 @@ function displayEpisodes(episodes) {
     const joaoRating = episode.ratingJoao;
     const myRating = currentUser === 'Pedro' ? pedroRating : joaoRating;
     
+    const notificationCount = episode.notification_count || 0;
+    const notificationButton = notificationCount > 0 
+      ? `<button class="notification-btn" onclick="showNotifications(${episode.id})" title="Ver notificações">
+           🔔 ${notificationCount}
+         </button>`
+      : '<span class="no-notifications">-</span>';
+    
     row.innerHTML = `
       <td><strong>#${episode.numero}</strong></td>
       <td class="mobile-hide">${episode.titulo}</td>
       <td class="very-mobile-hide">${formatDate(episode.data_publicacao)}</td>
       <td class="rating">${pedroRating ? pedroRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
       <td class="rating">${joaoRating ? joaoRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
+      <td class="notifications">${notificationButton}</td>
       <td>
         <div class="action-buttons">
           <button class="rate-btn" onclick="rateEpisode(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${myRating})" 
@@ -679,6 +711,72 @@ async function sendNotification(episodeNumber, episodeTitle, pedroRating, joaoRa
   
   await loadEpisodes();
 })();
+
+// Função para mostrar notificações de um episódio
+async function showNotifications(episodeId) {
+  try {
+    const response = await fetch(`/api/episodes/${episodeId}/notifications`);
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.error || 'Erro ao carregar notificações');
+    }
+    
+    const notifications = data.notifications || [];
+    
+    if (notifications.length === 0) {
+      Swal.fire({
+        title: 'Notificações',
+        text: 'Nenhuma notificação encontrada para este episódio.',
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+    
+    // Criar HTML das notificações
+    let notificationsHtml = '<div style="text-align: left; max-height: 400px; overflow-y: auto;">';
+    
+    notifications.forEach(notification => {
+      const date = new Date(notification.created_at).toLocaleString('pt-PT');
+      notificationsHtml += `
+        <div style="margin-bottom: 15px; padding: 10px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; border-left: 4px solid #ffc107;">
+          <div style="font-weight: bold; color: #ffc107; margin-bottom: 5px;">
+            ${notification.from_user} → ${notification.to_user}
+          </div>
+          <div style="margin-bottom: 5px; color: white;">
+            ${notification.message}
+          </div>
+          <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">
+            ${date}
+          </div>
+        </div>
+      `;
+    });
+    
+    notificationsHtml += '</div>';
+    
+    Swal.fire({
+      title: `Notificações (${notifications.length})`,
+      html: notificationsHtml,
+      width: '600px',
+      showConfirmButton: true,
+      confirmButtonText: 'Fechar',
+      customClass: {
+        popup: 'swal-wide'
+      }
+    });
+    
+  } catch (error) {
+    console.error('Erro ao carregar notificações:', error);
+    Swal.fire({
+      title: 'Erro',
+      text: 'Erro ao carregar notificações: ' + error.message,
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
+  }
+}
 </script>
 
 </body>
