@@ -167,17 +167,20 @@ if (isPostgres) {
   console.log(`🔗 Connection string: ${connectionString.replace(/:[^:@]+@/, ':***@')}`); // Hide password in logs
   
   try {
+    // Use individual connection parameters instead of connection string
     const pool = new Pool({
-      connectionString: connectionString,
+      host: 'primo.railway.internal',
+      port: 5432,
+      database: 'railway',
+      user: 'postgres',
+      password: 'ZPoCNUzJoRIMtYUsmIDIZpOzzqYPbKIB',
       ssl: { rejectUnauthorized: false },
       // Force IPv4 to avoid IPv6 connection issues
-      host: process.env.PGHOST || 'primo.railway.internal',
-      port: process.env.PGPORT || 5432,
-      database: process.env.PGDATABASE || 'railway',
-      user: process.env.PGUSER || 'postgres',
-      password: process.env.POSTGRES_PASSWORD || process.env.PGPASSWORD,
-      // Additional options to force IPv4
-      family: 4
+      family: 4,
+      // Additional connection options
+      connectionTimeoutMillis: 10000,
+      idleTimeoutMillis: 30000,
+      max: 10
     });
     db = pool;
     console.log('✅ Pool PostgreSQL criado com sucesso');
