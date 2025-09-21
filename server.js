@@ -759,19 +759,30 @@ async function checkRssPodcast(podcast) {
 async function checkYoutubePodcast(podcast) {
   try {
     const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${podcast.channelId}`;
+    console.log(`🔍 Verificando YouTube RSS para ${podcast.nome}: ${rssUrl}`);
     const res = await fetch(rssUrl);
-    if (!res.ok) throw new Error(`Erro ao buscar RSS YouTube: ${res.status}`);
+    if (!res.ok) {
+      console.error(`❌ Erro HTTP ${res.status} para ${podcast.nome}: ${rssUrl}`);
+      throw new Error(`Erro ao buscar RSS YouTube: ${res.status}`);
+    }
     const xml = await res.text();
     const data = await parseStringPromise(xml);
     const entries = data.feed.entry;
-    if (!entries || entries.length === 0) return null;
+    if (!entries || entries.length === 0) {
+      console.log(`⚠️ Nenhum vídeo encontrado para ${podcast.nome}`);
+      return null;
+    }
     const latest = entries[0];
     const title = latest['title'][0];
     const pubDate = new Date(latest['published'][0]);
     const match = title.match(/(\d{1,4})/);
     const episodeNum = match ? parseInt(match[1],10) : null;
+    console.log(`✅ YouTube RSS OK para ${podcast.nome}: ${title}`);
     return { episodeNum, title, pubDate };
-  } catch(err) { console.error(`Erro YouTube podcast ${podcast.nome}:`, err); return null; }
+  } catch(err) { 
+    console.error(`❌ Erro YouTube podcast ${podcast.nome} (Channel ID: ${podcast.channelId}):`, err.message); 
+    return null; 
+  }
 }
 
 async function updatePodcasts() {
