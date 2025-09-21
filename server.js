@@ -2491,7 +2491,7 @@ app.get('/api/podcast/:podcastName/update', async (req, res) => {
 });
 
 // --- API: fix Correr De Chinelos episodes parsing ---
-app.post('/api/podcast/Correr De Chinelos/fix-parsing', async (req, res) => {
+app.post('/api/fix-correr-de-chinelos', async (req, res) => {
   try {
     console.log('🔧 Corrigindo parsing dos episódios do Correr De Chinelos...');
     
