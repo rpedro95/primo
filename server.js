@@ -162,7 +162,18 @@ if (isPostgres) {
       // Additional connection options
       connectionTimeoutMillis: 10000,
       idleTimeoutMillis: 30000,
-      max: 10
+      max: 10,
+      // Try to force IPv4 resolution
+      lookup: (hostname, options, callback) => {
+        // Force IPv4 lookup
+        require('dns').lookup(hostname, { family: 4 }, (err, address) => {
+          if (err) {
+            callback(err);
+          } else {
+            callback(null, address, 4);
+          }
+        });
+      }
     });
     db = pool;
     console.log('✅ Pool PostgreSQL criado com sucesso');
