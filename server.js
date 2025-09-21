@@ -81,34 +81,54 @@ app.use(express.static(path.join(__dirname, 'public')));
 function findImagePath(podcastName, basePath = '/img/') {
   const imgDir = path.join(__dirname, 'public', 'img');
   
+  console.log(`🖼️ Procurando imagem para: "${podcastName}"`);
+  console.log(`📁 Diretório de imagens: ${imgDir}`);
+  
   // Try exact match first
   const exactPath = path.join(imgDir, `${podcastName}.png`);
+  console.log(`🔍 Tentativa 1 (exato): ${exactPath}`);
   if (fs.existsSync(exactPath)) {
+    console.log(`✅ Encontrada imagem exata: ${basePath}${podcastName}.png`);
     return `${basePath}${podcastName}.png`;
   }
   
   // Try without spaces
   const noSpacesName = podcastName.replace(/\s+/g, '');
   const noSpacesPath = path.join(imgDir, `${noSpacesName}.png`);
+  console.log(`🔍 Tentativa 2 (sem espaços): ${noSpacesPath}`);
   if (fs.existsSync(noSpacesPath)) {
+    console.log(`✅ Encontrada imagem sem espaços: ${basePath}${noSpacesName}.png`);
     return `${basePath}${noSpacesName}.png`;
   }
   
   // Try with underscores
   const underscoreName = podcastName.replace(/\s+/g, '_');
   const underscorePath = path.join(imgDir, `${underscoreName}.png`);
+  console.log(`🔍 Tentativa 3 (underscores): ${underscorePath}`);
   if (fs.existsSync(underscorePath)) {
+    console.log(`✅ Encontrada imagem com underscores: ${basePath}${underscoreName}.png`);
     return `${basePath}${underscoreName}.png`;
   }
   
   // Try with hyphens
   const hyphenName = podcastName.replace(/\s+/g, '-');
   const hyphenPath = path.join(imgDir, `${hyphenName}.png`);
+  console.log(`🔍 Tentativa 4 (hífens): ${hyphenPath}`);
   if (fs.existsSync(hyphenPath)) {
+    console.log(`✅ Encontrada imagem com hífens: ${basePath}${hyphenName}.png`);
     return `${basePath}${hyphenName}.png`;
   }
   
+  // List available files for debugging
+  try {
+    const files = fs.readdirSync(imgDir);
+    console.log(`📋 Ficheiros disponíveis em ${imgDir}:`, files);
+  } catch (err) {
+    console.log(`❌ Erro ao listar ficheiros: ${err.message}`);
+  }
+  
   // Return placeholder if no image found
+  console.log(`❌ Nenhuma imagem encontrada para "${podcastName}", usando placeholder`);
   return `https://via.placeholder.com/120x120?text=${encodeURIComponent(podcastName)}`;
 }
 
@@ -824,13 +844,16 @@ async function updatePodcasts() {
     }
     if(!latest) continue;
     if(latest.episodeNum && latest.episodeNum>lastEp.numero){
-      console.log(`✅ Novo episódio para ${podcast.nome}: Ep ${latest.episodeNum}`);
-      await dbRun(
+      console.log(`✅ Novo episódio para ${podcast.nome}: Ep ${latest.episodeNum} - ${latest.title}`);
+      const result = await dbRun(
         dbType === 'postgres' 
           ? `INSERT INTO episodios (podcast_id,numero,titulo,data_publicacao) VALUES ($1,$2,$3,$4)`
           : `INSERT INTO episodios (podcast_id,numero,titulo,data_publicacao) VALUES (?,?,?,?)`,
         [podcast.id, latest.episodeNum, latest.title, latest.pubDate.toISOString()]
       );
+      console.log(`📝 Episódio inserido: ${result.changes} mudanças, ID: ${result.lastInsertRowid}`);
+    } else {
+      console.log(`⏭️  ${podcast.nome}: Nenhum episódio novo (último: ${lastEp.numero}, encontrado: ${latest.episodeNum})`);
     }
   }
 }
