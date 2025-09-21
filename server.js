@@ -1387,7 +1387,7 @@ app.get('/api/vapid-key', (req, res) => {
 });
 
 // --- API: get episodes for a podcast ---
-app.get('/api/episodes/:podcastId', (req, res) => {
+app.get('/api/episodes/:podcastId', async (req, res) => {
   const { podcastId } = req.params;
   
   if (!podcastId) {
@@ -1396,15 +1396,24 @@ app.get('/api/episodes/:podcastId', (req, res) => {
   
   try {
     // Buscar episódios do podcast com ratings específicos por episódio
-    const episodes = db.prepare(`
-      SELECT e.id, e.numero, e.titulo, e.data_publicacao,
+    const episodes = await dbAll(
+      dbType === 'postgres' 
+        ? `SELECT e.id, e.numero, e.titulo, e.data_publicacao,
              rp.rating as ratingPedro, rj.rating as ratingJoao
-      FROM episodios e
-      LEFT JOIN ratings rp ON e.id = rp.episode_id AND rp.user = 'Pedro'
-      LEFT JOIN ratings rj ON e.id = rj.episode_id AND rj.user = 'João'
-      WHERE e.podcast_id = ?
-      ORDER BY e.numero DESC
-    `).all(podcastId);
+           FROM episodios e
+           LEFT JOIN ratings rp ON e.id = rp.episode_id AND rp."user" = 'Pedro'
+           LEFT JOIN ratings rj ON e.id = rj.episode_id AND rj."user" = 'João'
+           WHERE e.podcast_id = $1
+           ORDER BY e.numero DESC`
+        : `SELECT e.id, e.numero, e.titulo, e.data_publicacao,
+             rp.rating as ratingPedro, rj.rating as ratingJoao
+           FROM episodios e
+           LEFT JOIN ratings rp ON e.id = rp.episode_id AND rp.user = 'Pedro'
+           LEFT JOIN ratings rj ON e.id = rj.episode_id AND rj.user = 'João'
+           WHERE e.podcast_id = ?
+           ORDER BY e.numero DESC`,
+      [podcastId]
+    );
     
     res.json({ episodes });
   } catch (error) {
@@ -1594,7 +1603,7 @@ app.get('/recreate-velho-amigo', async (req, res) => {
 });
 
 // --- API: send notification ---
-app.post('/api/notify', express.json(), (req, res) => {
+app.post('/api/notify', express.json(), async (req, res) => {
   console.log('Received notification request:', req.body);
   const { targetUser, podcastName, rating, message, fromUser, podcastId } = req.body;
 
