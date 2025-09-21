@@ -2991,7 +2991,7 @@ app.get('/load-watchtm-from-file', async (req,res)=>{
 // For Vercel deployment
 if (process.env.NODE_ENV === 'production') {
   // Export the app for Vercel
-  module.exports = app;
+  export default app;
 } else {
   // Start server locally
   server.listen(PORT, () => {
