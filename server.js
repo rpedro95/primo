@@ -2427,7 +2427,14 @@ app.get('/api/podcast/:podcastName/update', async (req, res) => {
       episodes = await getAllYoutubeEpisodes(podcast.channelId || podcast.channelid);
     } else if (podcast.plataforma === 'spotify' || podcast.plataforma === 'soundcloud') {
       console.log(`🎵 Processando RSS: ${podcast.nome}`);
-      episodes = await getAllRssEpisodes(podcast.rss);
+      const rssEpisodes = await getAllRssEpisodes(podcast);
+      
+      // Converter estrutura do RSS para estrutura da BD
+      episodes = rssEpisodes.map(ep => ({
+        numero: ep.episodeNum,
+        titulo: ep.title,
+        data_publicacao: ep.pubDate.toISOString()
+      }));
     }
     
     console.log(`📊 Episódios encontrados: ${episodes.length}`);
