@@ -160,6 +160,17 @@ if (isPostgres) {
     });
     db = pool;
     console.log('✅ Pool PostgreSQL criado com sucesso');
+    
+    // Test connection
+    try {
+      await pool.query('SELECT 1');
+      console.log('✅ Conexão PostgreSQL testada com sucesso');
+    } catch (testError) {
+      console.error('❌ Erro ao testar conexão PostgreSQL:', testError.message);
+      console.log('🔄 Fallback para SQLite...');
+      dbType = 'sqlite';
+      db = null;
+    }
   } catch (error) {
     console.error('❌ Erro ao criar pool PostgreSQL:', error);
     console.log('🔄 Fallback para SQLite...');
