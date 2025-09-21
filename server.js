@@ -1421,6 +1421,50 @@ app.get('/api/vapid-key', (req, res) => {
   res.json({ publicKey: vapidKeys.publicKey });
 });
 
+// --- API: fix Centro De Emprego channel ID ---
+app.get('/fix-centro-emprego', async (req, res) => {
+  try {
+    console.log('🔧 Corrigindo Channel ID do Centro De Emprego...');
+    
+    const result = await dbRun(
+      dbType === 'postgres' 
+        ? `UPDATE podcasts SET "channelId" = $1 WHERE nome = $2`
+        : `UPDATE podcasts SET channelId = ? WHERE nome = ?`,
+      ['UCP7gzkiMz6wr_Yx1hfJ_0YA', 'Centro De Emprego']
+    );
+    
+    console.log(`✅ Centro De Emprego atualizado: ${result.changes} registos alterados`);
+    
+    // Verificar se foi atualizado
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['Centro De Emprego']
+    );
+    
+    if (podcast) {
+      res.json({ 
+        success: true, 
+        message: 'Channel ID atualizado com sucesso',
+        podcast: {
+          nome: podcast.nome,
+          channelId: podcast.channelId,
+          plataforma: podcast.plataforma
+        }
+      });
+    } else {
+      res.json({ 
+        success: false, 
+        error: 'Podcast Centro De Emprego não encontrado' 
+      });
+    }
+  } catch (error) {
+    console.error('❌ Erro ao corrigir Centro De Emprego:', error);
+    res.status(500).json({ error: 'Erro ao corrigir Channel ID' });
+  }
+});
+
 // --- API: get episodes for a podcast ---
 app.get('/api/episodes/:podcastId', async (req, res) => {
   const { podcastId } = req.params;
