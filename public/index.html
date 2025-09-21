@@ -67,6 +67,31 @@
     content: 'Ainda não saiu';
     background: rgba(255,0,0,0.7);
   }
+  .front-released {
+    filter: brightness(1.1) saturate(1.2) contrast(1.1);
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+  }
+  .ja-visto {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #4a9eff, #00d4aa);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
   .card:hover .card-front::after {
     opacity: 1;
   }
@@ -499,7 +524,13 @@ async function renderPodcasts() {
       }
 
       const front = document.createElement('div');
-      front.className = 'card-front' + (p.ja_saiu ? '' : ' front-inactive');
+      let className = 'card-front';
+      if (!p.ja_saiu) {
+        className += ' front-inactive';
+      } else {
+        className += ' front-released';
+      }
+      front.className = className;
       front.style.backgroundImage = `url(${imageUrl})`;
       front.style.backgroundColor = '#333'; // Fallback background color
 
@@ -531,6 +562,15 @@ async function renderPodcasts() {
         </div>
       `;
       front.appendChild(overlay);
+      
+      // Adicionar indicador "JÁ VISTO" se ambos avaliaram
+      if (p.ratingPedro && p.ratingJoao) {
+        const jaVisto = document.createElement('div');
+        jaVisto.className = 'ja-visto';
+        jaVisto.textContent = 'JÁ VISTO';
+        front.appendChild(jaVisto);
+      }
+      
       card.appendChild(front);
       grid.appendChild(card);
     });

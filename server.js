@@ -1062,8 +1062,8 @@ async function getAllWatchTmRssEpisodes(items) {
     const title = item.title[0];
     const pubDate = new Date(item.pubDate[0]);
     
-    // Verificar se o título segue o formato: "título | #número"
-    const watchTmPattern = /^(.+?)\s*\|\s*#(\d{1,4})$/i;
+    // Verificar se o título segue o formato: "título #número" (no fim)
+    const watchTmPattern = /^(.+?)\s*#(\d{1,4})$/i;
     const match = title.match(watchTmPattern);
     
     if (match) {
@@ -1263,8 +1263,8 @@ async function getAllWatchTmEpisodes(entries) {
     const title = entry['title'][0];
     const pubDate = new Date(entry['published'][0]);
     
-    // Verificar se o título segue o formato: "título | watch.tm {número}"
-    const watchTmPattern = /^(.+?)\s*\|\s*watch\.tm\s+(\d{1,4})$/i;
+    // Verificar se o título segue o formato: "título #número" (no fim)
+    const watchTmPattern = /^(.+?)\s*#(\d{1,4})$/i;
     const match = title.match(watchTmPattern);
     
     if (match) {
@@ -2225,6 +2225,51 @@ app.get('/fill-histories', async (req,res)=>{
     console.error('Erro ao preencher históricos:', error);
     res.status(500).json({ 
       error: 'Erro ao preencher históricos', 
+      message: error.message 
+    });
+  }
+});
+
+// --- Endpoint para repopular apenas watch.tm ---
+app.get('/reload-watchtm', async (req,res)=>{
+  try {
+    console.log('🎬 Repopulando watch.tm...');
+    
+    // Buscar podcast watch.tm
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['watch.tm']
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast watch.tm não encontrado' });
+    }
+    
+    // Limpar episódios existentes
+    const deleteResult = await dbDelete(
+      dbType === 'postgres' 
+        ? `DELETE FROM episodios WHERE podcast_id = $1`
+        : `DELETE FROM episodios WHERE podcast_id = ?`,
+      [podcast.id]
+    );
+    console.log(`🧹 Removidos ${deleteResult.changes} episódios antigos do watch.tm`);
+    
+    // Recarregar episódios
+    const result = await fillPodcastHistory(podcast);
+    
+    res.json({ 
+      success: true, 
+      message: `watch.tm repopulado: ${result.addedCount} episódios adicionados`,
+      addedCount: result.addedCount,
+      totalFound: result.totalFound,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Erro ao repopular watch.tm:', error);
+    res.status(500).json({ 
+      error: 'Erro ao repopular watch.tm', 
       message: error.message 
     });
   }
