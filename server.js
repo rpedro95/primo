@@ -145,6 +145,7 @@ if (isPostgres) {
   if (process.env.DATABASE_URL) {
     connectionString = process.env.DATABASE_URL;
     console.log('🔗 Usando DATABASE_URL diretamente');
+    console.log(`  DATABASE_URL: ${process.env.DATABASE_URL.replace(/:[^:@]+@/, ':***@')}`);
   } else {
     // Build connection string from individual variables with defaults
     const user = process.env.PGUSER || 'postgres';
