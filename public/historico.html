@@ -668,7 +668,7 @@ async function sendNotification(episodeNumber, episodeTitle, pedroRating, joaoRa
         body: JSON.stringify({
           targetUser: otherUser,
           podcastName: `${decodeURIComponent(podcastName)} - Ep ${episodeNumber}`,
-          rating: myRating || otherRating,
+          rating: myRating || otherRating || 0,
           message: message,
           fromUser: currentUser,
           podcastId: podcastId

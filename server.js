@@ -1921,8 +1921,9 @@ app.post('/api/notify', express.json(), async (req, res) => {
   console.log('  fromUser:', fromUser, typeof fromUser);
   console.log('  podcastId:', podcastId, typeof podcastId);
 
-  if (!targetUser || !podcastName || !rating || !message || !fromUser) {
+  if (!targetUser || !podcastName || rating === undefined || rating === null || !message || !fromUser) {
     console.error('Missing required fields in notification request');
+    console.error('Fields check:', { targetUser: !!targetUser, podcastName: !!podcastName, rating, message: !!message, fromUser: !!fromUser });
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
