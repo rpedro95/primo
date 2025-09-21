@@ -141,30 +141,12 @@ if (isPostgres) {
   console.log('🐘 Usando PostgreSQL (Railway)');
   dbType = 'postgres';
   
-  let connectionString;
-  if (process.env.DATABASE_PUBLIC_URL) {
-    connectionString = process.env.DATABASE_PUBLIC_URL;
-    console.log('🔗 Usando DATABASE_PUBLIC_URL (recomendado para Railway)');
-    console.log(`  DATABASE_PUBLIC_URL: ${process.env.DATABASE_PUBLIC_URL.replace(/:[^:@]+@/, ':***@')}`);
-  } else if (process.env.DATABASE_URL) {
-    connectionString = process.env.DATABASE_URL;
-    console.log('🔗 Usando DATABASE_URL diretamente');
-    console.log(`  DATABASE_URL: ${process.env.DATABASE_URL.replace(/:[^:@]+@/, ':***@')}`);
-  } else {
-    // Build connection string using Railway private domain with hardcoded values
-    const user = 'postgres';
-    const password = 'ZPoCNUzJoRIMtYUsmIDIZpOzzqYPbKIB';
-    const host = process.env.RAILWAY_PRIVATE_DOMAIN;
-    const database = 'railway';
-    
-    connectionString = `postgresql://${user}:${password}@${host}:5432/${database}`;
-    console.log('🔗 Construindo connection string com valores hardcoded para Railway');
-    console.log(`  User: ${user}`);
-    console.log(`  Host: ${host}`);
-    console.log(`  Database: ${database}`);
-  }
-  
-  console.log(`🔗 Connection string: ${connectionString.replace(/:[^:@]+@/, ':***@')}`); // Hide password in logs
+  // Skip connection string, use individual parameters directly
+  console.log('🔗 Usando parâmetros individuais para PostgreSQL');
+  console.log(`  Host: primo.railway.internal`);
+  console.log(`  Port: 5432`);
+  console.log(`  Database: railway`);
+  console.log(`  User: postgres`);
   
   try {
     // Use individual connection parameters instead of connection string
