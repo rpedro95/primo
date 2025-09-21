@@ -125,20 +125,37 @@ app.get('/health', (req, res) => {
 console.log('🔧 Configurando base de dados...');
 
 // Check if PostgreSQL is available
-const isPostgres = process.env.DATABASE_URL;
+const isPostgres = process.env.DATABASE_URL || (process.env.PGUSER && process.env.POSTGRES_PASSWORD && process.env.RAILWAY_PRIVATE_DOMAIN && process.env.PGDATABASE);
 let db = null;
 let dbType = 'sqlite';
 
 if (isPostgres) {
   console.log('🐘 Usando PostgreSQL (Railway)');
   dbType = 'postgres';
+  
+  let connectionString;
+  if (process.env.DATABASE_URL) {
+    connectionString = process.env.DATABASE_URL;
+  } else {
+    // Build connection string from individual variables
+    connectionString = `postgresql://${process.env.PGUSER}:${process.env.POSTGRES_PASSWORD}@${process.env.RAILWAY_PRIVATE_DOMAIN}:5432/${process.env.PGDATABASE}`;
+  }
+  
+  console.log(`🔗 Connection string: ${connectionString.replace(/:[^:@]+@/, ':***@')}`); // Hide password in logs
+  
   const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: connectionString,
     ssl: { rejectUnauthorized: false }
   });
   db = pool;
 } else {
   console.log('🗄️ Usando SQLite (local)');
+  console.log('🔍 Variáveis PostgreSQL disponíveis:');
+  console.log(`  PGUSER: ${process.env.PGUSER ? '✅' : '❌'}`);
+  console.log(`  POSTGRES_PASSWORD: ${process.env.POSTGRES_PASSWORD ? '✅' : '❌'}`);
+  console.log(`  RAILWAY_PRIVATE_DOMAIN: ${process.env.RAILWAY_PRIVATE_DOMAIN ? '✅' : '❌'}`);
+  console.log(`  PGDATABASE: ${process.env.PGDATABASE ? '✅' : '❌'}`);
+  console.log(`  DATABASE_URL: ${process.env.DATABASE_URL ? '✅' : '❌'}`);
 }
 if (dbType === 'sqlite') {
   if (!fs.existsSync(path.join(__dirname, "data"))) {
