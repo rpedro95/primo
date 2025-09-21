@@ -133,7 +133,7 @@ console.log(`  RAILWAY_PRIVATE_DOMAIN: ${process.env.RAILWAY_PRIVATE_DOMAIN ? '�
 console.log(`  PGDATABASE: ${process.env.PGDATABASE ? '✅ Definida' : '❌ Não definida'}`);
 
 // Check for PostgreSQL connection
-const isPostgres = process.env.DATABASE_URL || process.env.RAILWAY_PRIVATE_DOMAIN;
+const isPostgres = process.env.DATABASE_URL || process.env.DATABASE_PUBLIC_URL || process.env.RAILWAY_PRIVATE_DOMAIN;
 let db = null;
 let dbType = 'sqlite';
 
@@ -142,7 +142,11 @@ if (isPostgres) {
   dbType = 'postgres';
   
   let connectionString;
-  if (process.env.DATABASE_URL) {
+  if (process.env.DATABASE_PUBLIC_URL) {
+    connectionString = process.env.DATABASE_PUBLIC_URL;
+    console.log('🔗 Usando DATABASE_PUBLIC_URL (recomendado para Railway)');
+    console.log(`  DATABASE_PUBLIC_URL: ${process.env.DATABASE_PUBLIC_URL.replace(/:[^:@]+@/, ':***@')}`);
+  } else if (process.env.DATABASE_URL) {
     connectionString = process.env.DATABASE_URL;
     console.log('🔗 Usando DATABASE_URL diretamente');
     console.log(`  DATABASE_URL: ${process.env.DATABASE_URL.replace(/:[^:@]+@/, ':***@')}`);
