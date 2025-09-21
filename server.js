@@ -400,7 +400,8 @@ try {
         numero INTEGER,
         titulo TEXT NOT NULL,
         data_publicacao VARCHAR(50) NOT NULL,
-        FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
+        FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+        UNIQUE(podcast_id, numero)
       );
     `);
   } else {
@@ -416,6 +417,24 @@ try {
     `);
   }
   console.log('✅ Tabela episodios criada/verificada');
+  
+  // Adicionar constraint UNIQUE se não existir (PostgreSQL)
+  if (dbType === 'postgres') {
+    try {
+      await dbRun(`
+        ALTER TABLE episodios 
+        ADD CONSTRAINT episodios_podcast_numero_unique 
+        UNIQUE (podcast_id, numero)
+      `);
+      console.log('✅ Constraint UNIQUE adicionada à tabela episodios');
+    } catch (error) {
+      if (error.message.includes('already exists') || error.message.includes('duplicate')) {
+        console.log('ℹ️ Constraint UNIQUE já existe na tabela episodios');
+      } else {
+        console.log('⚠️ Erro ao adicionar constraint UNIQUE:', error.message);
+      }
+    }
+  }
 } catch (error) {
   console.error('❌ Erro ao criar tabela episodios:', error);
 }
