@@ -2398,6 +2398,27 @@ app.get('/reload-watchtm', async (req,res)=>{
   }
 });
 
+// --- API: list all image files (temporary endpoint for debugging) ---
+app.get('/api/debug/images', (req, res) => {
+  try {
+    const imgDir = path.join(__dirname, 'public', 'img');
+    const files = fs.readdirSync(imgDir);
+    
+    console.log('📁 Listando todos os ficheiros em:', imgDir);
+    console.log('📋 Ficheiros encontrados:', files);
+    
+    res.json({
+      success: true,
+      directory: imgDir,
+      files: files,
+      count: files.length
+    });
+  } catch (error) {
+    console.error('Error listing images:', error);
+    res.status(500).json({ error: 'Failed to list images' });
+  }
+});
+
 // --- API: clear all notifications (temporary endpoint for testing) ---
 app.delete('/api/notifications/clear', async (req, res) => {
   try {
