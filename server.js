@@ -125,6 +125,13 @@ app.get('/health', (req, res) => {
 console.log('🔧 Configurando base de dados...');
 
 // Check if PostgreSQL is available
+console.log('🔍 Verificando variáveis de ambiente...');
+console.log(`  DATABASE_URL: ${process.env.DATABASE_URL ? '✅ Definida' : '❌ Não definida'}`);
+console.log(`  PGUSER: ${process.env.PGUSER ? '✅ Definida' : '❌ Não definida'}`);
+console.log(`  POSTGRES_PASSWORD: ${process.env.POSTGRES_PASSWORD ? '✅ Definida' : '❌ Não definida'}`);
+console.log(`  RAILWAY_PRIVATE_DOMAIN: ${process.env.RAILWAY_PRIVATE_DOMAIN ? '✅ Definida' : '❌ Não definida'}`);
+console.log(`  PGDATABASE: ${process.env.PGDATABASE ? '✅ Definida' : '❌ Não definida'}`);
+
 const isPostgres = process.env.DATABASE_URL || (process.env.PGUSER && process.env.POSTGRES_PASSWORD && process.env.RAILWAY_PRIVATE_DOMAIN && process.env.PGDATABASE);
 let db = null;
 let dbType = 'sqlite';
@@ -136,26 +143,29 @@ if (isPostgres) {
   let connectionString;
   if (process.env.DATABASE_URL) {
     connectionString = process.env.DATABASE_URL;
+    console.log('🔗 Usando DATABASE_URL diretamente');
   } else {
     // Build connection string from individual variables
     connectionString = `postgresql://${process.env.PGUSER}:${process.env.POSTGRES_PASSWORD}@${process.env.RAILWAY_PRIVATE_DOMAIN}:5432/${process.env.PGDATABASE}`;
+    console.log('🔗 Construindo connection string a partir de variáveis individuais');
   }
   
   console.log(`🔗 Connection string: ${connectionString.replace(/:[^:@]+@/, ':***@')}`); // Hide password in logs
   
-  const pool = new Pool({
-    connectionString: connectionString,
-    ssl: { rejectUnauthorized: false }
-  });
-  db = pool;
+  try {
+    const pool = new Pool({
+      connectionString: connectionString,
+      ssl: { rejectUnauthorized: false }
+    });
+    db = pool;
+    console.log('✅ Pool PostgreSQL criado com sucesso');
+  } catch (error) {
+    console.error('❌ Erro ao criar pool PostgreSQL:', error);
+    console.log('🔄 Fallback para SQLite...');
+    dbType = 'sqlite';
+  }
 } else {
-  console.log('🗄️ Usando SQLite (local)');
-  console.log('🔍 Variáveis PostgreSQL disponíveis:');
-  console.log(`  PGUSER: ${process.env.PGUSER ? '✅' : '❌'}`);
-  console.log(`  POSTGRES_PASSWORD: ${process.env.POSTGRES_PASSWORD ? '✅' : '❌'}`);
-  console.log(`  RAILWAY_PRIVATE_DOMAIN: ${process.env.RAILWAY_PRIVATE_DOMAIN ? '✅' : '❌'}`);
-  console.log(`  PGDATABASE: ${process.env.PGDATABASE ? '✅' : '❌'}`);
-  console.log(`  DATABASE_URL: ${process.env.DATABASE_URL ? '✅' : '❌'}`);
+  console.log('🗄️ Usando SQLite (local) - PostgreSQL não disponível');
 }
 if (dbType === 'sqlite') {
   if (!fs.existsSync(path.join(__dirname, "data"))) {
