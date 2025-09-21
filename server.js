@@ -373,18 +373,18 @@ try {
       );
     `);
   } else {
-    db.exec(`
-      CREATE TABLE IF NOT EXISTS podcasts (
-        id TEXT PRIMARY KEY,
-        nome TEXT NOT NULL,
-        link TEXT NOT NULL,
-        dia_da_semana TEXT NOT NULL,
-        imagem TEXT,
-        plataforma TEXT,
+db.exec(`
+CREATE TABLE IF NOT EXISTS podcasts (
+  id TEXT PRIMARY KEY,
+  nome TEXT NOT NULL,
+  link TEXT NOT NULL,
+  dia_da_semana TEXT NOT NULL,
+  imagem TEXT,
+  plataforma TEXT,
         rss TEXT,
-        channelId TEXT
-      );
-    `);
+  channelId TEXT
+);
+`);
   }
   console.log('✅ Tabela podcasts criada/verificada');
 } catch (error) {
@@ -405,16 +405,16 @@ try {
       );
     `);
   } else {
-    db.exec(`
-      CREATE TABLE IF NOT EXISTS episodios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        podcast_id TEXT NOT NULL,
-        numero TEXT NOT NULL,
-        titulo TEXT NOT NULL,
-        data_publicacao TEXT NOT NULL,
-        FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
-      );
-    `);
+db.exec(`
+CREATE TABLE IF NOT EXISTS episodios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  podcast_id TEXT NOT NULL,
+  numero TEXT NOT NULL,
+  titulo TEXT NOT NULL,
+  data_publicacao TEXT NOT NULL,
+  FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
+);
+`);
   }
   console.log('✅ Tabela episodios criada/verificada');
   
@@ -456,11 +456,11 @@ try {
       console.log('ℹ️ Coluna numero já é INTEGER no PostgreSQL');
     }
   } else {
-    db.exec(`ALTER TABLE episodios ADD COLUMN numero_temp INTEGER`);
-    db.exec(`UPDATE episodios SET numero_temp = CAST(numero AS INTEGER)`);
-    db.exec(`ALTER TABLE episodios DROP COLUMN numero`);
-    db.exec(`ALTER TABLE episodios RENAME COLUMN numero_temp TO numero`);
-    console.log('✅ Coluna numero migrada para INTEGER (sem decimais)');
+  db.exec(`ALTER TABLE episodios ADD COLUMN numero_temp INTEGER`);
+  db.exec(`UPDATE episodios SET numero_temp = CAST(numero AS INTEGER)`);
+  db.exec(`ALTER TABLE episodios DROP COLUMN numero`);
+  db.exec(`ALTER TABLE episodios RENAME COLUMN numero_temp TO numero`);
+  console.log('✅ Coluna numero migrada para INTEGER (sem decimais)');
   }
 } catch (error) {
   console.log('ℹ️ Migração da coluna numero já foi feita ou não é necessária');
@@ -481,17 +481,17 @@ try {
       );
     `);
   } else {
-    db.exec(`
-      CREATE TABLE IF NOT EXISTS ratings (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        podcast_id TEXT NOT NULL,
-        user TEXT NOT NULL,
-        rating INTEGER NOT NULL,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
-        UNIQUE(podcast_id, user)
-      );
-    `);
+db.exec(`
+CREATE TABLE IF NOT EXISTS ratings (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  podcast_id TEXT NOT NULL,
+  user TEXT NOT NULL,
+  rating INTEGER NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+  UNIQUE(podcast_id, user)
+);
+`);
   }
   console.log('✅ Tabela ratings criada/verificada');
 } catch (error) {
@@ -558,55 +558,55 @@ try {
     }
   } else {
     // Verificar se a coluna episode_id já existe no SQLite
-    const columns = db.prepare("PRAGMA table_info(ratings)").all();
-    const hasEpisodeId = columns.some(col => col.name === 'episode_id');
+  const columns = db.prepare("PRAGMA table_info(ratings)").all();
+  const hasEpisodeId = columns.some(col => col.name === 'episode_id');
+  
+  if (!hasEpisodeId) {
+    console.log('🔄 Migrando tabela ratings para nova estrutura...');
     
-    if (!hasEpisodeId) {
-      console.log('🔄 Migrando tabela ratings para nova estrutura...');
+    // Criar nova tabela com estrutura correta
+    db.exec(`
+      CREATE TABLE ratings_new (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        podcast_id TEXT NOT NULL,
+        episode_id INTEGER NOT NULL,
+        user TEXT NOT NULL,
+        rating INTEGER NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+        FOREIGN KEY(episode_id) REFERENCES episodios(id),
+        UNIQUE(podcast_id, episode_id, user)
+      );
+    `);
+    
+    // Migrar dados existentes (se houver)
+    const existingRatings = db.prepare("SELECT * FROM ratings").all();
+    if (existingRatings.length > 0) {
+      console.log(`📦 Encontrados ${existingRatings.length} ratings para migrar...`);
       
-      // Criar nova tabela com estrutura correta
-      db.exec(`
-        CREATE TABLE ratings_new (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          podcast_id TEXT NOT NULL,
-          episode_id INTEGER NOT NULL,
-          user TEXT NOT NULL,
-          rating INTEGER NOT NULL,
-          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-          FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
-          FOREIGN KEY(episode_id) REFERENCES episodios(id),
-          UNIQUE(podcast_id, episode_id, user)
-        );
-      `);
-      
-      // Migrar dados existentes (se houver)
-      const existingRatings = db.prepare("SELECT * FROM ratings").all();
-      if (existingRatings.length > 0) {
-        console.log(`📦 Encontrados ${existingRatings.length} ratings para migrar...`);
+      for (const rating of existingRatings) {
+        // Buscar o episódio mais recente do podcast
+        const latestEpisode = db.prepare(`
+          SELECT id FROM episodios 
+          WHERE podcast_id = ? 
+          ORDER BY numero DESC 
+          LIMIT 1
+        `).get(rating.podcast_id);
         
-        for (const rating of existingRatings) {
-          // Buscar o episódio mais recente do podcast
-          const latestEpisode = db.prepare(`
-            SELECT id FROM episodios 
-            WHERE podcast_id = ? 
-            ORDER BY numero DESC 
-            LIMIT 1
-          `).get(rating.podcast_id);
-          
-          if (latestEpisode) {
-            db.prepare(`
-              INSERT INTO ratings_new (podcast_id, episode_id, user, rating, created_at)
-              VALUES (?, ?, ?, ?, ?)
-            `).run(rating.podcast_id, latestEpisode.id, rating.user, rating.rating, rating.created_at);
-          }
+        if (latestEpisode) {
+          db.prepare(`
+            INSERT INTO ratings_new (podcast_id, episode_id, user, rating, created_at)
+            VALUES (?, ?, ?, ?, ?)
+          `).run(rating.podcast_id, latestEpisode.id, rating.user, rating.rating, rating.created_at);
         }
       }
-      
-      // Remover tabela antiga e renomear nova
-      db.exec("DROP TABLE ratings");
-      db.exec("ALTER TABLE ratings_new RENAME TO ratings");
-      
-      console.log('✅ Migração concluída!');
+    }
+    
+    // Remover tabela antiga e renomear nova
+    db.exec("DROP TABLE ratings");
+    db.exec("ALTER TABLE ratings_new RENAME TO ratings");
+    
+    console.log('✅ Migração concluída!');
     }
   }
 } catch (error) {
@@ -653,7 +653,7 @@ try {
 
 try {
   let insertedCount = 0;
-  for (const p of defaultPodcasts) {
+for (const p of defaultPodcasts) {
     const id = Buffer.from(p.nome).toString('base64url').slice(0,20);
     
     // Verificar se já existe
@@ -930,8 +930,8 @@ async function fillAllPodcastHistories() {
                 ? `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES ($1, $2, $3, $4) ON CONFLICT (podcast_id, numero) DO NOTHING`
                 : `INSERT OR IGNORE INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES (?, ?, ?, ?)`,
               [podcast.id, episode.episodeNum, episode.title, episode.pubDate.toISOString()]
-            );
-            if(result.changes > 0) addedCount++;
+          );
+          if(result.changes > 0) addedCount++;
           } catch (error) {
             // Ignorar erros de duplicados
             if (error.message.includes('duplicate') || error.message.includes('UNIQUE constraint')) {
@@ -1661,7 +1661,7 @@ app.get('/api/episodes/:podcastId', async (req, res) => {
     const episodes = await dbAll(
       dbType === 'postgres' 
         ? `SELECT e.id, e.numero, e.titulo, e.data_publicacao,
-             rp.rating as ratingPedro, rj.rating as ratingJoao
+             rp.rating as "ratingPedro", rj.rating as "ratingJoao"
            FROM episodios e
            LEFT JOIN ratings rp ON e.id = rp.episode_id AND rp."user" = 'Pedro'
            LEFT JOIN ratings rj ON e.id = rj.episode_id AND rj."user" = 'João'
@@ -1676,6 +1676,11 @@ app.get('/api/episodes/:podcastId', async (req, res) => {
            ORDER BY e.numero DESC`,
       [podcastId]
     );
+    
+    console.log('🔍 Episódios retornados:', episodes.length);
+    if (episodes.length > 0) {
+      console.log('📋 Primeiro episódio:', JSON.stringify(episodes[0], null, 2));
+    }
     
     res.json({ episodes });
   } catch (error) {
@@ -3764,14 +3769,14 @@ app.get('/load-watchtm-from-file', async (req,res)=>{
 });
 
 
-// Start server locally
-server.listen(PORT, () => {
+  // Start server locally
+  server.listen(PORT, () => {
   console.log(`✅ Servidor rodando na porta ${PORT} - PostgreSQL Test v4`);
   console.log(`📱 Acesse: http://localhost:${PORT}`);
   console.log(`🔌 WebSocket server: ws://localhost:${PORT}`);
-  console.log('📡 Episódios serão verificados quando a página for aberta');
+    console.log('📡 Episódios serão verificados quando a página for aberta');
   console.log('🎉 Aplicação pronta para uso!');
-});
+  });
 
 // Export the app for Vercel deployment
 export default app;
