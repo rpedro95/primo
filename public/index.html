@@ -474,7 +474,7 @@ async function renderPodcasts() {
     }
 
     data.podcasts.forEach(p => {
-      const imageUrl = imagePath(p.nome);
+      const imageUrl = p.imagem || imagePath(p.nome);
       
       const card = document.createElement('div');
       card.className = 'card';
