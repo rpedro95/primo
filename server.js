@@ -233,6 +233,26 @@ async function dbGet(sql, params = []) {
   }
 }
 
+async function dbAll(sql, params = []) {
+  if (dbType === 'postgres') {
+    const result = await db.query(sql, params);
+    return result.rows;
+  } else {
+    const stmt = db.prepare(sql);
+    return stmt.all(...params);
+  }
+}
+
+async function dbDelete(sql, params = []) {
+  if (dbType === 'postgres') {
+    const result = await db.query(sql, params);
+    return { changes: result.rowCount };
+  } else {
+    const stmt = db.prepare(sql);
+    return stmt.run(...params);
+  }
+}
+
 // --- WebSocket handling ---
 wss.on('connection', (ws, req) => {
   console.log('Nova conexão WebSocket estabelecida');
@@ -358,11 +378,27 @@ try {
 
 // Migrar coluna numero de INTEGER para TEXT para suportar números decimais
 try {
-  db.exec(`ALTER TABLE episodios ADD COLUMN numero_temp INTEGER`);
-  db.exec(`UPDATE episodios SET numero_temp = CAST(numero AS INTEGER)`);
-  db.exec(`ALTER TABLE episodios DROP COLUMN numero`);
-  db.exec(`ALTER TABLE episodios RENAME COLUMN numero_temp TO numero`);
-  console.log('✅ Coluna numero migrada para INTEGER (sem decimais)');
+  if (dbType === 'postgres') {
+    // No PostgreSQL, vamos verificar se a coluna já é INTEGER
+    const columns = await dbQuery(`
+      SELECT data_type 
+      FROM information_schema.columns 
+      WHERE table_name = 'episodios' AND column_name = 'numero'
+    `);
+    
+    if (columns.length > 0 && columns[0].data_type !== 'integer') {
+      await dbRun(`ALTER TABLE episodios ALTER COLUMN numero TYPE INTEGER USING numero::INTEGER`);
+      console.log('✅ Coluna numero migrada para INTEGER (sem decimais)');
+    } else {
+      console.log('ℹ️ Coluna numero já é INTEGER no PostgreSQL');
+    }
+  } else {
+    db.exec(`ALTER TABLE episodios ADD COLUMN numero_temp INTEGER`);
+    db.exec(`UPDATE episodios SET numero_temp = CAST(numero AS INTEGER)`);
+    db.exec(`ALTER TABLE episodios DROP COLUMN numero`);
+    db.exec(`ALTER TABLE episodios RENAME COLUMN numero_temp TO numero`);
+    console.log('✅ Coluna numero migrada para INTEGER (sem decimais)');
+  }
 } catch (error) {
   console.log('ℹ️ Migração da coluna numero já foi feita ou não é necessária');
 }
@@ -694,7 +730,12 @@ async function loadPrataDaCasaFromFile(podcastId) {
 
 // --- Funções de RSS/YouTube ---
 async function getLastEpisode(podcastId) {
-  const row = db.prepare(`SELECT numero, data_publicacao FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`).get(podcastId);
+  const row = await dbGet(
+    dbType === 'postgres' 
+      ? `SELECT numero, data_publicacao FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
+      : `SELECT numero, data_publicacao FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`,
+    [podcastId]
+  );
   return row || { numero: 0, data_publicacao: null };
 }
 
@@ -734,7 +775,7 @@ async function checkYoutubePodcast(podcast) {
 }
 
 async function updatePodcasts() {
-  const podcasts = db.prepare(`SELECT * FROM podcasts`).all();
+  const podcasts = await dbAll(`SELECT * FROM podcasts`);
   const today = new Date();
   const currentWeekStart = getWeekStart(today);
   
@@ -769,7 +810,7 @@ async function updatePodcasts() {
 // Função para preencher todos os históricos dos podcasts
 async function fillAllPodcastHistories() {
   console.log('🚀 Iniciando preenchimento de todos os históricos...');
-  const podcasts = db.prepare(`SELECT * FROM podcasts`).all();
+  const podcasts = await dbAll(`SELECT * FROM podcasts`);
   
   for(const podcast of podcasts){
     console.log(`\n📚 Preenchendo histórico de ${podcast.nome}...`);
@@ -1383,18 +1424,30 @@ app.delete('/api/podcast/:id', (req, res) => {
     db.prepare(`PRAGMA foreign_keys = OFF`).run();
     
     // Primeiro apagar todos os ratings do podcast
-    const deleteRatings = db.prepare('DELETE FROM ratings WHERE podcast_id = ?');
-    const ratingsResult = deleteRatings.run(id);
+    const ratingsResult = await dbDelete(
+      dbType === 'postgres' 
+        ? 'DELETE FROM ratings WHERE podcast_id = $1'
+        : 'DELETE FROM ratings WHERE podcast_id = ?',
+      [id]
+    );
     console.log(`🗑️ Apagados ${ratingsResult.changes} ratings`);
     
     // Depois apagar todos os episódios do podcast
-    const deleteEpisodes = db.prepare('DELETE FROM episodios WHERE podcast_id = ?');
-    const episodesResult = deleteEpisodes.run(id);
+    const episodesResult = await dbDelete(
+      dbType === 'postgres' 
+        ? 'DELETE FROM episodios WHERE podcast_id = $1'
+        : 'DELETE FROM episodios WHERE podcast_id = ?',
+      [id]
+    );
     console.log(`🗑️ Apagados ${episodesResult.changes} episódios`);
     
     // Por fim apagar o podcast
-    const deletePodcast = db.prepare('DELETE FROM podcasts WHERE id = ?');
-    const podcastResult = deletePodcast.run(id);
+    const podcastResult = await dbDelete(
+      dbType === 'postgres' 
+        ? 'DELETE FROM podcasts WHERE id = $1'
+        : 'DELETE FROM podcasts WHERE id = ?',
+      [id]
+    );
     console.log(`🗑️ Apagado ${podcastResult.changes} podcast`);
     
     // Reativar foreign key checks
@@ -1433,7 +1486,12 @@ app.get('/recreate-velho-amigo', async (req, res) => {
     };
     
     // Verificar se já existe
-    const existingPodcast = db.prepare(`SELECT * FROM podcasts WHERE nome = ?`).get(podcastData.nome);
+    const existingPodcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      [podcastData.nome]
+    );
     
     let podcastId;
     if (existingPodcast) {
@@ -1559,7 +1617,12 @@ app.post('/api/notify', express.json(), (req, res) => {
     let episodeNumber = '';
     let episodeNum = null;
     if (podcastId) {
-      const lastEp = db.prepare(`SELECT numero FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`).get(podcastId);
+      const lastEp = await dbGet(
+        dbType === 'postgres' 
+          ? `SELECT numero FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
+          : `SELECT numero FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`,
+        [podcastId]
+      );
       if (lastEp && lastEp.numero) {
         episodeNumber = ` - Ep ${lastEp.numero}`;
         episodeNum = lastEp.numero;
@@ -1773,7 +1836,12 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
     const id = Buffer.from(nome).toString('base64url').slice(0, 20);
     
     // Check if podcast already exists
-    const existing = db.prepare(`SELECT id FROM podcasts WHERE id = ?`).get(id);
+    const existing = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT id FROM podcasts WHERE id = $1`
+        : `SELECT id FROM podcasts WHERE id = ?`,
+      [id]
+    );
     if (existing) {
       // Remove uploaded file if podcast already exists
       if (req.file) {
@@ -1801,7 +1869,12 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
     console.log(`Resultado da inserção: ${result.changes} mudanças`);
     
     // Verificar se foi realmente inserido
-    const verifyPodcast = db.prepare('SELECT * FROM podcasts WHERE id = ?').get(id);
+    const verifyPodcast = await dbGet(
+      dbType === 'postgres' 
+        ? 'SELECT * FROM podcasts WHERE id = $1'
+        : 'SELECT * FROM podcasts WHERE id = ?',
+      [id]
+    );
     if (verifyPodcast) {
       console.log(`✅ Podcast verificado na base de dados: ${verifyPodcast.nome}`);
     } else {
@@ -2040,7 +2113,12 @@ app.get('/reload-watchtm', async (req,res)=>{
     console.log(`🧹 Removidos ${deleteResult.changes} episódios antigos do watch.tm`);
     
     // Buscar podcast watch.tm
-    const podcast = db.prepare(`SELECT * FROM podcasts WHERE id = ?`).get(watchtmId);
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE id = $1`
+        : `SELECT * FROM podcasts WHERE id = ?`,
+      [watchtmId]
+    );
     if (!podcast) {
       return res.status(404).json({ error: 'Podcast watch.tm não encontrado' });
     }
@@ -2107,7 +2185,12 @@ app.get('/reload-zecarioca', async (req,res)=>{
     console.log(`🧹 Removidos ${deleteResult.changes} episódios antigos do Zé Carioca`);
     
     // Buscar podcast Zé Carioca
-    const podcast = db.prepare(`SELECT * FROM podcasts WHERE id = ?`).get(zecariocaId);
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE id = $1`
+        : `SELECT * FROM podcasts WHERE id = ?`,
+      [zecariocaId]
+    );
     if (!podcast) {
       return res.status(404).json({ error: 'Podcast Zé Carioca não encontrado' });
     }
@@ -2172,7 +2255,12 @@ app.get('/reload-pratadacasa', async (req,res)=>{
     const pratadacasaId = 'UHJhdGEgZGEgQ2FzYQ'; // Base64 for "Prata da Casa"
     
     // Verificar se o podcast existe, se não existir, criar
-    let podcast = db.prepare(`SELECT * FROM podcasts WHERE id = ?`).get(pratadacasaId);
+    let podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE id = $1`
+        : `SELECT * FROM podcasts WHERE id = ?`,
+      [pratadacasaId]
+    );
     if (!podcast) {
       // Criar o podcast se não existir
       const insertPodcast = db.prepare(`
@@ -2188,7 +2276,12 @@ app.get('/reload-pratadacasa', async (req,res)=>{
         'spotify',
         'https://anchor.fm/s/1056d2710/podcast/rss'
       );
-      podcast = db.prepare(`SELECT * FROM podcasts WHERE id = ?`).get(pratadacasaId);
+      podcast = await dbGet(
+        dbType === 'postgres' 
+          ? `SELECT * FROM podcasts WHERE id = $1`
+          : `SELECT * FROM podcasts WHERE id = ?`,
+        [pratadacasaId]
+      );
     }
     const deleteResult = db.prepare(`DELETE FROM episodios WHERE podcast_id = ?`).run(pratadacasaId);
     console.log(`🧹 Removidos ${deleteResult.changes} episódios antigos do Prata da Casa`);
@@ -2251,7 +2344,12 @@ app.get('/load-velhoamigo-from-file', async (req,res)=>{
     
     // Verificar se o podcast existe
     const velhoamigoId = 'VmVsdG8gYW1pZ28'; // Base64 for "Velho amigo"
-    let podcast = db.prepare(`SELECT * FROM podcasts WHERE id = ?`).get(velhoamigoId);
+    let podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE id = $1`
+        : `SELECT * FROM podcasts WHERE id = ?`,
+      [velhoamigoId]
+    );
     
     if (!podcast) {
       console.log('❌ Podcast Velho amigo não encontrado na base de dados, criando...');
@@ -2269,7 +2367,12 @@ app.get('/load-velhoamigo-from-file', async (req,res)=>{
         'spotify',
         'https://anchor.fm/s/f05045d8/podcast/rss'
       );
-      podcast = db.prepare(`SELECT * FROM podcasts WHERE id = ?`).get(velhoamigoId);
+      podcast = await dbGet(
+        dbType === 'postgres' 
+          ? `SELECT * FROM podcasts WHERE id = $1`
+          : `SELECT * FROM podcasts WHERE id = ?`,
+        [velhoamigoId]
+      );
       console.log('✅ Podcast Velho amigo criado com sucesso');
     }
     
@@ -2629,7 +2732,12 @@ app.get('/load-all-episodes/:podcastName', async (req,res)=>{
     console.log(`🚀 Carregando TODOS os episódios de ${podcastName} do RSS...`);
     
     // Buscar o podcast na base de dados
-    const podcast = db.prepare(`SELECT * FROM podcasts WHERE nome = ?`).get(podcastName);
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      [podcastName]
+    );
     
     if (!podcast) {
       return res.status(404).json({ error: `Podcast ${podcastName} não encontrado na base de dados` });
@@ -3084,7 +3192,12 @@ app.get('/load-pratadacasa-from-file', async (req,res)=>{
     
     // Verificar se o podcast existe
     const pratadacasaId = 'UHJhdGEgZGEgQ2FzYQ'; // Base64 for "Prata da Casa"
-    let podcast = db.prepare(`SELECT * FROM podcasts WHERE id = ?`).get(pratadacasaId);
+    let podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE id = $1`
+        : `SELECT * FROM podcasts WHERE id = ?`,
+      [pratadacasaId]
+    );
     
     if (!podcast) {
       console.log('❌ Podcast Prata da Casa não encontrado na base de dados');
