@@ -77,8 +77,22 @@ const upload = multer({
 app.use(express.static(path.join(__dirname, 'public')));
 
 // --- DB setup ---
-if (!fs.existsSync(path.join(__dirname, "data"))) fs.mkdirSync(path.join(__dirname, "data"));
-const db = new Database(path.join(__dirname, "data", "podcast_battle.db"));
+console.log('🔧 Configurando base de dados...');
+if (!fs.existsSync(path.join(__dirname, "data"))) {
+  console.log('📁 Criando diretório data...');
+  fs.mkdirSync(path.join(__dirname, "data"));
+}
+
+const dbPath = path.join(__dirname, "data", "podcast_battle.db");
+console.log(`🗄️ Caminho da base de dados: ${dbPath}`);
+
+try {
+  const db = new Database(dbPath);
+  console.log('✅ Base de dados conectada com sucesso');
+} catch (error) {
+  console.error('❌ Erro ao conectar à base de dados:', error);
+  process.exit(1);
+}
 
 // --- WebSocket handling ---
 wss.on('connection', (ws, req) => {
@@ -140,29 +154,40 @@ function sendNotificationToUser(targetUser, notification) {
 }
 
 // --- Create tables ---
-db.exec(`
-CREATE TABLE IF NOT EXISTS podcasts (
-  id TEXT PRIMARY KEY,
-  nome TEXT NOT NULL,
-  link TEXT NOT NULL,
-  dia_da_semana TEXT NOT NULL,
-  imagem TEXT,
-  plataforma TEXT,
-  rss TEXT,[]
-  channelId TEXT
-);
-`);
+console.log('🏗️ Criando tabelas...');
+try {
+  db.exec(`
+  CREATE TABLE IF NOT EXISTS podcasts (
+    id TEXT PRIMARY KEY,
+    nome TEXT NOT NULL,
+    link TEXT NOT NULL,
+    dia_da_semana TEXT NOT NULL,
+    imagem TEXT,
+    plataforma TEXT,
+    rss TEXT,
+    channelId TEXT
+  );
+  `);
+  console.log('✅ Tabela podcasts criada/verificada');
+} catch (error) {
+  console.error('❌ Erro ao criar tabela podcasts:', error);
+}
 
-db.exec(`
-CREATE TABLE IF NOT EXISTS episodios (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  podcast_id TEXT NOT NULL,
-  numero TEXT NOT NULL,
-  titulo TEXT NOT NULL,
-  data_publicacao TEXT NOT NULL,
-  FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
-);
-`);
+try {
+  db.exec(`
+  CREATE TABLE IF NOT EXISTS episodios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    podcast_id TEXT NOT NULL,
+    numero TEXT NOT NULL,
+    titulo TEXT NOT NULL,
+    data_publicacao TEXT NOT NULL,
+    FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
+  );
+  `);
+  console.log('✅ Tabela episodios criada/verificada');
+} catch (error) {
+  console.error('❌ Erro ao criar tabela episodios:', error);
+}
 
 // Migrar coluna numero de INTEGER para TEXT para suportar números decimais
 try {
@@ -176,17 +201,22 @@ try {
 }
 
 // Criar tabela ratings com estrutura antiga primeiro
-db.exec(`
-CREATE TABLE IF NOT EXISTS ratings (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  podcast_id TEXT NOT NULL,
-  user TEXT NOT NULL,
-  rating INTEGER NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
-  UNIQUE(podcast_id, user)
-);
-`);
+try {
+  db.exec(`
+  CREATE TABLE IF NOT EXISTS ratings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    podcast_id TEXT NOT NULL,
+    user TEXT NOT NULL,
+    rating INTEGER NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+    UNIQUE(podcast_id, user)
+  );
+  `);
+  console.log('✅ Tabela ratings criada/verificada');
+} catch (error) {
+  console.error('❌ Erro ao criar tabela ratings:', error);
+}
 
 // Migrar para nova estrutura com episode_id
 try {
@@ -258,21 +288,30 @@ const defaultPodcasts = [
 ];
 
 // --- Insert default podcasts if not exist ---
-const insertPodcast = db.prepare(`
-  INSERT OR IGNORE INTO podcasts (id,nome,link,dia_da_semana,imagem,plataforma,rss,channelId)
-  VALUES (@id,@nome,@link,@dia_da_semana,@imagem,@plataforma,@rss,@channelId)
-`);
-for (const p of defaultPodcasts) {
-  insertPodcast.run({
-    id: Buffer.from(p.nome).toString('base64url').slice(0,20),
-    nome: p.nome,
-    link: p.link,
-    dia_da_semana: p.dia,
-    imagem: p.img,
-    plataforma: p.plataforma,
-    rss: p.rss || null,
-    channelId: p.channelId || null
-  });
+console.log('📚 Inserindo podcasts padrão...');
+try {
+  const insertPodcast = db.prepare(`
+    INSERT OR IGNORE INTO podcasts (id,nome,link,dia_da_semana,imagem,plataforma,rss,channelId)
+    VALUES (@id,@nome,@link,@dia_da_semana,@imagem,@plataforma,@rss,@channelId)
+  `);
+  
+  let insertedCount = 0;
+  for (const p of defaultPodcasts) {
+    const result = insertPodcast.run({
+      id: Buffer.from(p.nome).toString('base64url').slice(0,20),
+      nome: p.nome,
+      link: p.link,
+      dia_da_semana: p.dia,
+      imagem: p.img,
+      plataforma: p.plataforma,
+      rss: p.rss || null,
+      channelId: p.channelId || null
+    });
+    if (result.changes > 0) insertedCount++;
+  }
+  console.log(`✅ ${insertedCount} podcasts padrão inseridos/verificados`);
+} catch (error) {
+  console.error('❌ Erro ao inserir podcasts padrão:', error);
 }
 
 // --- Helper: week order ---
@@ -2944,8 +2983,10 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   // Start server locally
   server.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-    console.log(`WebSocket server running on ws://localhost:${PORT}`);
+    console.log(`✅ Servidor rodando na porta ${PORT}`);
+    console.log(`📱 Acesse: http://localhost:${PORT}`);
+    console.log(`🔌 WebSocket server: ws://localhost:${PORT}`);
     console.log('📡 Episódios serão verificados quando a página for aberta');
+    console.log('🎉 Aplicação pronta para uso!');
   });
 }
