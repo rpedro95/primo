@@ -2388,6 +2388,28 @@ app.get('/reload-watchtm', async (req,res)=>{
   }
 });
 
+// --- API: clear all notifications (temporary endpoint for testing) ---
+app.delete('/api/notifications/clear', async (req, res) => {
+  try {
+    const result = await dbRun(
+      dbType === 'postgres' 
+        ? `DELETE FROM notifications`
+        : `DELETE FROM notifications`
+    );
+    
+    console.log(`🧹 Notificações limpas: ${result.changes || result.rowCount} registos removidos`);
+    
+    res.json({ 
+      success: true, 
+      message: `Notificações limpas: ${result.changes || result.rowCount} registos removidos`,
+      deleted: result.changes || result.rowCount
+    });
+  } catch (error) {
+    console.error('Error clearing notifications:', error);
+    res.status(500).json({ error: 'Failed to clear notifications' });
+  }
+});
+
 // --- API: get notifications for an episode ---
 app.get('/api/episodes/:episodeId/notifications', async (req, res) => {
   const { episodeId } = req.params;
