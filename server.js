@@ -127,9 +127,20 @@ if (!fs.existsSync(path.join(__dirname, "data"))) {
   fs.mkdirSync(path.join(__dirname, "data"));
 }
 
+// Ensure /tmp directory exists in production
+if (process.env.NODE_ENV === 'production' && !fs.existsSync('/tmp')) {
+  console.log('📁 Criando diretório /tmp...');
+  fs.mkdirSync('/tmp', { recursive: true });
+}
+
 // Use environment variable for database path or default to local
-const dbPath = process.env.DATABASE_PATH || path.join(__dirname, "data", "podcast_battle.db");
+// In production, use /tmp for Railway's persistent storage
+const dbPath = process.env.DATABASE_PATH || 
+  (process.env.NODE_ENV === 'production' ? 
+    '/tmp/podcast_battle.db' : 
+    path.join(__dirname, "data", "podcast_battle.db"));
 console.log(`🗄️ Caminho da base de dados: ${dbPath}`);
+console.log(`🌍 NODE_ENV: ${process.env.NODE_ENV}`);
 
 let db;
 try {
@@ -341,6 +352,10 @@ console.log('📚 Inserindo podcasts padrão...');
 // Verificar podcasts existentes antes de inserir
 const existingPodcasts = db.prepare('SELECT COUNT(*) as count FROM podcasts').get();
 console.log(`📊 Podcasts existentes na base de dados: ${existingPodcasts.count}`);
+
+// Listar todos os podcasts existentes para debug
+const allPodcasts = db.prepare('SELECT nome FROM podcasts').all();
+console.log(`📋 Podcasts na base de dados: ${allPodcasts.map(p => p.nome).join(', ')}`);
 
 // Verificar se há podcasts não-padrão (adicionados via interface)
 const nonDefaultPodcasts = db.prepare(`
