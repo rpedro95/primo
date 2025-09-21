@@ -5,6 +5,7 @@ import path from "path";
 import fs from "fs";
 import fetch from "node-fetch";
 import { parseStringPromise } from "xml2js";
+import RSSParser from "rss-parser";
 import { WebSocketServer } from "ws";
 import { createServer } from "http";
 import multer from "multer";
