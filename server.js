@@ -1421,10 +1421,42 @@ app.get('/api/vapid-key', (req, res) => {
   res.json({ publicKey: vapidKeys.publicKey });
 });
 
+// --- API: list all podcasts for debugging ---
+app.get('/debug-podcasts', async (req, res) => {
+  try {
+    const podcasts = await dbAll('SELECT id, nome, plataforma, channelId, rss FROM podcasts ORDER BY nome');
+    res.json({ 
+      success: true, 
+      count: podcasts.length,
+      podcasts: podcasts
+    });
+  } catch (error) {
+    console.error('❌ Erro ao listar podcasts:', error);
+    res.status(500).json({ error: 'Erro ao listar podcasts' });
+  }
+});
+
 // --- API: fix Centro De Emprego channel ID ---
 app.get('/fix-centro-emprego', async (req, res) => {
   try {
     console.log('🔧 Corrigindo Channel ID do Centro De Emprego...');
+    
+    // Primeiro, verificar se o podcast existe
+    const existingPodcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['Centro De Emprego']
+    );
+    
+    if (!existingPodcast) {
+      return res.json({ 
+        success: false, 
+        error: 'Podcast Centro De Emprego não encontrado' 
+      });
+    }
+    
+    console.log(`📋 Podcast encontrado: ${JSON.stringify(existingPodcast)}`);
     
     const result = await dbRun(
       dbType === 'postgres' 
@@ -1456,7 +1488,7 @@ app.get('/fix-centro-emprego', async (req, res) => {
     } else {
       res.json({ 
         success: false, 
-        error: 'Podcast Centro De Emprego não encontrado' 
+        error: 'Podcast Centro De Emprego não encontrado após atualização' 
       });
     }
   } catch (error) {
