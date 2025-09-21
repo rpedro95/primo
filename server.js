@@ -1367,7 +1367,7 @@ app.get('/api/podcasts', async (req,res)=>{
 });
 
 // --- API: rate podcast ---
-app.post('/api/rate', express.json(), (req,res)=>{
+app.post('/api/rate', express.json(), async (req,res)=>{
   console.log('Received rating request:', req.body);
   const { podcastId, episodeId, user, rating } = req.body;
   
@@ -1392,12 +1392,12 @@ app.post('/api/rate', express.json(), (req,res)=>{
     
     // Se não foi fornecido episodeId, buscar o episódio mais recente do podcast
     if (!episodeId) {
-      const latestEpisode = db.prepare(`
-        SELECT id FROM episodios 
-        WHERE podcast_id = ? 
-        ORDER BY numero DESC 
-        LIMIT 1
-      `).get(podcastId);
+      const latestEpisode = await dbGet(
+        dbType === 'postgres' 
+          ? `SELECT id FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
+          : `SELECT id FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`,
+        [podcastId]
+      );
       
       if (!latestEpisode) {
         return res.status(404).json({ error: 'No episode found for this podcast' });
@@ -1406,21 +1406,26 @@ app.post('/api/rate', express.json(), (req,res)=>{
       targetEpisodeId = latestEpisode.id;
     } else {
       // Verificar se o episodeId existe e pertence ao podcast
-      const episode = db.prepare(`
-        SELECT id FROM episodios 
-        WHERE id = ? AND podcast_id = ?
-      `).get(episodeId, podcastId);
+      const episode = await dbGet(
+        dbType === 'postgres' 
+          ? `SELECT id FROM episodios WHERE id = $1 AND podcast_id = $2`
+          : `SELECT id FROM episodios WHERE id = ? AND podcast_id = ?`,
+        [episodeId, podcastId]
+      );
       
       if (!episode) {
         return res.status(404).json({ error: 'Episode not found or does not belong to this podcast' });
       }
     }
     
-    const insertRating = db.prepare(`
-      INSERT OR REPLACE INTO ratings (podcast_id, episode_id, user, rating) 
-      VALUES (?, ?, ?, ?)
-    `);
-    insertRating.run(podcastId, targetEpisodeId, user, rating);
+    // Inserir ou atualizar rating
+    await dbRun(
+      dbType === 'postgres' 
+        ? `INSERT INTO ratings (podcast_id, episode_id, "user", rating) VALUES ($1, $2, $3, $4) ON CONFLICT (podcast_id, episode_id, "user") DO UPDATE SET rating = $4`
+        : `INSERT OR REPLACE INTO ratings (podcast_id, episode_id, user, rating) VALUES (?, ?, ?, ?)`,
+      [podcastId, targetEpisodeId, user, rating]
+    );
+    
     console.log(`Rating saved successfully for episode ${targetEpisodeId}`);
     res.json({ success: true, episodeId: targetEpisodeId });
   } catch (error) {
@@ -1430,7 +1435,7 @@ app.post('/api/rate', express.json(), (req,res)=>{
 });
 
 // --- API: clear rating ---
-app.delete('/api/rate', express.json(), (req,res)=>{
+app.delete('/api/rate', express.json(), async (req,res)=>{
   console.log('Received clear rating request:', req.body);
   const { podcastId, episodeId, user } = req.body;
 
@@ -1443,12 +1448,12 @@ app.delete('/api/rate', express.json(), (req,res)=>{
     
     // Se não foi fornecido episodeId, buscar o episódio mais recente do podcast
     if (!episodeId) {
-      const latestEpisode = db.prepare(`
-        SELECT id FROM episodios 
-        WHERE podcast_id = ? 
-        ORDER BY numero DESC 
-        LIMIT 1
-      `).get(podcastId);
+      const latestEpisode = await dbGet(
+        dbType === 'postgres' 
+          ? `SELECT id FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
+          : `SELECT id FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`,
+        [podcastId]
+      );
       
       if (!latestEpisode) {
         return res.status(404).json({ error: 'No episode found for this podcast' });
@@ -1457,20 +1462,25 @@ app.delete('/api/rate', express.json(), (req,res)=>{
       targetEpisodeId = latestEpisode.id;
     } else {
       // Verificar se o episodeId existe e pertence ao podcast
-      const episode = db.prepare(`
-        SELECT id FROM episodios 
-        WHERE id = ? AND podcast_id = ?
-      `).get(episodeId, podcastId);
+      const episode = await dbGet(
+        dbType === 'postgres' 
+          ? `SELECT id FROM episodios WHERE id = $1 AND podcast_id = $2`
+          : `SELECT id FROM episodios WHERE id = ? AND podcast_id = ?`,
+        [episodeId, podcastId]
+      );
       
       if (!episode) {
         return res.status(404).json({ error: 'Episode not found or does not belong to this podcast' });
       }
     }
     
-    const deleteRating = db.prepare(`
-      DELETE FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = ?
-    `);
-    const result = deleteRating.run(podcastId, targetEpisodeId, user);
+    const result = await dbDelete(
+      dbType === 'postgres' 
+        ? `DELETE FROM ratings WHERE podcast_id = $1 AND episode_id = $2 AND "user" = $3`
+        : `DELETE FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = ?`,
+      [podcastId, targetEpisodeId, user]
+    );
+    
     console.log('Rating cleared successfully');
     res.json({ success: true, deleted: result.changes > 0 });
   } catch (error) {
