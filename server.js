@@ -1,5 +1,6 @@
 import express from "express";
 import Database from "better-sqlite3";
+import { Pool } from 'pg';
 import path from "path";
 import fs from "fs";
 import fetch from "node-fetch";
@@ -122,35 +123,71 @@ app.get('/health', (req, res) => {
 
 // --- DB setup ---
 console.log('🔧 Configurando base de dados...');
-if (!fs.existsSync(path.join(__dirname, "data"))) {
-  console.log('📁 Criando diretório data...');
-  fs.mkdirSync(path.join(__dirname, "data"));
+
+// Check if PostgreSQL is available
+const isPostgres = process.env.DATABASE_URL;
+let db = null;
+let dbType = 'sqlite';
+
+if (isPostgres) {
+  console.log('🐘 Usando PostgreSQL (Railway)');
+  dbType = 'postgres';
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  });
+  db = pool;
+} else {
+  console.log('🗄️ Usando SQLite (local)');
+}
+if (dbType === 'sqlite') {
+  if (!fs.existsSync(path.join(__dirname, "data"))) {
+    console.log('📁 Criando diretório data...');
+    fs.mkdirSync(path.join(__dirname, "data"));
+  }
+
+  // Use environment variable for database path or default to local
+  const dbPath = process.env.DATABASE_PATH || path.join(__dirname, "data", "podcast_battle.db");
+  console.log(`🗄️ Caminho da base de dados: ${dbPath}`);
+  
+  try {
+    db = new Database(dbPath);
+    console.log('✅ Base de dados SQLite conectada com sucesso');
+  } catch (error) {
+    console.error('❌ Erro ao conectar à base de dados SQLite:', error);
+    process.exit(1);
+  }
 }
 
-// Ensure /tmp directory exists in production
-if (process.env.NODE_ENV === 'production' && !fs.existsSync('/tmp')) {
-  console.log('📁 Criando diretório /tmp...');
-  fs.mkdirSync('/tmp', { recursive: true });
+// --- Database helper functions ---
+async function dbQuery(sql, params = []) {
+  if (dbType === 'postgres') {
+    const result = await db.query(sql, params);
+    return result.rows;
+  } else {
+    const stmt = db.prepare(sql);
+    return stmt.all(...params);
+  }
 }
 
-// Use environment variable for database path or default to local
-// In production, use /tmp for Railway's persistent storage
-const dbPath = process.env.DATABASE_PATH || 
-  (process.env.NODE_ENV === 'production' ? 
-    '/tmp/podcast_battle.db' : 
-    path.join(__dirname, "data", "podcast_battle.db"));
-console.log(`🗄️ Caminho da base de dados: ${dbPath}`);
-console.log(`🌍 NODE_ENV: ${process.env.NODE_ENV}`);
+async function dbRun(sql, params = []) {
+  if (dbType === 'postgres') {
+    const result = await db.query(sql, params);
+    return { changes: result.rowCount, lastInsertRowid: result.rows[0]?.id };
+  } else {
+    const stmt = db.prepare(sql);
+    return stmt.run(...params);
+  }
+}
 
-let db;
-try {
-  db = new Database(dbPath);
-  console.log('✅ Base de dados conectada com sucesso');
-} catch (error) {
-  console.error('❌ Erro ao conectar à base de dados:', error);
-  console.error('Detalhes do erro:', error.message);
-  console.error('Stack trace:', error.stack);
-  process.exit(1);
+async function dbGet(sql, params = []) {
+  if (dbType === 'postgres') {
+    const result = await db.query(sql, params);
+    return result.rows[0] || null;
+  } else {
+    const stmt = db.prepare(sql);
+    return stmt.get(...params);
+  }
 }
 
 // --- WebSocket handling ---
@@ -215,34 +252,62 @@ function sendNotificationToUser(targetUser, notification) {
 // --- Create tables ---
 console.log('🏗️ Criando tabelas...');
 try {
-  db.exec(`
-  CREATE TABLE IF NOT EXISTS podcasts (
-    id TEXT PRIMARY KEY,
-    nome TEXT NOT NULL,
-    link TEXT NOT NULL,
-    dia_da_semana TEXT NOT NULL,
-    imagem TEXT,
-    plataforma TEXT,
-    rss TEXT,
-    channelId TEXT
-  );
-  `);
+  if (dbType === 'postgres') {
+    await dbRun(`
+      CREATE TABLE IF NOT EXISTS podcasts (
+        id VARCHAR(20) PRIMARY KEY,
+        nome VARCHAR(255) NOT NULL,
+        link TEXT NOT NULL,
+        dia_da_semana VARCHAR(20) NOT NULL,
+        imagem TEXT,
+        plataforma VARCHAR(20),
+        rss TEXT,
+        channelId VARCHAR(100)
+      );
+    `);
+  } else {
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS podcasts (
+        id TEXT PRIMARY KEY,
+        nome TEXT NOT NULL,
+        link TEXT NOT NULL,
+        dia_da_semana TEXT NOT NULL,
+        imagem TEXT,
+        plataforma TEXT,
+        rss TEXT,
+        channelId TEXT
+      );
+    `);
+  }
   console.log('✅ Tabela podcasts criada/verificada');
 } catch (error) {
   console.error('❌ Erro ao criar tabela podcasts:', error);
 }
 
 try {
-  db.exec(`
-  CREATE TABLE IF NOT EXISTS episodios (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    podcast_id TEXT NOT NULL,
-    numero TEXT NOT NULL,
-    titulo TEXT NOT NULL,
-    data_publicacao TEXT NOT NULL,
-    FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
-  );
-  `);
+  if (dbType === 'postgres') {
+    await dbRun(`
+      CREATE TABLE IF NOT EXISTS episodios (
+        id SERIAL PRIMARY KEY,
+        podcast_id VARCHAR(20) NOT NULL,
+        numero INTEGER,
+        titulo TEXT NOT NULL,
+        data_publicacao VARCHAR(50) NOT NULL,
+        FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
+      );
+    `);
+  } else {
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS episodios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        podcast_id TEXT NOT NULL,
+        numero TEXT NOT NULL,
+        titulo TEXT NOT NULL,
+        data_publicacao TEXT NOT NULL,
+        FOREIGN KEY(podcast_id) REFERENCES podcasts(id)
+      );
+    `);
+  }
   console.log('✅ Tabela episodios criada/verificada');
 } catch (error) {
   console.error('❌ Erro ao criar tabela episodios:', error);
@@ -261,17 +326,31 @@ try {
 
 // Criar tabela ratings com estrutura antiga primeiro
 try {
-  db.exec(`
-  CREATE TABLE IF NOT EXISTS ratings (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    podcast_id TEXT NOT NULL,
-    user TEXT NOT NULL,
-    rating INTEGER NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
-    UNIQUE(podcast_id, user)
-  );
-  `);
+  if (dbType === 'postgres') {
+    await dbRun(`
+      CREATE TABLE IF NOT EXISTS ratings (
+        id SERIAL PRIMARY KEY,
+        podcast_id VARCHAR(20) NOT NULL,
+        user VARCHAR(50) NOT NULL,
+        rating INTEGER NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+        UNIQUE(podcast_id, user)
+      );
+    `);
+  } else {
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS ratings (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        podcast_id TEXT NOT NULL,
+        user TEXT NOT NULL,
+        rating INTEGER NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+        UNIQUE(podcast_id, user)
+      );
+    `);
+  }
   console.log('✅ Tabela ratings criada/verificada');
 } catch (error) {
   console.error('❌ Erro ao criar tabela ratings:', error);
@@ -350,18 +429,18 @@ const defaultPodcasts = [
 console.log('📚 Inserindo podcasts padrão...');
 
 // Verificar podcasts existentes antes de inserir
-const existingPodcasts = db.prepare('SELECT COUNT(*) as count FROM podcasts').get();
+const existingPodcasts = await dbGet('SELECT COUNT(*) as count FROM podcasts');
 console.log(`📊 Podcasts existentes na base de dados: ${existingPodcasts.count}`);
 
 // Listar todos os podcasts existentes para debug
-const allPodcasts = db.prepare('SELECT nome FROM podcasts').all();
+const allPodcasts = await dbQuery('SELECT nome FROM podcasts');
 console.log(`📋 Podcasts na base de dados: ${allPodcasts.map(p => p.nome).join(', ')}`);
 
 // Verificar se há podcasts não-padrão (adicionados via interface)
-const nonDefaultPodcasts = db.prepare(`
+const nonDefaultPodcasts = await dbQuery(`
   SELECT nome FROM podcasts 
   WHERE nome NOT IN ('watch.tm', 'à noite mata', 'desnorte', 'Zé Carioca', 'Cubinho', 'Prata da Casa', 'Contraluz', 'Trocadilho')
-`).all();
+`);
 if (nonDefaultPodcasts.length > 0) {
   console.log(`📋 Podcasts adicionados via interface: ${nonDefaultPodcasts.map(p => p.nome).join(', ')}`);
 } else {
@@ -369,35 +448,38 @@ if (nonDefaultPodcasts.length > 0) {
 }
 
 try {
-  const insertPodcast = db.prepare(`
-    INSERT OR IGNORE INTO podcasts (id,nome,link,dia_da_semana,imagem,plataforma,rss,channelId)
-    VALUES (@id,@nome,@link,@dia_da_semana,@imagem,@plataforma,@rss,@channelId)
-  `);
-  
   let insertedCount = 0;
   for (const p of defaultPodcasts) {
     const id = Buffer.from(p.nome).toString('base64url').slice(0,20);
     
     // Verificar se já existe
-    const existing = db.prepare('SELECT id FROM podcasts WHERE id = ?').get(id);
+    const existing = await dbGet('SELECT id FROM podcasts WHERE id = ?', [id]);
     if (existing) {
       console.log(`  ⏭️  ${p.nome} já existe, ignorando`);
       continue;
     }
     
-    const result = insertPodcast.run({
-      id: id,
-      nome: p.nome,
-      link: p.link,
-      dia_da_semana: p.dia,
-      imagem: p.img,
-      plataforma: p.plataforma,
-      rss: p.rss || null,
-      channelId: p.channelId || null
-    });
-    if (result.changes > 0) {
-      insertedCount++;
-      console.log(`  ✅ ${p.nome} inserido`);
+    if (dbType === 'postgres') {
+      const result = await dbRun(`
+        INSERT INTO podcasts (id,nome,link,dia_da_semana,imagem,plataforma,rss,channelId)
+        VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+        ON CONFLICT (id) DO NOTHING
+      `, [id, p.nome, p.link, p.dia, p.img, p.plataforma, p.rss || null, p.channelId || null]);
+      
+      if (result.changes > 0) {
+        insertedCount++;
+        console.log(`  ✅ ${p.nome} inserido`);
+      }
+    } else {
+      const result = await dbRun(`
+        INSERT OR IGNORE INTO podcasts (id,nome,link,dia_da_semana,imagem,plataforma,rss,channelId)
+        VALUES (?,?,?,?,?,?,?,?)
+      `, [id, p.nome, p.link, p.dia, p.img, p.plataforma, p.rss || null, p.channelId || null]);
+      
+      if (result.changes > 0) {
+        insertedCount++;
+        console.log(`  ✅ ${p.nome} inserido`);
+      }
     }
   }
   console.log(`✅ ${insertedCount} podcasts padrão inseridos/verificados`);
@@ -961,12 +1043,12 @@ app.get('/api/podcasts', async (req,res)=>{
   console.log('🔄 Verificando episódios...');
   await updatePodcasts();
   
-  const rows = db.prepare(`SELECT * FROM podcasts`).all();
+  const rows = await dbQuery(`SELECT * FROM podcasts`);
   const today = new Date();
   const weekDay = today.toLocaleDateString('pt-PT',{ weekday:'long' }).toLowerCase();
 
-  const podcasts = rows.map(p=>{
-    const lastEp = db.prepare(`SELECT numero, data_publicacao FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`).get(p.id);
+  const podcasts = await Promise.all(rows.map(async p=>{
+    const lastEp = await dbGet(`SELECT numero, data_publicacao FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`, [p.id]);
     
     // Check if episode is from current week (since last Sunday)
     let ja_saiu;
@@ -989,13 +1071,13 @@ app.get('/api/podcasts', async (req,res)=>{
     }
     
     // Get ratings for Pedro and João (do episódio mais recente)
-    const latestEpisode = db.prepare(`SELECT id FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`).get(p.id);
+    const latestEpisode = await dbGet(`SELECT id FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`, [p.id]);
     let ratingPedro = null;
     let ratingJoao = null;
     
     if (latestEpisode) {
-      ratingPedro = db.prepare(`SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'Pedro'`).get(p.id, latestEpisode.id);
-      ratingJoao = db.prepare(`SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'João'`).get(p.id, latestEpisode.id);
+      ratingPedro = await dbGet(`SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'Pedro'`, [p.id, latestEpisode.id]);
+      ratingJoao = await dbGet(`SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'João'`, [p.id, latestEpisode.id]);
     }
     
     return { 
@@ -1005,7 +1087,7 @@ app.get('/api/podcasts', async (req,res)=>{
       ratingPedro: ratingPedro ? ratingPedro.rating : 0,
       ratingJoao: ratingJoao ? ratingJoao.rating : 0
     };
-  });
+  }));
 
   podcasts.sort((a,b)=> weekOrder.indexOf(a.dia_da_semana)-weekOrder.indexOf(b.dia_da_semana));
   res.json({ podcasts });
