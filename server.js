@@ -374,11 +374,11 @@ try {
       CREATE TABLE IF NOT EXISTS ratings (
         id SERIAL PRIMARY KEY,
         podcast_id VARCHAR(20) NOT NULL,
-        user VARCHAR(50) NOT NULL,
+        "user" VARCHAR(50) NOT NULL,
         rating INTEGER NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
-        UNIQUE(podcast_id, user)
+        UNIQUE(podcast_id, "user")
       );
     `);
   } else {
@@ -401,56 +401,114 @@ try {
 
 // Migrar para nova estrutura com episode_id
 try {
-  // Verificar se a coluna episode_id já existe
-  const columns = db.prepare("PRAGMA table_info(ratings)").all();
-  const hasEpisodeId = columns.some(col => col.name === 'episode_id');
-  
-  if (!hasEpisodeId) {
-    console.log('🔄 Migrando tabela ratings para nova estrutura...');
-    
-    // Criar nova tabela com estrutura correta
-    db.exec(`
-      CREATE TABLE ratings_new (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        podcast_id TEXT NOT NULL,
-        episode_id INTEGER NOT NULL,
-        user TEXT NOT NULL,
-        rating INTEGER NOT NULL,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
-        FOREIGN KEY(episode_id) REFERENCES episodios(id),
-        UNIQUE(podcast_id, episode_id, user)
-      );
+  if (dbType === 'postgres') {
+    // Verificar se a coluna episode_id já existe no PostgreSQL
+    const columns = await dbQuery(`
+      SELECT column_name 
+      FROM information_schema.columns 
+      WHERE table_name = 'ratings' AND column_name = 'episode_id'
     `);
+    const hasEpisodeId = columns.length > 0;
     
-    // Migrar dados existentes (se houver)
-    const existingRatings = db.prepare("SELECT * FROM ratings").all();
-    if (existingRatings.length > 0) {
-      console.log(`📦 Encontrados ${existingRatings.length} ratings para migrar...`);
+    if (!hasEpisodeId) {
+      console.log('🔄 Migrando tabela ratings para nova estrutura...');
       
-      for (const rating of existingRatings) {
-        // Buscar o episódio mais recente do podcast
-        const latestEpisode = db.prepare(`
-          SELECT id FROM episodios 
-          WHERE podcast_id = ? 
-          ORDER BY numero DESC 
-          LIMIT 1
-        `).get(rating.podcast_id);
+      // Criar nova tabela com estrutura correta
+      await dbRun(`
+        CREATE TABLE ratings_new (
+          id SERIAL PRIMARY KEY,
+          podcast_id VARCHAR(20) NOT NULL,
+          episode_id INTEGER NOT NULL,
+          "user" VARCHAR(50) NOT NULL,
+          rating INTEGER NOT NULL,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+          FOREIGN KEY(episode_id) REFERENCES episodios(id),
+          UNIQUE(podcast_id, episode_id, "user")
+        );
+      `);
+      
+      // Migrar dados existentes (se houver)
+      const existingRatings = await dbQuery("SELECT * FROM ratings");
+      if (existingRatings.length > 0) {
+        console.log(`📦 Encontrados ${existingRatings.length} ratings para migrar...`);
         
-        if (latestEpisode) {
-          db.prepare(`
-            INSERT INTO ratings_new (podcast_id, episode_id, user, rating, created_at)
-            VALUES (?, ?, ?, ?, ?)
-          `).run(rating.podcast_id, latestEpisode.id, rating.user, rating.rating, rating.created_at);
+        for (const rating of existingRatings) {
+          // Buscar o episódio mais recente do podcast
+          const latestEpisode = await dbGet(`
+            SELECT id FROM episodios 
+            WHERE podcast_id = $1 
+            ORDER BY numero DESC 
+            LIMIT 1
+          `, [rating.podcast_id]);
+          
+          if (latestEpisode) {
+            await dbRun(`
+              INSERT INTO ratings_new (podcast_id, episode_id, "user", rating, created_at)
+              VALUES ($1, $2, $3, $4, $5)
+            `, [rating.podcast_id, latestEpisode.id, rating.user, rating.rating, rating.created_at]);
+          }
         }
       }
+      
+      // Remover tabela antiga e renomear nova
+      await dbRun("DROP TABLE ratings");
+      await dbRun("ALTER TABLE ratings_new RENAME TO ratings");
+      
+      console.log('✅ Migração concluída!');
     }
+  } else {
+    // Verificar se a coluna episode_id já existe no SQLite
+    const columns = db.prepare("PRAGMA table_info(ratings)").all();
+    const hasEpisodeId = columns.some(col => col.name === 'episode_id');
     
-    // Remover tabela antiga e renomear nova
-    db.exec("DROP TABLE ratings");
-    db.exec("ALTER TABLE ratings_new RENAME TO ratings");
-    
-    console.log('✅ Migração concluída!');
+    if (!hasEpisodeId) {
+      console.log('🔄 Migrando tabela ratings para nova estrutura...');
+      
+      // Criar nova tabela com estrutura correta
+      db.exec(`
+        CREATE TABLE ratings_new (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          podcast_id TEXT NOT NULL,
+          episode_id INTEGER NOT NULL,
+          user TEXT NOT NULL,
+          rating INTEGER NOT NULL,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY(podcast_id) REFERENCES podcasts(id),
+          FOREIGN KEY(episode_id) REFERENCES episodios(id),
+          UNIQUE(podcast_id, episode_id, user)
+        );
+      `);
+      
+      // Migrar dados existentes (se houver)
+      const existingRatings = db.prepare("SELECT * FROM ratings").all();
+      if (existingRatings.length > 0) {
+        console.log(`📦 Encontrados ${existingRatings.length} ratings para migrar...`);
+        
+        for (const rating of existingRatings) {
+          // Buscar o episódio mais recente do podcast
+          const latestEpisode = db.prepare(`
+            SELECT id FROM episodios 
+            WHERE podcast_id = ? 
+            ORDER BY numero DESC 
+            LIMIT 1
+          `).get(rating.podcast_id);
+          
+          if (latestEpisode) {
+            db.prepare(`
+              INSERT INTO ratings_new (podcast_id, episode_id, user, rating, created_at)
+              VALUES (?, ?, ?, ?, ?)
+            `).run(rating.podcast_id, latestEpisode.id, rating.user, rating.rating, rating.created_at);
+          }
+        }
+      }
+      
+      // Remover tabela antiga e renomear nova
+      db.exec("DROP TABLE ratings");
+      db.exec("ALTER TABLE ratings_new RENAME TO ratings");
+      
+      console.log('✅ Migração concluída!');
+    }
   }
 } catch (error) {
   console.error('Erro na migração:', error);
