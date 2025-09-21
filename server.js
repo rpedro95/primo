@@ -2398,6 +2398,174 @@ app.get('/reload-watchtm', async (req,res)=>{
   }
 });
 
+// --- API: update specific podcast episodes ---
+app.get('/api/podcast/:podcastName/update', async (req, res) => {
+  const { podcastName } = req.params;
+  
+  try {
+    console.log(`🔄 Atualizando episódios para: ${podcastName}`);
+    
+    // Buscar podcast na base de dados
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      [podcastName]
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast não encontrado' });
+    }
+    
+    console.log(`📋 Podcast encontrado:`, podcast);
+    
+    let episodes = [];
+    
+    if (podcast.plataforma === 'youtube') {
+      console.log(`📺 Processando YouTube: ${podcast.nome}`);
+      episodes = await getAllYoutubeEpisodes(podcast.channelId || podcast.channelid);
+    } else if (podcast.plataforma === 'spotify' || podcast.plataforma === 'soundcloud') {
+      console.log(`🎵 Processando RSS: ${podcast.nome}`);
+      episodes = await getAllRssEpisodes(podcast.rss);
+    }
+    
+    console.log(`📊 Episódios encontrados: ${episodes.length}`);
+    
+    if (episodes.length === 0) {
+      return res.json({ 
+        success: true, 
+        message: 'Nenhum episódio encontrado',
+        episodes: 0
+      });
+    }
+    
+    // Inserir episódios na base de dados
+    let added = 0;
+    let skipped = 0;
+    
+    for (const episode of episodes) {
+      try {
+        const result = await dbRun(
+          dbType === 'postgres' 
+            ? `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES ($1, $2, $3, $4) ON CONFLICT (podcast_id, numero) DO NOTHING`
+            : `INSERT OR IGNORE INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES (?, ?, ?, ?)`,
+          [podcast.id, episode.numero, episode.titulo, episode.data_publicacao]
+        );
+        
+        if (result.changes > 0) {
+          added++;
+          console.log(`✅ Episódio ${episode.numero} adicionado: ${episode.titulo}`);
+        } else {
+          skipped++;
+          console.log(`⏭️ Episódio ${episode.numero} já existe: ${episode.titulo}`);
+        }
+      } catch (error) {
+        console.error(`❌ Erro ao inserir episódio ${episode.numero}:`, error.message);
+      }
+    }
+    
+    res.json({
+      success: true,
+      message: `Atualização concluída para ${podcast.nome}`,
+      podcast: podcast.nome,
+      platform: podcast.plataforma,
+      episodesFound: episodes.length,
+      episodesAdded: added,
+      episodesSkipped: skipped,
+      rssUrl: podcast.rss,
+      channelId: podcast.channelId || podcast.channelid
+    });
+    
+  } catch (error) {
+    console.error('Error updating podcast:', error);
+    res.status(500).json({ error: 'Failed to update podcast: ' + error.message });
+  }
+});
+
+// --- API: debug Correr De Chinelos RSS ---
+app.get('/api/debug/correr-de-chinelos', async (req, res) => {
+  try {
+    console.log('🔍 Debugging Correr De Chinelos RSS...');
+    
+    // Buscar podcast
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['Correr De Chinelos']
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast Correr De Chinelos não encontrado' });
+    }
+    
+    console.log('📋 Podcast encontrado:', podcast);
+    
+    // Testar RSS
+    const rssUrl = podcast.rss;
+    console.log('🔗 RSS URL:', rssUrl);
+    
+    const parser = new RSSParser();
+    const feed = await parser.parseURL(rssUrl);
+    
+    console.log('📊 Feed info:');
+    console.log('  - Título:', feed.title);
+    console.log('  - Descrição:', feed.description);
+    console.log('  - Total de itens:', feed.items.length);
+    
+    // Processar episódios
+    const episodes = [];
+    for (let i = 0; i < feed.items.length; i++) {
+      const item = feed.items[i];
+      const episode = {
+        numero: i + 1,
+        titulo: item.title,
+        data_publicacao: item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString(),
+        link: item.link,
+        guid: item.guid
+      };
+      episodes.push(episode);
+    }
+    
+    // Verificar episódios existentes na BD
+    const existingEpisodes = await dbAll(
+      dbType === 'postgres' 
+        ? `SELECT numero, titulo FROM episodios WHERE podcast_id = $1 ORDER BY numero`
+        : `SELECT numero, titulo FROM episodios WHERE podcast_id = ? ORDER BY numero`,
+      [podcast.id]
+    );
+    
+    console.log('📊 Episódios na BD:', existingEpisodes.length);
+    console.log('📊 Episódios no RSS:', episodes.length);
+    
+    res.json({
+      success: true,
+      podcast: {
+        id: podcast.id,
+        nome: podcast.nome,
+        plataforma: podcast.plataforma,
+        rss: podcast.rss
+      },
+      feed: {
+        title: feed.title,
+        description: feed.description,
+        totalItems: feed.items.length
+      },
+      episodes: {
+        rss: episodes.length,
+        database: existingEpisodes.length,
+        missing: episodes.length - existingEpisodes.length
+      },
+      rssEpisodes: episodes.slice(0, 5), // Primeiros 5 para debug
+      dbEpisodes: existingEpisodes.slice(0, 5) // Primeiros 5 para debug
+    });
+    
+  } catch (error) {
+    console.error('Error debugging Correr De Chinelos:', error);
+    res.status(500).json({ error: 'Failed to debug: ' + error.message });
+  }
+});
+
 // --- API: list all image files (temporary endpoint for debugging) ---
 app.get('/api/debug/images', (req, res) => {
   try {
