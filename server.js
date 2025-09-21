@@ -76,6 +76,41 @@ const upload = multer({
 // --- Serve static ---
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Function to find image with fallback
+function findImagePath(podcastName, basePath = '/img/') {
+  const imgDir = path.join(__dirname, 'public', 'img');
+  
+  // Try exact match first
+  const exactPath = path.join(imgDir, `${podcastName}.png`);
+  if (fs.existsSync(exactPath)) {
+    return `${basePath}${podcastName}.png`;
+  }
+  
+  // Try without spaces
+  const noSpacesName = podcastName.replace(/\s+/g, '');
+  const noSpacesPath = path.join(imgDir, `${noSpacesName}.png`);
+  if (fs.existsSync(noSpacesPath)) {
+    return `${basePath}${noSpacesName}.png`;
+  }
+  
+  // Try with underscores
+  const underscoreName = podcastName.replace(/\s+/g, '_');
+  const underscorePath = path.join(imgDir, `${underscoreName}.png`);
+  if (fs.existsSync(underscorePath)) {
+    return `${basePath}${underscoreName}.png`;
+  }
+  
+  // Try with hyphens
+  const hyphenName = podcastName.replace(/\s+/g, '-');
+  const hyphenPath = path.join(imgDir, `${hyphenName}.png`);
+  if (fs.existsSync(hyphenPath)) {
+    return `${basePath}${hyphenName}.png`;
+  }
+  
+  // Return placeholder if no image found
+  return `https://via.placeholder.com/120x120?text=${encodeURIComponent(podcastName)}`;
+}
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ 
@@ -289,14 +324,14 @@ try {
 
 // --- Default podcasts ---
 const defaultPodcasts = [
-  { nome: "watch.tm", link: "https://anchor.fm/s/df67421c/podcast/rss", dia: "domingo", img: "/img/watch.tm.png", plataforma:"spotify", rss:"https://anchor.fm/s/df67421c/podcast/rss" },
-  { nome: "à noite mata", link: "https://open.spotify.com/show/0PL5pILKjANwZ8UK9KtbqF?si=dda4315119f642fe", dia: "segunda", img: "/img/à noite mata.png", plataforma:"spotify", rss:"https://anchor.fm/s/db97b450/podcast/rss" },
-  { nome: "desnorte", link: "https://open.spotify.com/show/1FuehRKqgMbl7d8KDUoSEa?si=aeea5574e45744cb", dia: "segunda", img: "/img/Desnorte.png", plataforma:"soundcloud", rss:"https://feeds.soundcloud.com/users/soundcloud:users:795862234/sounds.rss" },
-  { nome: "Zé Carioca", link: "https://podcasters.spotify.com/pod/show/ze-carioca", dia: "segunda", img: "/img/Zé Carioca.png", plataforma:"spotify", rss:"https://anchor.fm/s/ea5b58fc/podcast/rss" },
-  { nome: "Cubinho", link: "https://open.spotify.com/show/2JLsy53hzl94Wn1GxqTzoD?si=d2701cbd233a4e1a", dia: "terça", img: "/img/Cubinho.png", plataforma:"spotify", rss:"https://anchor.fm/s/8e11a8d0/podcast/rss" },
-  { nome: "Prata da Casa", link: "https://anchor.fm/s/1056d2710/podcast/rss", dia: "quarta", img: "/img/Prata da Casa.png", plataforma:"spotify", rss:"https://anchor.fm/s/1056d2710/podcast/rss" },
-  { nome: "Contraluz", link: "https://open.spotify.com/show/1iZVOcN0N79eR83v6g0UC9?si=3378ba9f5b0849db", dia: "sábado", img: "/img/Contraluz.png", plataforma:"spotify", rss:"https://anchor.fm/s/fb86963c/podcast/rss" },
-  { nome: "Trocadilho", link: "https://open.spotify.com/show/7L4zV1ZWetD7aEyfaMZB10?si=31ea176718944bf4", dia: "sábado", img: "/img/Trocadilho.png", plataforma:"spotify", rss:"https://anchor.fm/s/3d61c0b4/podcast/rss" },
+  { nome: "watch.tm", link: "https://anchor.fm/s/df67421c/podcast/rss", dia: "domingo", img: findImagePath("watch.tm"), plataforma:"spotify", rss:"https://anchor.fm/s/df67421c/podcast/rss" },
+  { nome: "à noite mata", link: "https://open.spotify.com/show/0PL5pILKjANwZ8UK9KtbqF?si=dda4315119f642fe", dia: "segunda", img: findImagePath("à noite mata"), plataforma:"spotify", rss:"https://anchor.fm/s/db97b450/podcast/rss" },
+  { nome: "desnorte", link: "https://open.spotify.com/show/1FuehRKqgMbl7d8KDUoSEa?si=aeea5574e45744cb", dia: "segunda", img: findImagePath("desnorte"), plataforma:"soundcloud", rss:"https://feeds.soundcloud.com/users/soundcloud:users:795862234/sounds.rss" },
+  { nome: "Zé Carioca", link: "https://podcasters.spotify.com/pod/show/ze-carioca", dia: "segunda", img: findImagePath("Zé Carioca"), plataforma:"spotify", rss:"https://anchor.fm/s/ea5b58fc/podcast/rss" },
+  { nome: "Cubinho", link: "https://open.spotify.com/show/2JLsy53hzl94Wn1GxqTzoD?si=d2701cbd233a4e1a", dia: "terça", img: findImagePath("Cubinho"), plataforma:"spotify", rss:"https://anchor.fm/s/8e11a8d0/podcast/rss" },
+  { nome: "Prata da Casa", link: "https://anchor.fm/s/1056d2710/podcast/rss", dia: "quarta", img: findImagePath("Prata da Casa"), plataforma:"spotify", rss:"https://anchor.fm/s/1056d2710/podcast/rss" },
+  { nome: "Contraluz", link: "https://open.spotify.com/show/1iZVOcN0N79eR83v6g0UC9?si=3378ba9f5b0849db", dia: "sábado", img: findImagePath("Contraluz"), plataforma:"spotify", rss:"https://anchor.fm/s/fb86963c/podcast/rss" },
+  { nome: "Trocadilho", link: "https://open.spotify.com/show/7L4zV1ZWetD7aEyfaMZB10?si=31ea176718944bf4", dia: "sábado", img: findImagePath("Trocadilho"), plataforma:"spotify", rss:"https://anchor.fm/s/3d61c0b4/podcast/rss" },
 ];
 
 // --- Insert default podcasts if not exist ---
@@ -921,6 +956,7 @@ app.get('/api/podcasts', async (req,res)=>{
     
     return { 
       ...p, 
+      imagem: findImagePath(p.nome, '/img/'),
       ja_saiu,
       ratingPedro: ratingPedro ? ratingPedro.rating : 0,
       ratingJoao: ratingJoao ? ratingJoao.rating : 0
