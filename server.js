@@ -903,20 +903,24 @@ async function fillAllPodcastHistories() {
         console.log(`   📥 Encontrados ${episodes.length} episódios para ${podcast.nome}`);
         
         // Inserir episódios na base de dados (ignorar duplicados)
-        const insertEpisode = db.prepare(`
-          INSERT OR IGNORE INTO episodios (podcast_id, numero, titulo, data_publicacao) 
-          VALUES (?, ?, ?, ?)
-        `);
-        
         let addedCount = 0;
         for(const episode of episodes){
-          const result = insertEpisode.run(
-            podcast.id, 
-            episode.episodeNum, 
-            episode.title, 
-            episode.pubDate.toISOString()
-          );
-          if(result.changes > 0) addedCount++;
+          try {
+            const result = await dbRun(
+              dbType === 'postgres' 
+                ? `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES ($1, $2, $3, $4) ON CONFLICT (podcast_id, numero) DO NOTHING`
+                : `INSERT OR IGNORE INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES (?, ?, ?, ?)`,
+              [podcast.id, episode.episodeNum, episode.title, episode.pubDate.toISOString()]
+            );
+            if(result.changes > 0) addedCount++;
+          } catch (error) {
+            // Ignorar erros de duplicados
+            if (error.message.includes('duplicate') || error.message.includes('UNIQUE constraint')) {
+              // Episódio já existe, continuar
+            } else {
+              console.error(`   ❌ Erro ao inserir episódio ${episode.episodeNum}:`, error.message);
+            }
+          }
         }
         
         console.log(`   ✅ Adicionados ${addedCount} novos episódios para ${podcast.nome}`);
@@ -949,20 +953,24 @@ async function fillPodcastHistory(podcast) {
       console.log(`   📥 Encontrados ${episodes.length} episódios para ${podcast.nome}`);
       
       // Inserir episódios na base de dados (ignorar duplicados)
-      const insertEpisode = db.prepare(`
-        INSERT OR IGNORE INTO episodios (podcast_id, numero, titulo, data_publicacao) 
-        VALUES (?, ?, ?, ?)
-      `);
-      
       let addedCount = 0;
       for(const episode of episodes){
-        const result = insertEpisode.run(
-          podcast.id, 
-          episode.episodeNum, 
-          episode.title, 
-          episode.pubDate.toISOString()
-        );
-        if(result.changes > 0) addedCount++;
+        try {
+          const result = await dbRun(
+            dbType === 'postgres' 
+              ? `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES ($1, $2, $3, $4) ON CONFLICT (podcast_id, numero) DO NOTHING`
+              : `INSERT OR IGNORE INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES (?, ?, ?, ?)`,
+            [podcast.id, episode.episodeNum, episode.title, episode.pubDate.toISOString()]
+          );
+          if(result.changes > 0) addedCount++;
+        } catch (error) {
+          // Ignorar erros de duplicados
+          if (error.message.includes('duplicate') || error.message.includes('UNIQUE constraint')) {
+            // Episódio já existe, continuar
+          } else {
+            console.error(`   ❌ Erro ao inserir episódio ${episode.episodeNum}:`, error.message);
+          }
+        }
       }
       
       console.log(`   ✅ Adicionados ${addedCount} novos episódios para ${podcast.nome}`);
@@ -2204,16 +2212,16 @@ app.get('/fill-histories', async (req,res)=>{
 });
 
 // --- Endpoint para verificar estatísticas dos episódios ---
-app.get('/stats', (req,res)=>{
+app.get('/stats', async (req,res)=>{
   try {
-    const totalEpisodes = db.prepare(`SELECT COUNT(*) as count FROM episodios`).get();
-    const episodesByPodcast = db.prepare(`
+    const totalEpisodes = await dbGet(`SELECT COUNT(*) as count FROM episodios`);
+    const episodesByPodcast = await dbAll(`
       SELECT p.nome, COUNT(e.id) as episode_count 
       FROM podcasts p 
       LEFT JOIN episodios e ON p.id = e.podcast_id 
       GROUP BY p.id, p.nome 
       ORDER BY episode_count DESC
-    `).all();
+    `);
     
     res.json({
       totalEpisodes: totalEpisodes.count,
