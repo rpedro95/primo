@@ -290,11 +290,11 @@ try {
 // --- Default podcasts ---
 const defaultPodcasts = [
   { nome: "watch.tm", link: "https://anchor.fm/s/df67421c/podcast/rss", dia: "domingo", img: "/img/watch.tm.png", plataforma:"spotify", rss:"https://anchor.fm/s/df67421c/podcast/rss" },
-  { nome: "à noite mata", link: "https://open.spotify.com/show/0PL5pILKjANwZ8UK9KtbqF?si=dda4315119f642fe", dia: "segunda", img: "/img/NoiteMata.png", plataforma:"spotify", rss:"https://anchor.fm/s/db97b450/podcast/rss" },
+  { nome: "à noite mata", link: "https://open.spotify.com/show/0PL5pILKjANwZ8UK9KtbqF?si=dda4315119f642fe", dia: "segunda", img: "/img/à noite mata.png", plataforma:"spotify", rss:"https://anchor.fm/s/db97b450/podcast/rss" },
   { nome: "desnorte", link: "https://open.spotify.com/show/1FuehRKqgMbl7d8KDUoSEa?si=aeea5574e45744cb", dia: "segunda", img: "/img/Desnorte.png", plataforma:"soundcloud", rss:"https://feeds.soundcloud.com/users/soundcloud:users:795862234/sounds.rss" },
-  { nome: "Zé Carioca", link: "https://podcasters.spotify.com/pod/show/ze-carioca", dia: "segunda", img: "/img/ZeCarioca.png", plataforma:"spotify", rss:"https://anchor.fm/s/ea5b58fc/podcast/rss" },
+  { nome: "Zé Carioca", link: "https://podcasters.spotify.com/pod/show/ze-carioca", dia: "segunda", img: "/img/Zé Carioca.png", plataforma:"spotify", rss:"https://anchor.fm/s/ea5b58fc/podcast/rss" },
   { nome: "Cubinho", link: "https://open.spotify.com/show/2JLsy53hzl94Wn1GxqTzoD?si=d2701cbd233a4e1a", dia: "terça", img: "/img/Cubinho.png", plataforma:"spotify", rss:"https://anchor.fm/s/8e11a8d0/podcast/rss" },
-  { nome: "Prata da Casa", link: "https://anchor.fm/s/1056d2710/podcast/rss", dia: "quarta", img: "/img/PrataDaCasa.png", plataforma:"spotify", rss:"https://anchor.fm/s/1056d2710/podcast/rss" },
+  { nome: "Prata da Casa", link: "https://anchor.fm/s/1056d2710/podcast/rss", dia: "quarta", img: "/img/Prata da Casa.png", plataforma:"spotify", rss:"https://anchor.fm/s/1056d2710/podcast/rss" },
   { nome: "Contraluz", link: "https://open.spotify.com/show/1iZVOcN0N79eR83v6g0UC9?si=3378ba9f5b0849db", dia: "sábado", img: "/img/Contraluz.png", plataforma:"spotify", rss:"https://anchor.fm/s/fb86963c/podcast/rss" },
   { nome: "Trocadilho", link: "https://open.spotify.com/show/7L4zV1ZWetD7aEyfaMZB10?si=31ea176718944bf4", dia: "sábado", img: "/img/Trocadilho.png", plataforma:"spotify", rss:"https://anchor.fm/s/3d61c0b4/podcast/rss" },
 ];
@@ -2683,6 +2683,14 @@ app.get('/fix-velho-amigo-duplicates', async (req,res)=>{
 
 // --- API: clean entire database ---
 app.get('/clean-database', async (req,res)=>{
+  // Only allow in development
+  if (process.env.NODE_ENV === 'production') {
+    return res.status(403).json({ 
+      error: 'Database cleaning not allowed in production',
+      message: 'This endpoint is only available in development mode'
+    });
+  }
+  
   try {
     console.log('🧹 Limpando TODA a base de dados...');
     
