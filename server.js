@@ -151,14 +151,14 @@ if (isPostgres) {
     console.log('🔗 Usando DATABASE_URL diretamente');
     console.log(`  DATABASE_URL: ${process.env.DATABASE_URL.replace(/:[^:@]+@/, ':***@')}`);
   } else {
-    // Build connection string from individual variables with defaults
-    const user = process.env.PGUSER || 'postgres';
-    const password = process.env.POSTGRES_PASSWORD || 'password';
+    // Build connection string using Railway private domain with hardcoded values
+    const user = 'postgres';
+    const password = 'ZPoCNUzJoRIMtYUsmIDIZpOzzqYPbKIB';
     const host = process.env.RAILWAY_PRIVATE_DOMAIN;
-    const database = process.env.PGDATABASE || 'railway';
+    const database = 'railway';
     
     connectionString = `postgresql://${user}:${password}@${host}:5432/${database}`;
-    console.log('🔗 Construindo connection string a partir de variáveis individuais');
+    console.log('🔗 Construindo connection string com valores hardcoded para Railway');
     console.log(`  User: ${user}`);
     console.log(`  Host: ${host}`);
     console.log(`  Database: ${database}`);
