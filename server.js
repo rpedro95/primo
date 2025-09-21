@@ -1533,6 +1533,48 @@ app.get('/fix-centro-emprego', async (req, res) => {
   }
 });
 
+// --- API: fix default podcasts images ---
+app.get('/fix-default-images', async (req, res) => {
+  try {
+    console.log('🖼️ Corrigindo imagens dos podcasts padrão...');
+    
+    const defaultPodcasts = [
+      { nome: "watch.tm", imagem: findImagePath("watch.tm") },
+      { nome: "à noite mata", imagem: findImagePath("à noite mata") },
+      { nome: "desnorte", imagem: findImagePath("desnorte") },
+      { nome: "Zé Carioca", imagem: findImagePath("Zé Carioca") },
+      { nome: "Cubinho", imagem: findImagePath("Cubinho") },
+      { nome: "Prata da Casa", imagem: findImagePath("Prata da Casa") },
+      { nome: "Contraluz", imagem: findImagePath("Contraluz") },
+      { nome: "Trocadilho", imagem: findImagePath("Trocadilho") }
+    ];
+    
+    let updatedCount = 0;
+    for (const podcast of defaultPodcasts) {
+      const result = await dbRun(
+        dbType === 'postgres' 
+          ? `UPDATE podcasts SET imagem = $1 WHERE nome = $2`
+          : `UPDATE podcasts SET imagem = ? WHERE nome = ?`,
+        [podcast.imagem, podcast.nome]
+      );
+      
+      if (result.changes > 0) {
+        console.log(`✅ ${podcast.nome}: ${podcast.imagem}`);
+        updatedCount++;
+      }
+    }
+    
+    res.json({ 
+      success: true, 
+      message: `${updatedCount} podcasts atualizados com imagens`,
+      updated: updatedCount
+    });
+  } catch (error) {
+    console.error('❌ Erro ao corrigir imagens:', error);
+    res.status(500).json({ error: 'Erro ao corrigir imagens' });
+  }
+});
+
 // --- API: get episodes for a podcast ---
 app.get('/api/episodes/:podcastId', async (req, res) => {
   const { podcastId } = req.params;
