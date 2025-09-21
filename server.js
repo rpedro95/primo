@@ -2507,6 +2507,8 @@ app.post('/api/fix-correr-de-chinelos', async (req, res) => {
       return res.status(404).json({ error: 'Podcast Correr De Chinelos não encontrado' });
     }
     
+    console.log('📋 Podcast encontrado:', podcast.nome);
+    
     // Limpar todos os episódios existentes
     const deleteResult = await dbRun(
       dbType === 'postgres' 
@@ -2518,9 +2520,9 @@ app.post('/api/fix-correr-de-chinelos', async (req, res) => {
     console.log(`🗑️ Episódios removidos: ${deleteResult.changes || deleteResult.rowCount}`);
     
     // Buscar RSS e fazer parsing específico para Correr De Chinelos
-    const res = await fetch(podcast.rss);
-    if (!res.ok) throw new Error(`Erro ao buscar RSS: ${res.status}`);
-    const xml = await res.text();
+    const rssResponse = await fetch(podcast.rss);
+    if (!rssResponse.ok) throw new Error(`Erro ao buscar RSS: ${rssResponse.status}`);
+    const xml = await rssResponse.text();
     const data = await parseStringPromise(xml);
     const items = data.rss.channel[0].item;
     
