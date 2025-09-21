@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "postinstall": "npm rebuild better-sqlite3 || echo 'Rebuild failed, continuing...'"
+    "postinstall": "npm rebuild better-sqlite3 || echo 'Rebuild failed, continuing...'",
+    "build": "npm rebuild better-sqlite3"
   },
   "keywords": [],
   "author": "",

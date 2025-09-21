@@ -2,4 +2,4 @@
 builder = "dockerfile"
 
 [deploy]
-startCommand = "npm start"
+startCommand = "npm run build && npm start"

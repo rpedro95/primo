@@ -10,9 +10,4 @@ coverage
 .coverage
 .coverage/
 *.log
-.DS_Store
-.vscode
-.idea
-*.swp
-*.swo
-*~
+data/podcast_battle.db
