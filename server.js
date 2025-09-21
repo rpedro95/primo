@@ -2490,6 +2490,84 @@ app.get('/api/podcast/:podcastName/update', async (req, res) => {
   }
 });
 
+// --- API: fix Correr De Chinelos episodes parsing ---
+app.post('/api/podcast/Correr De Chinelos/fix-parsing', async (req, res) => {
+  try {
+    console.log('🔧 Corrigindo parsing dos episódios do Correr De Chinelos...');
+    
+    // Buscar podcast
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['Correr De Chinelos']
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast Correr De Chinelos não encontrado' });
+    }
+    
+    // Limpar todos os episódios existentes
+    const deleteResult = await dbRun(
+      dbType === 'postgres' 
+        ? `DELETE FROM episodios WHERE podcast_id = $1`
+        : `DELETE FROM episodios WHERE podcast_id = ?`,
+      [podcast.id]
+    );
+    
+    console.log(`🗑️ Episódios removidos: ${deleteResult.changes || deleteResult.rowCount}`);
+    
+    // Buscar RSS e fazer parsing específico para Correr De Chinelos
+    const res = await fetch(podcast.rss);
+    if (!res.ok) throw new Error(`Erro ao buscar RSS: ${res.status}`);
+    const xml = await res.text();
+    const data = await parseStringPromise(xml);
+    const items = data.rss.channel[0].item;
+    
+    console.log(`📊 Itens encontrados no RSS: ${items.length}`);
+    
+    // Parsing específico para Correr De Chinelos
+    let added = 0;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      const title = item.title[0];
+      const pubDate = new Date(item.pubDate[0]);
+      
+      // Extrair número do episódio após "ep."
+      const epMatch = title.match(/ep\.(\d+)/i);
+      const episodeNum = epMatch ? parseInt(epMatch[1], 10) : (i + 1);
+      
+      console.log(`📝 Título: "${title}" → Episódio: ${episodeNum}`);
+      
+      try {
+        await dbRun(
+          dbType === 'postgres' 
+            ? `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES ($1, $2, $3, $4)`
+            : `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES (?, ?, ?, ?)`,
+          [podcast.id, episodeNum, title, pubDate.toISOString()]
+        );
+        added++;
+        console.log(`✅ Episódio ${episodeNum} adicionado: ${title}`);
+      } catch (error) {
+        console.error(`❌ Erro ao inserir episódio ${episodeNum}:`, error.message);
+      }
+    }
+    
+    res.json({
+      success: true,
+      message: `Parsing corrigido para ${podcast.nome}`,
+      podcast: podcast.nome,
+      episodesDeleted: deleteResult.changes || deleteResult.rowCount,
+      episodesFound: items.length,
+      episodesAdded: added
+    });
+    
+  } catch (error) {
+    console.error('Error fixing Correr De Chinelos parsing:', error);
+    res.status(500).json({ error: 'Failed to fix parsing: ' + error.message });
+  }
+});
+
 // --- API: reset Correr De Chinelos episodes ---
 app.post('/api/podcast/Correr De Chinelos/reset', async (req, res) => {
   try {
