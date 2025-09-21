@@ -558,7 +558,12 @@ try {
     const id = Buffer.from(p.nome).toString('base64url').slice(0,20);
     
     // Verificar se já existe
-    const existing = await dbGet('SELECT id FROM podcasts WHERE id = ?', [id]);
+    const existing = await dbGet(
+      dbType === 'postgres' 
+        ? 'SELECT id FROM podcasts WHERE id = $1' 
+        : 'SELECT id FROM podcasts WHERE id = ?', 
+      [id]
+    );
     if (existing) {
       console.log(`  ⏭️  ${p.nome} já existe, ignorando`);
       continue;
