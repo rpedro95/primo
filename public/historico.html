@@ -435,7 +435,7 @@ function displayEpisodes(episodes) {
         </div>
       </td>
       <td>
-        <button class="notify-btn" onclick="sendNotification(${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${pedroRating}, ${joaoRating})" 
+        <button class="notify-btn" onclick="sendNotification(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${pedroRating}, ${joaoRating})" 
                 ${!currentUser ? 'disabled' : ''}>
           Notificar
         </button>
@@ -603,7 +603,7 @@ async function clearRating(episodeId, episodeNumber, episodeTitle) {
 }
 
 // Enviar notificação
-async function sendNotification(episodeNumber, episodeTitle, pedroRating, joaoRating) {
+async function sendNotification(episodeId, episodeNumber, episodeTitle, pedroRating, joaoRating) {
   if (!currentUser) {
     Swal.fire({
       title: 'Erro!',
@@ -671,7 +671,8 @@ async function sendNotification(episodeNumber, episodeTitle, pedroRating, joaoRa
           rating: myRating || otherRating || 0,
           message: message,
           fromUser: currentUser,
-          podcastId: podcastId
+          podcastId: podcastId,
+          episodeId: episodeId
         })
       });
 
@@ -740,14 +741,14 @@ async function showNotifications(episodeId) {
     notifications.forEach(notification => {
       const date = new Date(notification.created_at).toLocaleString('pt-PT');
       notificationsHtml += `
-        <div style="margin-bottom: 15px; padding: 10px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; border-left: 4px solid #ffc107;">
+        <div style="margin-bottom: 15px; padding: 10px; background: rgba(0, 0, 0, 0.1); border-radius: 8px; border-left: 4px solid #ffc107;">
           <div style="font-weight: bold; color: #ffc107; margin-bottom: 5px;">
             ${notification.from_user} → ${notification.to_user}
           </div>
-          <div style="margin-bottom: 5px; color: white;">
+          <div style="margin-bottom: 5px; color: #333; background: rgba(255, 255, 255, 0.9); padding: 8px; border-radius: 4px;">
             ${notification.message}
           </div>
-          <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">
+          <div style="font-size: 0.8rem; color: #666;">
             ${date}
           </div>
         </div>

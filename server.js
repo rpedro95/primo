@@ -1910,7 +1910,7 @@ app.get('/recreate-velho-amigo', async (req, res) => {
 // --- API: send notification ---
 app.post('/api/notify', express.json(), async (req, res) => {
   console.log('Received notification request:', req.body);
-  const { targetUser, podcastName, rating, message, fromUser, podcastId } = req.body;
+  const { targetUser, podcastName, rating, message, fromUser, podcastId, episodeId } = req.body;
 
   // Log individual fields for debugging
   console.log('Field validation:');
@@ -2003,9 +2003,31 @@ app.post('/api/notify', express.json(), async (req, res) => {
     
     // Guardar notificação na base de dados
     let savedNotification = null;
-    if (podcastId) {
+    if (episodeId) {
       try {
-        // Buscar o ID do episódio mais recente
+        // Usar o episodeId específico enviado pelo frontend
+        const result = await dbRun(
+          dbType === 'postgres' 
+            ? `INSERT INTO notifications (episode_id, from_user, to_user, message) VALUES ($1, $2, $3, $4)`
+            : `INSERT INTO notifications (episode_id, from_user, to_user, message) VALUES (?, ?, ?, ?)`,
+          [episodeId, fromUser, targetUser, message]
+        );
+        
+        savedNotification = {
+          id: result.lastInsertRowid,
+          episode_id: episodeId,
+          from_user: fromUser,
+          to_user: targetUser,
+          message: message
+        };
+        
+        console.log(`💾 Notificação guardada na BD para episódio ${episodeId} com ID: ${result.lastInsertRowid}`);
+      } catch (error) {
+        console.error('❌ Erro ao guardar notificação na BD:', error);
+      }
+    } else if (podcastId) {
+      // Fallback: buscar o episódio mais recente se não houver episodeId
+      try {
         const latestEpisode = await dbGet(
           dbType === 'postgres' 
             ? `SELECT id FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
@@ -2029,10 +2051,10 @@ app.post('/api/notify', express.json(), async (req, res) => {
             message: message
           };
           
-          console.log(`💾 Notificação guardada na BD com ID: ${result.lastInsertRowid}`);
+          console.log(`💾 Notificação guardada na BD (fallback) para episódio ${latestEpisode.id} com ID: ${result.lastInsertRowid}`);
         }
       } catch (error) {
-        console.error('❌ Erro ao guardar notificação na BD:', error);
+        console.error('❌ Erro ao guardar notificação na BD (fallback):', error);
       }
     }
     
