@@ -1546,7 +1546,8 @@ app.get('/fix-default-images', async (req, res) => {
       { nome: "Cubinho", imagem: findImagePath("Cubinho") },
       { nome: "Prata da Casa", imagem: findImagePath("Prata da Casa") },
       { nome: "Contraluz", imagem: findImagePath("Contraluz") },
-      { nome: "Trocadilho", imagem: findImagePath("Trocadilho") }
+      { nome: "Trocadilho", imagem: findImagePath("Trocadilho") },
+      { nome: "Centro De Emprego", imagem: findImagePath("Centro De Emprego") }
     ];
     
     let updatedCount = 0;
