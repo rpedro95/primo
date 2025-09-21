@@ -380,23 +380,23 @@ function displayEpisodes(episodes) {
   episodes.forEach(episode => {
     const row = document.createElement('tr');
     
-    const pedroRating = episode.ratingPedro || 0;
-    const joaoRating = episode.ratingJoao || 0;
+    const pedroRating = episode.ratingPedro;
+    const joaoRating = episode.ratingJoao;
     const myRating = currentUser === 'Pedro' ? pedroRating : joaoRating;
     
     row.innerHTML = `
       <td><strong>#${episode.numero}</strong></td>
       <td class="mobile-hide">${episode.titulo}</td>
       <td class="very-mobile-hide">${formatDate(episode.data_publicacao)}</td>
-      <td class="rating">${pedroRating > 0 ? pedroRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
-      <td class="rating">${joaoRating > 0 ? joaoRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
+      <td class="rating">${pedroRating ? pedroRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
+      <td class="rating">${joaoRating ? joaoRating + '/10' : '<span class="no-rating">N/A</span>'}</td>
       <td>
         <div class="action-buttons">
           <button class="rate-btn" onclick="rateEpisode(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}', ${myRating})" 
                   ${!currentUser ? 'disabled' : ''}>
-            ${myRating > 0 ? 'Alterar' : 'Avaliar'}
+            ${myRating ? 'Alterar' : 'Avaliar'}
           </button>
-          ${myRating > 0 ? `<button class="clear-btn" onclick="clearRating(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}')" 
+          ${myRating ? `<button class="clear-btn" onclick="clearRating(${episode.id}, ${episode.numero}, '${episode.titulo.replace(/'/g, "\\'")}')" 
                   ${!currentUser ? 'disabled' : ''}>
             Limpar
           </button>` : ''}

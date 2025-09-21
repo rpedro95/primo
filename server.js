@@ -1357,8 +1357,8 @@ app.get('/api/podcasts', async (req,res)=>{
       ...p, 
       imagem: findImagePath(p.nome, '/img/'),
       ja_saiu,
-      ratingPedro: ratingPedro ? ratingPedro.rating : 0,
-      ratingJoao: ratingJoao ? ratingJoao.rating : 0
+      ratingPedro: ratingPedro ? ratingPedro.rating : null,
+      ratingJoao: ratingJoao ? ratingJoao.rating : null
     };
   }));
 
