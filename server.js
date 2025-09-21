@@ -88,8 +88,9 @@ function findImagePath(podcastName, basePath = '/img/') {
   const exactPath = path.join(imgDir, `${podcastName}.png`);
   console.log(`🔍 Tentativa 1 (exato): ${exactPath}`);
   if (fs.existsSync(exactPath)) {
-    console.log(`✅ Encontrada imagem exata: ${basePath}${podcastName}.png`);
-    return `${basePath}${podcastName}.png`;
+    const encodedName = encodeURIComponent(podcastName);
+    console.log(`✅ Encontrada imagem exata: ${basePath}${encodedName}.png`);
+    return `${basePath}${encodedName}.png`;
   }
   
   // Try without spaces
@@ -97,8 +98,9 @@ function findImagePath(podcastName, basePath = '/img/') {
   const noSpacesPath = path.join(imgDir, `${noSpacesName}.png`);
   console.log(`🔍 Tentativa 2 (sem espaços): ${noSpacesPath}`);
   if (fs.existsSync(noSpacesPath)) {
-    console.log(`✅ Encontrada imagem sem espaços: ${basePath}${noSpacesName}.png`);
-    return `${basePath}${noSpacesName}.png`;
+    const encodedName = encodeURIComponent(noSpacesName);
+    console.log(`✅ Encontrada imagem sem espaços: ${basePath}${encodedName}.png`);
+    return `${basePath}${encodedName}.png`;
   }
   
   // Try with underscores
@@ -106,8 +108,9 @@ function findImagePath(podcastName, basePath = '/img/') {
   const underscorePath = path.join(imgDir, `${underscoreName}.png`);
   console.log(`🔍 Tentativa 3 (underscores): ${underscorePath}`);
   if (fs.existsSync(underscorePath)) {
-    console.log(`✅ Encontrada imagem com underscores: ${basePath}${underscoreName}.png`);
-    return `${basePath}${underscoreName}.png`;
+    const encodedName = encodeURIComponent(underscoreName);
+    console.log(`✅ Encontrada imagem com underscores: ${basePath}${encodedName}.png`);
+    return `${basePath}${encodedName}.png`;
   }
   
   // Try with hyphens
@@ -115,8 +118,9 @@ function findImagePath(podcastName, basePath = '/img/') {
   const hyphenPath = path.join(imgDir, `${hyphenName}.png`);
   console.log(`🔍 Tentativa 4 (hífens): ${hyphenPath}`);
   if (fs.existsSync(hyphenPath)) {
-    console.log(`✅ Encontrada imagem com hífens: ${basePath}${hyphenName}.png`);
-    return `${basePath}${hyphenName}.png`;
+    const encodedName = encodeURIComponent(hyphenName);
+    console.log(`✅ Encontrada imagem com hífens: ${basePath}${encodedName}.png`);
+    return `${basePath}${encodedName}.png`;
   }
   
   // Try case-insensitive match
@@ -126,8 +130,9 @@ function findImagePath(podcastName, basePath = '/img/') {
     
     for (const file of files) {
       if (file.toLowerCase() === `${podcastName.toLowerCase()}.png`) {
-        console.log(`✅ Encontrada imagem case-insensitive: ${basePath}${file}`);
-        return `${basePath}${file}`;
+        const encodedFile = encodeURIComponent(file);
+        console.log(`✅ Encontrada imagem case-insensitive: ${basePath}${encodedFile}`);
+        return `${basePath}${encodedFile}`;
       }
     }
     
@@ -135,8 +140,9 @@ function findImagePath(podcastName, basePath = '/img/') {
     const noSpacesLower = podcastName.replace(/\s+/g, '').toLowerCase();
     for (const file of files) {
       if (file.toLowerCase() === `${noSpacesLower}.png`) {
-        console.log(`✅ Encontrada imagem case-insensitive sem espaços: ${basePath}${file}`);
-        return `${basePath}${file}`;
+        const encodedFile = encodeURIComponent(file);
+        console.log(`✅ Encontrada imagem case-insensitive sem espaços: ${basePath}${encodedFile}`);
+        return `${basePath}${encodedFile}`;
       }
     }
     
