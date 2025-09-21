@@ -531,21 +531,25 @@ console.log('📚 Inserindo podcasts padrão...');
 
 // Verificar podcasts existentes antes de inserir
 const existingPodcasts = await dbGet('SELECT COUNT(*) as count FROM podcasts');
-console.log(`📊 Podcasts existentes na base de dados: ${existingPodcasts.count}`);
+console.log(`📊 Podcasts existentes na base de dados: ${existingPodcasts ? existingPodcasts.count : 0}`);
 
 // Listar todos os podcasts existentes para debug
 const allPodcasts = await dbQuery('SELECT nome FROM podcasts');
-console.log(`📋 Podcasts na base de dados: ${allPodcasts.map(p => p.nome).join(', ')}`);
+console.log(`📋 Podcasts na base de dados: ${allPodcasts.length > 0 ? allPodcasts.map(p => p.nome).join(', ') : 'Nenhum podcast adicionado via interface encontrado'}`);
 
 // Verificar se há podcasts não-padrão (adicionados via interface)
-const nonDefaultPodcasts = await dbQuery(`
-  SELECT nome FROM podcasts 
-  WHERE nome NOT IN ('watch.tm', 'à noite mata', 'desnorte', 'Zé Carioca', 'Cubinho', 'Prata da Casa', 'Contraluz', 'Trocadilho')
-`);
-if (nonDefaultPodcasts.length > 0) {
-  console.log(`📋 Podcasts adicionados via interface: ${nonDefaultPodcasts.map(p => p.nome).join(', ')}`);
-} else {
-  console.log(`📋 Nenhum podcast adicionado via interface encontrado`);
+try {
+  const nonDefaultPodcasts = await dbQuery(`
+    SELECT nome FROM podcasts 
+    WHERE nome NOT IN ('watch.tm', 'à noite mata', 'desnorte', 'Zé Carioca', 'Cubinho', 'Prata da Casa', 'Contraluz', 'Trocadilho')
+  `);
+  if (nonDefaultPodcasts.length > 0) {
+    console.log(`📋 Podcasts adicionados via interface: ${nonDefaultPodcasts.map(p => p.nome).join(', ')}`);
+  } else {
+    console.log(`📋 Nenhum podcast adicionado via interface encontrado`);
+  }
+} catch (error) {
+  console.log(`📋 Erro ao verificar podcasts não-padrão: ${error.message}`);
 }
 
 try {
