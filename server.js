@@ -2490,6 +2490,69 @@ app.get('/api/podcast/:podcastName/update', async (req, res) => {
   }
 });
 
+// --- API: reset Correr De Chinelos episodes ---
+app.post('/api/podcast/Correr De Chinelos/reset', async (req, res) => {
+  try {
+    console.log('🔄 Resetando episódios do Correr De Chinelos...');
+    
+    // Buscar podcast
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['Correr De Chinelos']
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast Correr De Chinelos não encontrado' });
+    }
+    
+    // Limpar todos os episódios existentes
+    const deleteResult = await dbRun(
+      dbType === 'postgres' 
+        ? `DELETE FROM episodios WHERE podcast_id = $1`
+        : `DELETE FROM episodios WHERE podcast_id = ?`,
+      [podcast.id]
+    );
+    
+    console.log(`🗑️ Episódios removidos: ${deleteResult.changes || deleteResult.rowCount}`);
+    
+    // Recarregar todos os episódios do RSS
+    const rssEpisodes = await getAllRssEpisodes(podcast);
+    console.log(`📊 Episódios encontrados no RSS: ${rssEpisodes.length}`);
+    
+    // Converter e inserir todos os episódios
+    let added = 0;
+    for (const ep of rssEpisodes) {
+      try {
+        await dbRun(
+          dbType === 'postgres' 
+            ? `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES ($1, $2, $3, $4)`
+            : `INSERT INTO episodios (podcast_id, numero, titulo, data_publicacao) VALUES (?, ?, ?, ?)`,
+          [podcast.id, ep.episodeNum, ep.title, ep.pubDate.toISOString()]
+        );
+        added++;
+        console.log(`✅ Episódio ${ep.episodeNum} adicionado: ${ep.title}`);
+      } catch (error) {
+        console.error(`❌ Erro ao inserir episódio ${ep.episodeNum}:`, error.message);
+      }
+    }
+    
+    res.json({
+      success: true,
+      message: `Reset concluído para ${podcast.nome}`,
+      podcast: podcast.nome,
+      episodesDeleted: deleteResult.changes || deleteResult.rowCount,
+      episodesFound: rssEpisodes.length,
+      episodesAdded: added
+    });
+    
+  } catch (error) {
+    console.error('Error resetting Correr De Chinelos:', error);
+    res.status(500).json({ error: 'Failed to reset: ' + error.message });
+  }
+});
+
 // --- API: debug Correr De Chinelos RSS ---
 app.get('/api/debug/correr-de-chinelos', async (req, res) => {
   try {
