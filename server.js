@@ -76,6 +76,15 @@ const upload = multer({
 // --- Serve static ---
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
 // --- DB setup ---
 console.log('🔧 Configurando base de dados...');
 if (!fs.existsSync(path.join(__dirname, "data"))) {
@@ -86,11 +95,14 @@ if (!fs.existsSync(path.join(__dirname, "data"))) {
 const dbPath = path.join(__dirname, "data", "podcast_battle.db");
 console.log(`🗄️ Caminho da base de dados: ${dbPath}`);
 
+let db;
 try {
-  const db = new Database(dbPath);
+  db = new Database(dbPath);
   console.log('✅ Base de dados conectada com sucesso');
 } catch (error) {
   console.error('❌ Erro ao conectar à base de dados:', error);
+  console.error('Detalhes do erro:', error.message);
+  console.error('Stack trace:', error.stack);
   process.exit(1);
 }
 
