@@ -127,7 +127,8 @@ if (!fs.existsSync(path.join(__dirname, "data"))) {
   fs.mkdirSync(path.join(__dirname, "data"));
 }
 
-const dbPath = path.join(__dirname, "data", "podcast_battle.db");
+// Use environment variable for database path or default to local
+const dbPath = process.env.DATABASE_PATH || path.join(__dirname, "data", "podcast_battle.db");
 console.log(`🗄️ Caminho da base de dados: ${dbPath}`);
 
 let db;
@@ -340,6 +341,17 @@ console.log('📚 Inserindo podcasts padrão...');
 // Verificar podcasts existentes antes de inserir
 const existingPodcasts = db.prepare('SELECT COUNT(*) as count FROM podcasts').get();
 console.log(`📊 Podcasts existentes na base de dados: ${existingPodcasts.count}`);
+
+// Verificar se há podcasts não-padrão (adicionados via interface)
+const nonDefaultPodcasts = db.prepare(`
+  SELECT nome FROM podcasts 
+  WHERE nome NOT IN ('watch.tm', 'à noite mata', 'desnorte', 'Zé Carioca', 'Cubinho', 'Prata da Casa', 'Contraluz', 'Trocadilho')
+`).all();
+if (nonDefaultPodcasts.length > 0) {
+  console.log(`📋 Podcasts adicionados via interface: ${nonDefaultPodcasts.map(p => p.nome).join(', ')}`);
+} else {
+  console.log(`📋 Nenhum podcast adicionado via interface encontrado`);
+}
 
 try {
   const insertPodcast = db.prepare(`
