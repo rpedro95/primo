@@ -758,7 +758,14 @@ async function checkRssPodcast(podcast) {
 
 async function checkYoutubePodcast(podcast) {
   try {
-    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${podcast.channelId}`;
+    // Use both possible column names (PostgreSQL might return lowercase)
+    const channelId = podcast.channelId || podcast.channelid;
+    if (!channelId) {
+      console.error(`❌ Channel ID não encontrado para ${podcast.nome}. Campos disponíveis:`, Object.keys(podcast));
+      return null;
+    }
+    
+    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
     console.log(`🔍 Verificando YouTube RSS para ${podcast.nome}: ${rssUrl}`);
     const res = await fetch(rssUrl);
     if (!res.ok) {
@@ -780,7 +787,7 @@ async function checkYoutubePodcast(podcast) {
     console.log(`✅ YouTube RSS OK para ${podcast.nome}: ${title}`);
     return { episodeNum, title, pubDate };
   } catch(err) { 
-    console.error(`❌ Erro YouTube podcast ${podcast.nome} (Channel ID: ${podcast.channelId}):`, err.message); 
+    console.error(`❌ Erro YouTube podcast ${podcast.nome} (Channel ID: ${podcast.channelId || podcast.channelid}):`, err.message); 
     return null; 
   }
 }
@@ -789,6 +796,12 @@ async function updatePodcasts() {
   const podcasts = await dbAll(`SELECT * FROM podcasts`);
   const today = new Date();
   const currentWeekStart = getWeekStart(today);
+  
+  // Debug: log all podcasts to see their structure
+  console.log('🔍 Podcasts carregados para verificação:');
+  podcasts.forEach(p => {
+    console.log(`  - ${p.nome}: plataforma=${p.plataforma}, channelId=${p.channelId}, channelid=${p.channelid}`);
+  });
   
   for(const podcast of podcasts){
     const lastEp = await getLastEpisode(podcast.id);
