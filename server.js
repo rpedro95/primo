@@ -119,9 +119,27 @@ function findImagePath(podcastName, basePath = '/img/') {
     return `${basePath}${hyphenName}.png`;
   }
   
-  // List available files for debugging
+  // Try case-insensitive match
   try {
     const files = fs.readdirSync(imgDir);
+    console.log(`🔍 Tentativa 5 (case-insensitive): Procurando por "${podcastName.toLowerCase()}"`);
+    
+    for (const file of files) {
+      if (file.toLowerCase() === `${podcastName.toLowerCase()}.png`) {
+        console.log(`✅ Encontrada imagem case-insensitive: ${basePath}${file}`);
+        return `${basePath}${file}`;
+      }
+    }
+    
+    // Try case-insensitive without spaces
+    const noSpacesLower = podcastName.replace(/\s+/g, '').toLowerCase();
+    for (const file of files) {
+      if (file.toLowerCase() === `${noSpacesLower}.png`) {
+        console.log(`✅ Encontrada imagem case-insensitive sem espaços: ${basePath}${file}`);
+        return `${basePath}${file}`;
+      }
+    }
+    
     console.log(`📋 Ficheiros disponíveis em ${imgDir}:`, files);
   } catch (err) {
     console.log(`❌ Erro ao listar ficheiros: ${err.message}`);
