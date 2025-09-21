@@ -1371,29 +1371,32 @@ app.get('/api/podcasts', async (req,res)=>{
       console.log(`Podcast: ${p.nome}, No episode data, ja_saiu: ${ja_saiu} (current day: ${weekDay}, podcast day: ${p.dia_da_semana})`);
     }
     
-    // Get ratings for Pedro and João (do episódio mais recente)
-    const latestEpisode = await dbGet(
-      dbType === 'postgres' 
-        ? `SELECT id FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
-        : `SELECT id FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`, 
-      [p.id]
-    );
+    // Get ratings for Pedro and João (só se o episódio já saiu)
     let ratingPedro = null;
     let ratingJoao = null;
     
-    if (latestEpisode) {
-      ratingPedro = await dbGet(
+    if (ja_saiu) {
+      const latestEpisode = await dbGet(
         dbType === 'postgres' 
-          ? `SELECT rating FROM ratings WHERE podcast_id = $1 AND episode_id = $2 AND "user" = 'Pedro'`
-          : `SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'Pedro'`, 
-        [p.id, latestEpisode.id]
+          ? `SELECT id FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
+          : `SELECT id FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`, 
+        [p.id]
       );
-      ratingJoao = await dbGet(
-        dbType === 'postgres' 
-          ? `SELECT rating FROM ratings WHERE podcast_id = $1 AND episode_id = $2 AND "user" = 'João'`
-          : `SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'João'`, 
-        [p.id, latestEpisode.id]
-      );
+      
+      if (latestEpisode) {
+        ratingPedro = await dbGet(
+          dbType === 'postgres' 
+            ? `SELECT rating FROM ratings WHERE podcast_id = $1 AND episode_id = $2 AND "user" = 'Pedro'`
+            : `SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'Pedro'`, 
+          [p.id, latestEpisode.id]
+        );
+        ratingJoao = await dbGet(
+          dbType === 'postgres' 
+            ? `SELECT rating FROM ratings WHERE podcast_id = $1 AND episode_id = $2 AND "user" = 'João'`
+            : `SELECT rating FROM ratings WHERE podcast_id = ? AND episode_id = ? AND user = 'João'`, 
+          [p.id, latestEpisode.id]
+        );
+      }
     }
     
     return { 
