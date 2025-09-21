@@ -143,37 +143,24 @@ if (isPostgres) {
   
   // Skip connection string, use individual parameters directly
   console.log('🔗 Usando parâmetros individuais para PostgreSQL');
-  console.log(`  Host: primo.railway.internal`);
-  console.log(`  Port: 5432`);
+  console.log(`  Host: shinkansen.proxy.rlwy.net`);
+  console.log(`  Port: 50977`);
   console.log(`  Database: railway`);
   console.log(`  User: postgres`);
   
   try {
     // Use individual connection parameters instead of connection string
     const pool = new Pool({
-      host: 'primo.railway.internal',
-      port: 5432,
+      host: 'shinkansen.proxy.rlwy.net',
+      port: 50977,
       database: 'railway',
       user: 'postgres',
       password: 'ZPoCNUzJoRIMtYUsmIDIZpOzzqYPbKIB',
       ssl: { rejectUnauthorized: false },
-      // Force IPv4 to avoid IPv6 connection issues
-      family: 4,
       // Additional connection options
       connectionTimeoutMillis: 10000,
       idleTimeoutMillis: 30000,
-      max: 10,
-      // Try to force IPv4 resolution
-      lookup: (hostname, options, callback) => {
-        // Force IPv4 lookup
-        require('dns').lookup(hostname, { family: 4 }, (err, address) => {
-          if (err) {
-            callback(err);
-          } else {
-            callback(null, address, 4);
-          }
-        });
-      }
+      max: 10
     });
     db = pool;
     console.log('✅ Pool PostgreSQL criado com sucesso');
