@@ -1890,12 +1890,12 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
     const imagem = path.parse(req.file.filename).name;
 
     // Insert new podcast
-    const insertPodcast = db.prepare(`
-      INSERT INTO podcasts (id, nome, link, dia_da_semana, imagem, plataforma, rss, channelId)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `);
-    
-    const result = insertPodcast.run(id, nome, link, dia_da_semana, imagem, plataforma || null, rss || null, channelId || null);
+    const result = await dbRun(
+      dbType === 'postgres' 
+        ? `INSERT INTO podcasts (id, nome, link, dia_da_semana, imagem, plataforma, rss, channelId) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`
+        : `INSERT INTO podcasts (id, nome, link, dia_da_semana, imagem, plataforma, rss, channelId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [id, nome, link, dia_da_semana, imagem, plataforma || null, rss || null, channelId || null]
+    );
     
     console.log(`Podcast adicionado: ${nome} (ID: ${id})`);
     console.log(`Imagem guardada: ${req.file.filename}`);
