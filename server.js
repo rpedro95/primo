@@ -336,6 +336,11 @@ const defaultPodcasts = [
 
 // --- Insert default podcasts if not exist ---
 console.log('📚 Inserindo podcasts padrão...');
+
+// Verificar podcasts existentes antes de inserir
+const existingPodcasts = db.prepare('SELECT COUNT(*) as count FROM podcasts').get();
+console.log(`📊 Podcasts existentes na base de dados: ${existingPodcasts.count}`);
+
 try {
   const insertPodcast = db.prepare(`
     INSERT OR IGNORE INTO podcasts (id,nome,link,dia_da_semana,imagem,plataforma,rss,channelId)
@@ -344,8 +349,17 @@ try {
   
   let insertedCount = 0;
   for (const p of defaultPodcasts) {
+    const id = Buffer.from(p.nome).toString('base64url').slice(0,20);
+    
+    // Verificar se já existe
+    const existing = db.prepare('SELECT id FROM podcasts WHERE id = ?').get(id);
+    if (existing) {
+      console.log(`  ⏭️  ${p.nome} já existe, ignorando`);
+      continue;
+    }
+    
     const result = insertPodcast.run({
-      id: Buffer.from(p.nome).toString('base64url').slice(0,20),
+      id: id,
       nome: p.nome,
       link: p.link,
       dia_da_semana: p.dia,
@@ -354,7 +368,10 @@ try {
       rss: p.rss || null,
       channelId: p.channelId || null
     });
-    if (result.changes > 0) insertedCount++;
+    if (result.changes > 0) {
+      insertedCount++;
+      console.log(`  ✅ ${p.nome} inserido`);
+    }
   }
   console.log(`✅ ${insertedCount} podcasts padrão inseridos/verificados`);
 } catch (error) {
@@ -1558,10 +1575,19 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `);
     
-    insertPodcast.run(id, nome, link, dia_da_semana, imagem, plataforma || null, rss || null, channelId || null);
+    const result = insertPodcast.run(id, nome, link, dia_da_semana, imagem, plataforma || null, rss || null, channelId || null);
     
     console.log(`Podcast adicionado: ${nome} (ID: ${id})`);
     console.log(`Imagem guardada: ${req.file.filename}`);
+    console.log(`Resultado da inserção: ${result.changes} mudanças`);
+    
+    // Verificar se foi realmente inserido
+    const verifyPodcast = db.prepare('SELECT * FROM podcasts WHERE id = ?').get(id);
+    if (verifyPodcast) {
+      console.log(`✅ Podcast verificado na base de dados: ${verifyPodcast.nome}`);
+    } else {
+      console.log(`❌ ERRO: Podcast não encontrado na base de dados após inserção!`);
+    }
     
     // Criar objeto podcast para carregar histórico
     const newPodcast = {
