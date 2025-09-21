@@ -1414,7 +1414,7 @@ app.get('/api/episodes/:podcastId', (req, res) => {
 });
 
 // Endpoint para apagar um podcast específico e todos os seus dados
-app.delete('/api/podcast/:id', (req, res) => {
+app.delete('/api/podcast/:id', async (req, res) => {
   const { id } = req.params;
   
   try {
