@@ -2275,6 +2275,64 @@ app.get('/reload-watchtm', async (req,res)=>{
   }
 });
 
+// --- Endpoint para corrigir episódios específicos do watch.tm ---
+app.get('/fix-watchtm-episodes', async (req,res)=>{
+  try {
+    console.log('🔧 Corrigindo episódios específicos do watch.tm...');
+    
+    // Buscar podcast watch.tm
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['watch.tm']
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast watch.tm não encontrado' });
+    }
+    
+    // Mapeamento de correções: número_incorreto -> número_correto
+    const corrections = [
+      { wrong: 1350, correct: 90 },
+      { wrong: 2024, correct: 35 },
+      { wrong: 2025, correct: 81 }
+    ];
+    
+    let correctedCount = 0;
+    
+    for (const correction of corrections) {
+      const result = await dbRun(
+        dbType === 'postgres' 
+          ? `UPDATE episodios SET numero = $1 WHERE podcast_id = $2 AND numero = $3`
+          : `UPDATE episodios SET numero = ? WHERE podcast_id = ? AND numero = ?`,
+        [correction.correct, podcast.id, correction.wrong]
+      );
+      
+      if (result.changes > 0) {
+        console.log(`✅ Episódio ${correction.wrong} corrigido para ${correction.correct}`);
+        correctedCount++;
+      } else {
+        console.log(`⚠️ Episódio ${correction.wrong} não encontrado`);
+      }
+    }
+    
+    res.json({ 
+      success: true, 
+      message: `${correctedCount} episódios do watch.tm corrigidos`,
+      correctedCount,
+      corrections: corrections,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Erro ao corrigir episódios do watch.tm:', error);
+    res.status(500).json({ 
+      error: 'Erro ao corrigir episódios do watch.tm', 
+      message: error.message 
+    });
+  }
+});
+
 // --- Endpoint para verificar estatísticas dos episódios ---
 app.get('/stats', async (req,res)=>{
   try {
