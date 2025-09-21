@@ -146,6 +146,16 @@ function findImagePath(podcastName, basePath = '/img/') {
       }
     }
     
+    // Try case-insensitive with underscores
+    const underscoreLower = podcastName.replace(/\s+/g, '_').toLowerCase();
+    for (const file of files) {
+      if (file.toLowerCase() === `${underscoreLower}.png`) {
+        const encodedFile = encodeURIComponent(file);
+        console.log(`✅ Encontrada imagem case-insensitive com underscores: ${basePath}${encodedFile}`);
+        return `${basePath}${encodedFile}`;
+      }
+    }
+    
     console.log(`📋 Ficheiros disponíveis em ${imgDir}:`, files);
   } catch (err) {
     console.log(`❌ Erro ao listar ficheiros: ${err.message}`);
