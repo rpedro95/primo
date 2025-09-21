@@ -801,8 +801,12 @@ async function updatePodcasts() {
     if(!latest) continue;
     if(latest.episodeNum && latest.episodeNum>lastEp.numero){
       console.log(`✅ Novo episódio para ${podcast.nome}: Ep ${latest.episodeNum}`);
-      db.prepare(`INSERT INTO episodios (podcast_id,numero,titulo,data_publicacao) VALUES (?,?,?,?)`)
-        .run(podcast.id, latest.episodeNum, latest.title, latest.pubDate.toISOString());
+      await dbRun(
+        dbType === 'postgres' 
+          ? `INSERT INTO episodios (podcast_id,numero,titulo,data_publicacao) VALUES ($1,$2,$3,$4)`
+          : `INSERT INTO episodios (podcast_id,numero,titulo,data_publicacao) VALUES (?,?,?,?)`,
+        [podcast.id, latest.episodeNum, latest.title, latest.pubDate.toISOString()]
+      );
     }
   }
 }
