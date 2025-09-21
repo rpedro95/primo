@@ -169,7 +169,15 @@ if (isPostgres) {
   try {
     const pool = new Pool({
       connectionString: connectionString,
-      ssl: { rejectUnauthorized: false }
+      ssl: { rejectUnauthorized: false },
+      // Force IPv4 to avoid IPv6 connection issues
+      host: process.env.PGHOST || 'primo.railway.internal',
+      port: process.env.PGPORT || 5432,
+      database: process.env.PGDATABASE || 'railway',
+      user: process.env.PGUSER || 'postgres',
+      password: process.env.POSTGRES_PASSWORD || process.env.PGPASSWORD,
+      // Additional options to force IPv4
+      family: 4
     });
     db = pool;
     console.log('✅ Pool PostgreSQL criado com sucesso');
