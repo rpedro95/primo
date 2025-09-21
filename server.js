@@ -3169,7 +3169,7 @@ app.get('/load-watchtm-from-file', async (req,res)=>{
 
 // Start server locally
 server.listen(PORT, () => {
-  console.log(`✅ Servidor rodando na porta ${PORT} - Teste de persistência`);
+  console.log(`✅ Servidor rodando na porta ${PORT} - PostgreSQL Test`);
   console.log(`📱 Acesse: http://localhost:${PORT}`);
   console.log(`🔌 WebSocket server: ws://localhost:${PORT}`);
   console.log('📡 Episódios serão verificados quando a página for aberta');
