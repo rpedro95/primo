@@ -132,8 +132,8 @@ console.log(`  POSTGRES_PASSWORD: ${process.env.POSTGRES_PASSWORD ? '✅ Definid
 console.log(`  RAILWAY_PRIVATE_DOMAIN: ${process.env.RAILWAY_PRIVATE_DOMAIN ? '✅ Definida' : '❌ Não definida'}`);
 console.log(`  PGDATABASE: ${process.env.PGDATABASE ? '✅ Definida' : '❌ Não definida'}`);
 
-// Hardcoded PostgreSQL connection for Railway
-const isPostgres = process.env.DATABASE_URL || process.env.RAILWAY_PRIVATE_DOMAIN || true; // Always try PostgreSQL on Railway
+// Check for PostgreSQL connection
+const isPostgres = process.env.DATABASE_URL || process.env.RAILWAY_PRIVATE_DOMAIN;
 let db = null;
 let dbType = 'sqlite';
 
@@ -146,9 +146,17 @@ if (isPostgres) {
     connectionString = process.env.DATABASE_URL;
     console.log('🔗 Usando DATABASE_URL diretamente');
   } else {
-    // Hardcoded connection string for Railway
-    connectionString = 'postgresql://postgres:ZPoCNUzJoRIMtYUsmIDIZpOzzqYPbKIB@postgres.railway.internal:5432/railway';
-    console.log('🔗 Usando connection string hardcoded para Railway');
+    // Build connection string from individual variables with defaults
+    const user = process.env.PGUSER || 'postgres';
+    const password = process.env.POSTGRES_PASSWORD || 'password';
+    const host = process.env.RAILWAY_PRIVATE_DOMAIN;
+    const database = process.env.PGDATABASE || 'railway';
+    
+    connectionString = `postgresql://${user}:${password}@${host}:5432/${database}`;
+    console.log('🔗 Construindo connection string a partir de variáveis individuais');
+    console.log(`  User: ${user}`);
+    console.log(`  Host: ${host}`);
+    console.log(`  Database: ${database}`);
   }
   
   console.log(`🔗 Connection string: ${connectionString.replace(/:[^:@]+@/, ':***@')}`); // Hide password in logs
