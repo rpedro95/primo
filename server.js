@@ -1418,7 +1418,7 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
   }
 
   // Validate plataforma and required fields
-  const validPlatforms = ['Spotify', 'YouTube'];
+  const validPlatforms = ['spotify', 'soundcloud', 'youtube'];
   if (!validPlatforms.includes(plataforma)) {
     return res.status(400).json({ 
       error: 'Invalid plataforma', 
@@ -1427,13 +1427,19 @@ app.post('/api/podcast', upload.single('imagem'), async (req, res) => {
   }
 
   // Validate platform-specific fields
-  if (plataforma === 'Spotify' && !rss) {
+  if (plataforma === 'spotify' && !rss) {
     return res.status(400).json({ 
       error: 'RSS feed is required for Spotify podcasts' 
     });
   }
 
-  if (plataforma === 'YouTube' && !channelId) {
+  if (plataforma === 'soundcloud' && !rss) {
+    return res.status(400).json({ 
+      error: 'RSS feed is required for SoundCloud podcasts' 
+    });
+  }
+
+  if (plataforma === 'youtube' && !channelId) {
     return res.status(400).json({ 
       error: 'Channel ID is required for YouTube podcasts' 
     });
