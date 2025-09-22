@@ -74,18 +74,22 @@
   .ja-visto {
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     background: linear-gradient(135deg, #4a9eff, #00d4aa);
     color: white;
     padding: 6px 12px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     z-index: 10;
     animation: pulse 2s infinite;
+    max-width: 200px;
+    word-wrap: break-word;
+    line-height: 1.2;
+    text-align: center;
   }
   @keyframes pulse {
     0% { transform: scale(1); }
@@ -563,13 +567,26 @@ async function renderPodcasts() {
       `;
       front.appendChild(overlay);
       
-      // Adicionar indicador "JÁ VISTO" se ambos avaliaram
-      if (p.ratingPedro && p.ratingJoao) {
-        const jaVisto = document.createElement('div');
-        jaVisto.className = 'ja-visto';
-        jaVisto.textContent = 'JÁ VISTO';
-        front.appendChild(jaVisto);
+      // Adicionar indicador de status baseado nas avaliações
+      const myRating = currentUser === 'Pedro' ? p.ratingPedro : p.ratingJoao;
+      const otherRating = currentUser === 'Pedro' ? p.ratingJoao : p.ratingPedro;
+      const otherUser = currentUser === 'Pedro' ? 'João' : 'Pedro';
+      
+      let statusText = '';
+      if (myRating && otherRating) {
+        statusText = 'AMBOS VIRAM';
+      } else if (myRating && !otherRating) {
+        statusText = 'JÁ VISTE';
+      } else if (!myRating && otherRating) {
+        statusText = `AINDA NÃO VISTE, MAS ${otherUser.toUpperCase()} JÁ VIU`;
+      } else {
+        statusText = 'NINGUÉM VIU';
       }
+      
+      const jaVisto = document.createElement('div');
+      jaVisto.className = 'ja-visto';
+      jaVisto.textContent = statusText;
+      front.appendChild(jaVisto);
       
       card.appendChild(front);
       grid.appendChild(card);
