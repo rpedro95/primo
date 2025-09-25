@@ -73,7 +73,7 @@
   }
   .ja-visto {
     position: absolute;
-    top: 10px;
+    top: 50px;
     left: 10px !important;
     background: linear-gradient(135deg, #4a9eff, #00d4aa);
     color: white;
@@ -583,7 +583,7 @@ async function renderPodcasts() {
       historyButton.style.cssText = `
         position: absolute; 
         top: 10px; 
-        right: 10px; 
+        left: 10px; 
         background: rgba(0,0,0,0.8); 
         color: white; 
         border: 1px solid #fff; 
@@ -592,7 +592,7 @@ async function renderPodcasts() {
         font-size: 11px; 
         cursor: pointer;
         transition: all 0.3s; 
-        z-index: 10;
+        z-index: 11;
       `;
       front.appendChild(historyButton);
 
