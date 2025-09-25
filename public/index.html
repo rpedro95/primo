@@ -551,13 +551,6 @@ async function renderPodcasts() {
       }
       
       overlay.innerHTML = `
-        <button onclick="openHistory('${p.id}', '${p.nome}')" 
-                style="position: absolute; top: 10px; right: 10px; 
-                       background: rgba(0,0,0,0.8); color: white; border: 1px solid #fff; 
-                       padding: 6px 12px; border-radius: 15px; font-size: 11px; cursor: pointer;
-                       transition: all 0.3s; z-index: 10;">
-          Histórico
-        </button>
         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s;" class="hover-content">
           <h3>${p.nome}</h3>
           <div style="margin-top: 10px; font-size: 14px;">
@@ -583,6 +576,26 @@ async function renderPodcasts() {
         statusText = 'NINGUÉM VIU';
       }
       
+      // Adicionar botão do histórico acima da div de status
+      const historyButton = document.createElement('button');
+      historyButton.innerHTML = 'Histórico';
+      historyButton.onclick = () => openHistory(p.id, p.nome);
+      historyButton.style.cssText = `
+        position: absolute; 
+        top: 10px; 
+        right: 10px; 
+        background: rgba(0,0,0,0.8); 
+        color: white; 
+        border: 1px solid #fff; 
+        padding: 6px 12px; 
+        border-radius: 15px; 
+        font-size: 11px; 
+        cursor: pointer;
+        transition: all 0.3s; 
+        z-index: 10;
+      `;
+      front.appendChild(historyButton);
+
       const jaVisto = document.createElement('div');
       jaVisto.className = 'ja-visto';
       jaVisto.textContent = statusText;
