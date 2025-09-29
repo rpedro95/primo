@@ -2842,6 +2842,57 @@ app.get('/fix-watchtm-episodes', async (req,res)=>{
   }
 });
 
+// --- Endpoint para corrigir episódio do Centro de Emprego ---
+app.get('/fix-centro-emprego-episode', async (req,res)=>{
+  try {
+    console.log('🔧 Corrigindo episódio do Centro de Emprego...');
+    
+    // Buscar podcast Centro de Emprego
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['Centro De Emprego']
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast Centro De Emprego não encontrado' });
+    }
+    
+    // Corrigir episódio #2745 para #85
+    const result = await dbRun(
+      dbType === 'postgres' 
+        ? `UPDATE episodios SET numero = $1 WHERE podcast_id = $2 AND numero = $3`
+        : `UPDATE episodios SET numero = ? WHERE podcast_id = ? AND numero = ?`,
+      [85, podcast.id, 2745]
+    );
+    
+    if (result.changes > 0) {
+      console.log(`✅ Episódio 2745 corrigido para 85`);
+      
+      res.json({ 
+        success: true, 
+        message: 'Episódio do Centro de Emprego corrigido com sucesso',
+        correction: { from: 2745, to: 85 },
+        podcast: podcast.nome,
+        timestamp: new Date().toISOString()
+      });
+    } else {
+      res.json({ 
+        success: false, 
+        message: 'Episódio #2745 não encontrado para correção',
+        podcast: podcast.nome
+      });
+    }
+  } catch (error) {
+    console.error('Erro ao corrigir episódio do Centro de Emprego:', error);
+    res.status(500).json({ 
+      error: 'Erro ao corrigir episódio do Centro de Emprego', 
+      message: error.message 
+    });
+  }
+});
+
 // --- Endpoint para verificar estatísticas dos episódios ---
 app.get('/stats', async (req,res)=>{
   try {
