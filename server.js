@@ -2893,6 +2893,61 @@ app.get('/fix-centro-emprego-episode', async (req,res)=>{
   }
 });
 
+// --- Endpoint para verificar e corrigir episódio do A Primeira Vez ---
+app.get('/fix-primeira-vez-episode', async (req,res)=>{
+  try {
+    console.log('🔧 Verificando episódio do A Primeira Vez...');
+    
+    // Buscar podcast A Primeira Vez
+    const podcast = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT * FROM podcasts WHERE nome = $1`
+        : `SELECT * FROM podcasts WHERE nome = ?`,
+      ['A Primeira Vez']
+    );
+    
+    if (!podcast) {
+      return res.status(404).json({ error: 'Podcast A Primeira Vez não encontrado' });
+    }
+    
+    // Buscar último episódio na base de dados
+    const lastEpisode = await dbGet(
+      dbType === 'postgres' 
+        ? `SELECT numero, titulo, data_publicacao FROM episodios WHERE podcast_id = $1 ORDER BY numero DESC LIMIT 1`
+        : `SELECT numero, titulo, data_publicacao FROM episodios WHERE podcast_id = ? ORDER BY numero DESC LIMIT 1`,
+      [podcast.id]
+    );
+    
+    console.log(`📋 Último episódio na BD: ${lastEpisode ? `Ep ${lastEpisode.numero} - ${lastEpisode.titulo}` : 'Nenhum episódio encontrado'}`);
+    
+    // Verificar episódio mais recente no YouTube
+    let latestFromYouTube = null;
+    if (podcast.plataforma === 'youtube') {
+      latestFromYouTube = await checkYoutubePodcast(podcast);
+      console.log(`📺 Último episódio no YouTube: ${latestFromYouTube ? `Ep ${latestFromYouTube.episodeNum} - ${latestFromYouTube.title}` : 'Não foi possível obter'}`);
+    }
+    
+    res.json({ 
+      success: true, 
+      message: 'Informações do A Primeira Vez obtidas com sucesso',
+      podcast: {
+        nome: podcast.nome,
+        plataforma: podcast.plataforma,
+        channelId: podcast.channelId || podcast.channelid
+      },
+      lastEpisodeInDB: lastEpisode,
+      latestFromYouTube: latestFromYouTube,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Erro ao verificar episódio do A Primeira Vez:', error);
+    res.status(500).json({ 
+      error: 'Erro ao verificar episódio do A Primeira Vez', 
+      message: error.message 
+    });
+  }
+});
+
 // --- Endpoint para verificar estatísticas dos episódios ---
 app.get('/stats', async (req,res)=>{
   try {
