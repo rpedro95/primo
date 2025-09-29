@@ -912,15 +912,6 @@ async function updatePodcasts() {
   for(const podcast of podcasts){
     const lastEp = await getLastEpisode(podcast.id);
     
-    // Skip if we already have an episode from this week
-    if (lastEp && lastEp.data_publicacao) {
-      const episodeDate = new Date(lastEp.data_publicacao);
-      if (episodeDate >= currentWeekStart) {
-        console.log(`⏭️  ${podcast.nome}: Já tem episódio desta semana (Ep ${lastEp.numero})`);
-        continue;
-      }
-    }
-    
     console.log(`🔍 Verificando ${podcast.nome}...`);
     let latest = null;
     if(podcast.plataforma==="spotify" || podcast.plataforma==="soundcloud"){
@@ -928,8 +919,15 @@ async function updatePodcasts() {
     } else if(podcast.plataforma==="youtube"){
       latest = await checkYoutubePodcast(podcast);
     }
-    if(!latest) continue;
-    if(latest.episodeNum && latest.episodeNum>lastEp.numero){
+    if(!latest) {
+      console.log(`⚠️ ${podcast.nome}: Não foi possível obter informações do RSS/YouTube`);
+      continue;
+    }
+    
+    // Check if we have a newer episode than what's in the database
+    const hasNewEpisode = !lastEp || !lastEp.numero || latest.episodeNum > lastEp.numero;
+    
+    if(hasNewEpisode){
       console.log(`✅ Novo episódio para ${podcast.nome}: Ep ${latest.episodeNum} - ${latest.title}`);
       const result = await dbRun(
         dbType === 'postgres' 
@@ -939,7 +937,7 @@ async function updatePodcasts() {
       );
       console.log(`📝 Episódio inserido: ${result.changes} mudanças, ID: ${result.lastInsertRowid}`);
     } else {
-      console.log(`⏭️  ${podcast.nome}: Nenhum episódio novo (último: ${lastEp.numero}, encontrado: ${latest.episodeNum})`);
+      console.log(`⏭️  ${podcast.nome}: Nenhum episódio novo (último: ${lastEp?.numero || 'nenhum'}, encontrado: ${latest.episodeNum})`);
     }
   }
 }
