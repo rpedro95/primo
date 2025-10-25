@@ -13,7 +13,7 @@ import webpush from "web-push";
 
 const __dirname = path.resolve();
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Criar servidor HTTP
 const server = createServer(app);
@@ -4369,11 +4369,13 @@ app.get('/load-watchtm-from-file', async (req,res)=>{
 });
 
 
-  // Start server locally
-  server.listen(PORT, () => {
-  console.log(`✅ Servidor rodando na porta ${PORT} - PostgreSQL Test v4`);
-  console.log(`📱 Acesse: http://localhost:${PORT}`);
+  // Start server
+  server.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ Servidor rodando na porta ${PORT} - Railway Ready`);
+  console.log(`📱 Local: http://localhost:${PORT}`);
   console.log(`🔌 WebSocket server: ws://localhost:${PORT}`);
+  console.log(`🏭 Railway Environment: ${process.env.RAILWAY_ENVIRONMENT || 'unknown'}`);
+  console.log(`📡 Public URL: ${process.env.RAILWAY_PUBLIC_URL || 'unknown'}`);
     console.log('📡 Episódios serão verificados quando a página for aberta');
   console.log('🎉 Aplicação pronta para uso!');
   });
